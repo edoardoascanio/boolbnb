@@ -95,7 +95,7 @@
             <h5 class="card-title">{{ accomodation.title }}</h5>
             <p class="card-text">{{ accomodation.description }}</p>
             <div>
-              <span class="badge badge-primary ml-1" v-for="service in accomodation.services"> {{ service.title }} </span>
+              <span class="badge badge-primary ml-1" v-for="service in accomodation.services" :key="service.id"> {{ service.title }} </span>
             </div>
             <a :href="accomodation.link" class="card-link">Visualizza</a>
             <p v-if="accomodation.views">
