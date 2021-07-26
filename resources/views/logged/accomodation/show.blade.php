@@ -27,12 +27,7 @@
         <button type="submit">Applica
         </button>
     </form>
-    <form action="{{ route('logged.destroy', $accomodation->id) }}" method="post">
-        @csrf
-        @method('delete')
-
-        <input type="submit" value="Elimina">
-    </form>
+    @include('components.delete', 'accomodation' => $accomodation )
     <p>Visualizzazioni: {{ count($accomodation->views) }}</p>
     @if(count($accomodation->messages) > 0)
     @foreach($messages as $message)

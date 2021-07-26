@@ -13,13 +13,15 @@ use Illuminate\Support\Facades\Auth;
 
 class AccomodationController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         $accomodations = Accomodation::orderBy('created_at', 'DESC')->where('visibility', true)->get();
 
         return view('guest.accomodation.index', ['accomodations' => $accomodations]);
     }
 
-    public function show($id) {
+    public function show($id)
+    {
         $accomodation = Accomodation::findOrFail($id);
 
         $views = View::all()->where('accomodation_id', $id);
@@ -36,7 +38,7 @@ class AccomodationController extends Controller
         //se l'appartamento non ha visualizzazioni viene creata una view
         if (count($views) === 0) {
             //se non sei loggato crea la viasualizzazione
-            if(!isset(Auth::user()->id)){
+            if (!isset(Auth::user()->id)) {
                 $new_view = new View();
 
                 $new_view_data = [
@@ -46,7 +48,6 @@ class AccomodationController extends Controller
 
                 $new_view->fill($new_view_data);
                 $new_view->save();
-
             } else if (Auth::user()->id != $accomodation->user_id) {
                 //se sei loggato controlla se sei il proprietario
                 $new_view = new View();
@@ -60,11 +61,12 @@ class AccomodationController extends Controller
                 $new_view->save();
             }
         } else {
-        //se l'appartamento ha gia visualizzazioni facciamo ulteriori controlli:
+            //se l'appartamento ha gia visualizzazioni facciamo ulteriori controlli:
             $date = new DateTime(now());
 
             // sottraggo un giorno dalla data attuale = la funzione sottrae P1D (past one day)
             $result = $date->sub(new DateInterval('P1D'));
+            $view_exist = false;
 
             foreach ($views as $view) {
                 /* Filtriamo per lo stesso utente che ha creato l'appartamento:
@@ -79,17 +81,24 @@ class AccomodationController extends Controller
                     */
 
                     if ($view->user_ip != $actual_ip || ($view->created_at < $result)) {
-                        $new_view = new View();
 
-                        $new_view_data = [
-                            'user_ip' => $actual_ip,
-                            'accomodation_id' => $id,
-                        ];
-
-                        $new_view->fill($new_view_data);
-                        $new_view->save();
+                        $view_exist = true;
+                    } else {
+                        $view_exist = false;
+                        break;
                     }
                 }
+            }
+            if ($view_exist) {
+                $new_view = new View();
+
+                $new_view_data = [
+                    'user_ip' => $actual_ip,
+                    'accomodation_id' => $id,
+                ];
+
+                $new_view->fill($new_view_data);
+                $new_view->save();
             }
         }
 

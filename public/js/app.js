@@ -52340,7 +52340,39 @@ webpackContext.id = "./resources/js sync recursive \\.vue$/";
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // document.getElementById("ciao").addEventListener("click", function(event){
+//    event.preventDefault()
+//  });
+// function deleteAccomodation() {
+//    const deleteForm = document.querySelectorAll(".delete-form");
+//    deleteForm.forEach(form => {
+//       form.addEventListener("submit", (event) => {
+//          console.log('ciao')
+//          if (!confirm("Sei sicuro di voler cancellare il tuo annuncio?")) {
+//             event.preventDefault();
+//          }
+//       })
+//    })
+// }
+// function prova(ev) {
+// confirm('Sei sicuro di voler cancellare il tuo annuncio?')
+// ev.preventDefault();
+// }
+// const log = document.querySelectorAll(".log")
+// const form = document.querySelectorAll(".delete-form")
+// form.addEventListener('submit', prova(ev))
+// window.addEventListener("load", function () {
+//    const deleteForm = document.querySelectorAll(".delete-form");
+//    deleteForm.forEach(form => {
+//       form.addEventListener("submit", (event) => {
+//          console.log('ciao')
+//          if (!confirm("Sei sicuro di voler cancellare il tuo annuncio?")) {
+//             event.preventDefault();
+//          }
+//       })
+//    })
+// });
+
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /**

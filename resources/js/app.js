@@ -5,6 +5,41 @@
  */
 
 require('./bootstrap');
+// document.getElementById("ciao").addEventListener("click", function(event){
+//    event.preventDefault()
+//  });
+// function deleteAccomodation() {
+//    const deleteForm = document.querySelectorAll(".delete-form");
+
+//    deleteForm.forEach(form => {
+//       form.addEventListener("submit", (event) => {
+//          console.log('ciao')
+//          if (!confirm("Sei sicuro di voler cancellare il tuo annuncio?")) {
+//             event.preventDefault();
+//          }
+//       })
+//    })
+// }
+// function prova(ev) {
+// confirm('Sei sicuro di voler cancellare il tuo annuncio?')
+// ev.preventDefault();
+// }
+// const log = document.querySelectorAll(".log")
+// const form = document.querySelectorAll(".delete-form")
+// form.addEventListener('submit', prova(ev))
+
+// window.addEventListener("load", function () {
+//    const deleteForm = document.querySelectorAll(".delete-form");
+
+//    deleteForm.forEach(form => {
+//       form.addEventListener("submit", (event) => {
+//          console.log('ciao')
+//          if (!confirm("Sei sicuro di voler cancellare il tuo annuncio?")) {
+//             event.preventDefault();
+//          }
+//       })
+//    })
+// });
 
 window.Vue = require('vue');
 
@@ -32,3 +67,4 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
 const app = new Vue({
     el: '#app',
 });
+
