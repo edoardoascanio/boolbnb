@@ -80,8 +80,96 @@
             @endforeach
         </div>
 
-        <add-position>
-            <add-position>
+        <div class="form-group">
+      <label for="country">Paese</label>
+      <input
+        type="text"
+        name="country"
+        id="country"
+        cols="30"
+        rows="10"
+        class="form-control"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="city">Citta'</label>
+      <input
+        type="text"
+        name="city"
+        id="city"
+        cols="30"
+        rows="10"
+        class="form-control"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="province">Provincia</label>
+      <input
+        type="text"
+        name="province"
+        id="province"
+        cols="30"
+        rows="10"
+        class="form-control"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="zip">CAP</label>
+      <input
+        type="text"
+        name="zip"
+        id="zip"
+        cols="30"
+        rows="10"
+        class="form-control"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="street_name">Tipo di via</label>
+      <select id="type_street" name="type_street">
+        <option value="via" selected>Via</option>
+        <option value="piazza">Piazza</option>
+        <option value="vicolo">Vicolo</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="street_name">Nome della via</label>
+      <input
+        type="text"
+        name="street_name"
+        id="street_name"
+        cols="30"
+        rows="10"
+        class="form-control"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="building_number">Numero Civico</label>
+      <input
+        type="number"
+        name="building_number"
+        id="building_number"
+        cols="30"
+        rows="10"
+        class="form-control"
+      />
+    </div>
+
+    <div class="form-group" >
+      <input
+      id="newAccomodation"
+        type="submit"
+        value="CREA"
+        class="form-control btn btn-success text-capitalize"
+      />
+    </div>
+  </div>
 
     </form>
 </div>

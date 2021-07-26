@@ -9,6 +9,7 @@ use App\Service;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 use PHPUnit\Framework\Constraint\IsFalse;
 
@@ -49,6 +50,11 @@ class AccomodationController extends Controller
         ]);
 
         $data = $request->all();
+        $address = $request->province . '%20' . $request->city . '%20' . $request->type_street. '%20' . $request->street_name . '%20' . $request->building_number;
+        $response = Http::withOptions(['verify' => false])->get('https://api.tomtom.com/search/2/geocode/' . $address. '.json?Key=t4QufcKAvdkiBeKqaOB5kwMYk71Rx8b6')->json();
+            $lat = $response['results'][0]['position']['lat'];
+            $lon = $response['results'][0]['position']['lon'];
+
 
         $new_accomodation = new Accomodation();
 
@@ -59,6 +65,8 @@ class AccomodationController extends Controller
         }
 
         $new_accomodation->user_id = $request->user()->id;
+        $new_accomodation->lat = $lat;
+        $new_accomodation->lon = $lon;
 
         $new_accomodation->save();
 
@@ -122,11 +130,15 @@ class AccomodationController extends Controller
             ]);
 
             $data = $request->all();
+            
+            $address = $request->province . '%20' . $request->city . '%20' . $request->type_street. '%20' . $request->street_name . '%20' . $request->building_number;
+            $response = Http::withOptions(['verify' => false])->get('https://api.tomtom.com/search/2/geocode/' . $address. '.json?Key=t4QufcKAvdkiBeKqaOB5kwMYk71Rx8b6')->json();
+            $lat = $response['results'][0]['position']['lat'];
+            $lon = $response['results'][0]['position']['lon'];
 
-            // $accomodation->fill($data);
-            // if(isset($data['placeholder'])) {
-            //     $accomodation->placeholder = Storage::put('placeholder', $data['placeholder']);
-            // }
+            $accomodation->lat = $lat;
+            $accomodation->lon = $lon;
+
             if (key_exists("placeholder", $data)) {
                 if ($accomodation->placeholder) {
                     Storage::delete($accomodation->placeholder);

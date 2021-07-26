@@ -27,7 +27,12 @@
         <button type="submit">Applica
         </button>
     </form>
-    @include('components.delete', 'accomodation' => $accomodation )
+    <form class="delete-form" action="{{ route('logged.destroy', $accomodation->id) }}" method="post">
+        @csrf
+        @method('delete')
+
+        <input id="ciao" class="log" type="submit" value="Elimina" onclick="return confirm('Are you sure you want to delete this item?')">
+    </form>
     <p>Visualizzazioni: {{ count($accomodation->views) }}</p>
     @if(count($accomodation->messages) > 0)
     @foreach($messages as $message)
