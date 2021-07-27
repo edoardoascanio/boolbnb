@@ -2063,6 +2063,10 @@ __webpack_require__.r(__webpack_exports__);
     },
     resetAccomodations: function resetAccomodations() {
       this.filteredAccomodations = this.originalAccomodations;
+      this.filters.city = "";
+      this.filters.number_beds = "";
+      this.filters.number_rooms = "";
+      this.filters.services = [];
     },
     callAccomodations: function callAccomodations() {
       var _this2 = this;

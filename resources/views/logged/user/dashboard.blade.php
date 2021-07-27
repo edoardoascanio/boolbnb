@@ -30,7 +30,7 @@
             @else
             <p>Non hai nessun messaggio</p>
             @endif
-            <a href="{{ route('logged.sponsorship.payment', $accomodation->id) }}" class="btn btn-primary">Sponsorizza</a><br>
+            <a href="{{ route('logged.sponsorship.create', $accomodation->id) }}" class="btn btn-primary">Sponsorizza</a><br>
             <form class="delete_form" action="{{ route('logged.destroy', $accomodation->id) }}" method="post">
                 @csrf
                 @method('DELETE')

@@ -15,6 +15,8 @@ class CreateAccomodationServiceTable extends Migration
     public function up()
     {
         Schema::create('accomodation_service', function (Blueprint $table) {
+            $table->id();
+
             $table->foreignId("accomodation_id")
                 ->constrained()
                 ->onDelete('cascade');
@@ -22,8 +24,6 @@ class CreateAccomodationServiceTable extends Migration
             $table->foreignId("service_id")
                 ->constrained()
                 ->onDelete('cascade');
-
-            $table->primary(['accomodation_id', 'service_id']);
 
             $table->timestamps();
         });

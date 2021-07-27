@@ -159,6 +159,10 @@ export default {
     },
     resetAccomodations() {
       this.filteredAccomodations = this.originalAccomodations;
+      this.filters.city = "";
+      this.filters.number_beds = "";
+      this.filters.number_rooms = "";
+      this.filters.services = [];
     },
     callAccomodations() {
       axios

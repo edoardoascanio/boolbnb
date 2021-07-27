@@ -53,6 +53,6 @@ Route::prefix('logged')
         Route::match(["PUT", "PATCH"],'visibility/{id}', "AccomodationController@visibility")->name("visibility");
         Route::get('images/{id}', "ImageController@create")->name("image.create");
         Route::post('create/images/{id}', "ImageController@store")->name("image.store");
-        Route::get('sponsorship/payment/{id}', "SponsorshipController@payment")->name('sponsorship.payment');
+        Route::get('sponsorship/create/{id}', "SponsorshipController@create")->name('sponsorship.create');
         Route::post('sponsorship/payment/{id}/store', "SponsorshipController@store")->name('sponsorship.store');
     });

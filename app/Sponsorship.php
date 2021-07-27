@@ -6,10 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 class Sponsorship extends Model
 {
     protected $fillable = [
-        'title', 'price', 'duration'
+
+        'title', 'end_date', 'price', 'duration', 'accomodation_id'
     ];
 
-    public function accomodations () {
-        return $this->belongsToMany('App\Accomodation');
+
+    public function accomodation() {
+        return $this->belongsTo("App\Accomodation");
     }
+
+    
 }

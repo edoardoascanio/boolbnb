@@ -35,6 +35,6 @@ class Accomodation extends Model
     }
 
     public function sponsorships() {
-        return $this->belongsToMany('App\Sponsorship');
+        return $this->hasMany('App\Sponsorship');
     }
 }
