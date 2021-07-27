@@ -4,12 +4,16 @@ namespace App\Http\Controllers\logged;
 
 use App\Accomodation;
 use App\Http\Controllers\Controller;
+use App\Mail\AccomodationMail;
+use App\Mail\newAccomodationMail;
 use App\Message;
 use App\Service;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use PHPUnit\Framework\Constraint\IsFalse;
 
@@ -36,7 +40,7 @@ class AccomodationController extends Controller
             'number_bathrooms' => 'required|integer|min:1|max:20',
             'number_beds' => 'required|integer|min:1|max:20',
             'square_mts' => 'required|integer|min:10|max:1000|',
-            'visibility' => 'nullable|bool',
+            'visibility' => 'required|bool',
             'country' => 'required|string|min:3|max:50',
             'city' => 'required|string|min:3|max:50',
             'province' => 'required|string|min:3|max:50',
@@ -72,6 +76,11 @@ class AccomodationController extends Controller
             $new_accomodation->count_services = count($data['services']);
         }
         $new_accomodation->save();
+
+        // if($new_accomodation->visibility) {
+        //     $user = User::findOrFail($request->user()->id);
+        //     Mail::to($new_accomodation->user_id->email)->send(new newAccomodationMail($new_accomodation));
+        // }
 
         return redirect()->route('logged.show', $new_accomodation->id);
     }

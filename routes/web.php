@@ -56,3 +56,6 @@ Route::prefix('logged')
         Route::get('sponsorship/create/{id}', "SponsorshipController@create")->name('sponsorship.create');
         Route::post('sponsorship/payment/{id}/store', "SponsorshipController@store")->name('sponsorship.store');
     });
+
+    //ROUTE PER PAGAMENTI BRAINTREE
+    Route::get('/payment/make', 'PaymentsController@make')->name('payment.make');
