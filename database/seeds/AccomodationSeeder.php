@@ -35,7 +35,8 @@ class AccomodationSeeder extends Seeder
             'placeholder' => "",
             'user_id' => 1,
             'check_in' => 12,
-            'check_out' => 10
+            'check_out' => 10,
+            'count_services' => 0,
          ],
          [
             'title' => 'Artists House - CENTRUM - Campo de fiori',
@@ -58,7 +59,8 @@ class AccomodationSeeder extends Seeder
             'placeholder' => "",
             'user_id' => 2,
             'check_in' => 12,
-            'check_out' => 10
+            'check_out' => 10,
+            'count_services' => 0,
          ],
          [
             'title' => 'Domus Chiavari House',
@@ -81,7 +83,8 @@ class AccomodationSeeder extends Seeder
             'placeholder' => "",
             'user_id' => 3,
             'check_in' => 13,
-            'check_out' => 10
+            'check_out' => 10,
+            'count_services' => 0,
          ],
          [
             'title' => 'Intero alloggio (loft)',
@@ -104,7 +107,8 @@ class AccomodationSeeder extends Seeder
             'placeholder' => "",
             'user_id' => 4,
             'check_in' => 14,
-            'check_out' => 11
+            'check_out' => 11,
+            'count_services' => 0,
          ],
          [
             'title' => 'Graziosa mansarda con vista sul Pantheon',
@@ -127,7 +131,8 @@ class AccomodationSeeder extends Seeder
             'placeholder' => "",
             'user_id' => 5,
             'check_in' => 15,
-            'check_out' => 11
+            'check_out' => 11,
+            'count_services' => 0,
          ],
          [
             'title' => "Colosseo's door",
@@ -150,7 +155,8 @@ class AccomodationSeeder extends Seeder
             'placeholder' => "",
             'user_id' => 2,
             'check_in' => 12,
-            'check_out' => 10
+            'check_out' => 10,
+            'count_services' => 0,
          ],
          [
             'title' => "Loft Garden San Lorenzo",
@@ -173,7 +179,8 @@ class AccomodationSeeder extends Seeder
             'placeholder' => "",
             'user_id' => 4,
             'check_in' => 12,
-            'check_out' => 10
+            'check_out' => 10,
+            'count_services' => 0,
          ]
       ];
 

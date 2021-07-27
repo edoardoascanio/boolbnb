@@ -34,6 +34,7 @@ class CreateAccomodationsTable extends Migration
             $table->mediumText('placeholder')->nullable();
             $table->tinyInteger('check_in')->nullable();
             $table->tinyInteger('check_out')->nullable();
+            $table->smallInteger('count_services')->nullable();
             $table->timestamps();
         });
     }

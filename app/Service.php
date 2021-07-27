@@ -10,7 +10,7 @@ class Service extends Model
         'title', 'description'
     ];
 
-    public function accomodation () {
+    public function accomodations () {
         return $this->belongsToMany('App\Accomodation');
     }
 }

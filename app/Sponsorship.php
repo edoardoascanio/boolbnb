@@ -9,7 +9,7 @@ class Sponsorship extends Model
         'title', 'price', 'duration'
     ];
 
-    public function accomodation () {
+    public function accomodations () {
         return $this->belongsToMany('App\Accomodation');
     }
 }

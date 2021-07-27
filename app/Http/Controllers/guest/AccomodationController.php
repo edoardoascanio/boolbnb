@@ -104,4 +104,8 @@ class AccomodationController extends Controller
 
         return view('guest.accomodation.show', ['accomodation' => $accomodation]);
     }
+
+    public function map() {
+        return view('guest.accomodation.map');
+    }
 }

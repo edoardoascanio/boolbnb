@@ -27,11 +27,11 @@
         <button type="submit">Applica
         </button>
     </form>
-    <form class="delete-form" action="{{ route('logged.destroy', $accomodation->id) }}" method="post">
+    <form class="delete_form" action="{{ route('logged.destroy', $accomodation->id) }}" method="post">
         @csrf
         @method('DELETE')
 
-        <input id="ciao" class="log" type="submit" value="Elimina" onclick="return confirm('Are you sure you want to delete this item?')">
+        <input id="ciao" class="log" type="submit" value="Elimina">
     </form>
     <p>Visualizzazioni: {{ count($accomodation->views) }}</p>
     @if(count($accomodation->messages) > 0)

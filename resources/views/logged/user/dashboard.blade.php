@@ -30,15 +30,16 @@
             @else
             <p>Non hai nessun messaggio</p>
             @endif
-            <form action="{{ route('logged.destroy', $accomodation->id) }}" method="post">
+            <a href="{{ route('logged.sponsorship.payment', $accomodation->id) }}" class="btn btn-primary">Sponsorizza</a><br>
+            <form class="delete_form" action="{{ route('logged.destroy', $accomodation->id) }}" method="post">
                 @csrf
-                @method('delete')
+                @method('DELETE')
 
                 <input type="submit" value="Elimina">
             </form>
             <p>Visualizzazioni: {{ count($accomodation->views) }}</p>
 
-            <form action="{{ route('logged.visibility', $accomodation->id) }}" method="post">
+            <form  action="{{ route('logged.visibility', $accomodation->id) }}" method="post">
                 @csrf
                 @method('PATCH')
 

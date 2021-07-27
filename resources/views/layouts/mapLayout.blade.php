@@ -20,18 +20,17 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     {{-- cdn tom tom --}}
-    {{-- <link href='https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.6.0/maps/maps.css' rel='stylesheet' type='text/css'>
+    <link href='https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.6.0/maps/maps.css' rel='stylesheet' type='text/css'>
     <script src='https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.6.0/maps/maps-web.min.js'></script>
-    <link href='https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css' rel='stylesheet'> --}}
-    <link rel='stylesheet' type='text/css' href='https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.64.0/maps/maps.css'>
-    {{-- <script src='stores.js' type='text/javascript'></script>
-    <link href='styles.css' rel='stylesheet' type='text/css' /> --}}
+    <link href='https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css' rel='stylesheet'>
+    <script src='stores.js' type='text/javascript'></script>
+    <link href='styles.css' rel='stylesheet' type='text/css' />
     <script src='https://code.jquery.com/jquery-1.12.4.js'></script>
     <script src='https://code.jquery.com/ui/1.12.1/jquery-ui.js'></script>
 
 </head>
 <body>
-    <div id="app">
+    
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -94,9 +93,8 @@
         <main class="py-4">
             @yield('content')
         </main>
-    </div>
-    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.64.0/maps/maps-web.min.js"></script>
-    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.64.0/services/services-web.min.js"></script>
+    
+    {{-- <script src={{asset('js/tomtom.js')}}></script> --}}
     <script src='{{ asset('js/app.js') }}'></script>
 
 

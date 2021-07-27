@@ -32,6 +32,8 @@ Route::prefix('guest')
     ->namespace('Guest')
     ->name("guest.")
     ->group(function () {
+        Route::get('map', "AccomodationController@map")->name("map");
+
         Route::get('index', "AccomodationController@index")->name("index");
         Route::get('show/{id}', "AccomodationController@show")->name("show");
     });
@@ -51,4 +53,6 @@ Route::prefix('logged')
         Route::match(["PUT", "PATCH"],'visibility/{id}', "AccomodationController@visibility")->name("visibility");
         Route::get('images/{id}', "ImageController@create")->name("image.create");
         Route::post('create/images/{id}', "ImageController@store")->name("image.store");
+        Route::get('sponsorship/payment/{id}', "SponsorshipController@payment")->name('sponsorship.payment');
+        Route::post('sponsorship/payment/{id}/store', "SponsorshipController@store")->name('sponsorship.store');
     });

@@ -52532,6 +52532,16 @@ files.keys().map(function (key) {
 var app = new Vue({
   el: '#app'
 });
+window.addEventListener("load", function () {
+  var deleteForms = document.querySelectorAll(".delete_form");
+  deleteForms.forEach(function (form) {
+    form.addEventListener("submit", function (event) {
+      if (!confirm("Sei sicuro di voler cancellare questo elemento?")) {
+        event.preventDefault();
+      }
+    });
+  });
+});
 
 /***/ }),
 
@@ -52740,15 +52750,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!**********************************************************!*\
   !*** ./resources/js/components/AddPositionsToCreate.vue ***!
   \**********************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AddPositionsToCreate_vue_vue_type_template_id_119d6faa___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AddPositionsToCreate.vue?vue&type=template&id=119d6faa& */ "./resources/js/components/AddPositionsToCreate.vue?vue&type=template&id=119d6faa&");
 /* harmony import */ var _AddPositionsToCreate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AddPositionsToCreate.vue?vue&type=script&lang=js& */ "./resources/js/components/AddPositionsToCreate.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _AddPositionsToCreate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _AddPositionsToCreate_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -52778,7 +52787,7 @@ component.options.__file = "resources/js/components/AddPositionsToCreate.vue"
 /*!***********************************************************************************!*\
   !*** ./resources/js/components/AddPositionsToCreate.vue?vue&type=script&lang=js& ***!
   \***********************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -52810,15 +52819,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!***********************************************!*\
   !*** ./resources/js/components/ChaletMap.vue ***!
   \***********************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ChaletMap_vue_vue_type_template_id_2a552082___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ChaletMap.vue?vue&type=template&id=2a552082& */ "./resources/js/components/ChaletMap.vue?vue&type=template&id=2a552082&");
 /* harmony import */ var _ChaletMap_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ChaletMap.vue?vue&type=script&lang=js& */ "./resources/js/components/ChaletMap.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _ChaletMap_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _ChaletMap_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _ChaletMap_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ChaletMap.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/ChaletMap.vue?vue&type=style&index=0&lang=css&");
+/* empty/unused harmony star reexport *//* harmony import */ var _ChaletMap_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ChaletMap.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/ChaletMap.vue?vue&type=style&index=0&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -52850,7 +52858,7 @@ component.options.__file = "resources/js/components/ChaletMap.vue"
 /*!************************************************************************!*\
   !*** ./resources/js/components/ChaletMap.vue?vue&type=script&lang=js& ***!
   \************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
