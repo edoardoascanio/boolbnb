@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
     <a href="{{ route('logged.create') }}">crea</a>
     <h1>ciao</h1>
@@ -9,13 +10,14 @@
     @foreach($accomodations as $accomodation)
     <div class="card" style="width: 18rem;">
         <div class="card-body">
-    <img class="card-img" src="{{ $accomodation->placeholder ? asset('storage/' . $accomodation->placeholder) : asset('placeholder/house-placeholder.jpeg') }}" alt="..." class="img-thumbnail">
+            <img class="card-img" src="{{ $accomodation->placeholder ? asset('storage/' . $accomodation->placeholder) : asset('placeholder/house-placeholder.jpeg') }}" alt="..." class="img-thumbnail">
 
             <h5 class="card-title">{{ $accomodation->title }}</h5>
+
             <p class="card-text">{{ $accomodation->description }}</p>
+
             <div class="row">
                 <div>
-
                     @foreach($accomodation->services as $service)
                     <span class="badge bg-secondary">{{ $service->title }}</span>
                     @endforeach
@@ -30,16 +32,23 @@
             @else
             <p>Non hai nessun messaggio</p>
             @endif
+            
+            @if($accomodation->sponsorActive)
+            <p>Hai già una sponsorizzazione</p>
+            @else
             <a href="{{ route('logged.sponsorship.create', $accomodation->id) }}" class="btn btn-primary">Sponsorizza</a><br>
+            @endif
+
             <form class="delete_form" action="{{ route('logged.destroy', $accomodation->id) }}" method="post">
                 @csrf
                 @method('DELETE')
 
                 <input type="submit" value="Elimina">
             </form>
+
             <p>Visualizzazioni: {{ count($accomodation->views) }}</p>
 
-            <form  action="{{ route('logged.visibility', $accomodation->id) }}" method="post">
+            <form action="{{ route('logged.visibility', $accomodation->id) }}" method="post">
                 @csrf
                 @method('PATCH')
 

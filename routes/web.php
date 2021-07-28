@@ -59,3 +59,4 @@ Route::prefix('logged')
 
     //ROUTE PER PAGAMENTI BRAINTREE
     Route::get('/payment/make', 'PaymentsController@make')->name('payment.make');
+    // Route::get('/payment/make', 'PaymentsController@make')->name('payment.make');
