@@ -19,7 +19,7 @@ class Accomodation extends Model
     }
 
     public function images() {
-        return $this->hasMany('App\Images');
+        return $this->hasMany('App\Image');
     }
 
     public function services() {

@@ -22,3 +22,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/accomodation', 'Api\AccomodationController@index');
 Route::get('/accomodation/filtered', 'Api\AccomodationController@filtered');
 Route::get('/services', 'Api\ServiceController@index');
+Route::get('/images/{id}', "Api\ImageController@index");

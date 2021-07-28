@@ -2,6 +2,9 @@
 
 @section('content')
 <div class="container">
+    <slider-images
+    :id='{{$accomodation->id}}'
+    ></slider-images>
     <h1>{{ $accomodation->title }}</h1>
     <h2>{{ $accomodation->description }}</h2>
     <h2>{{ $accomodation->city }} - {{ $accomodation->streat_name }} - {{ $accomodation->zip }}</h2>
