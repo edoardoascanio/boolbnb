@@ -4,6 +4,7 @@ namespace App\Http\Controllers\guest;
 
 use App\Accomodation;
 use App\Http\Controllers\Controller;
+use App\Image;
 use App\Service;
 use App\View;
 use DateInterval;
@@ -102,7 +103,9 @@ class AccomodationController extends Controller
             }
         }
 
-        return view('guest.accomodation.show', ['accomodation' => $accomodation]);
+        $images = Image::where('accomodation_id', $accomodation->id);
+
+        return view('guest.accomodation.show', ['accomodation' => $accomodation, 'images' => $images]);
     }
 
     public function map() {

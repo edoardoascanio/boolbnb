@@ -89,6 +89,7 @@
         cols="30"
         rows="10"
         class="form-control"
+        value="{{ old('country', $accomodation->country) }}"
       />
     </div>
 
@@ -101,6 +102,7 @@
         cols="30"
         rows="10"
         class="form-control"
+        value="{{ old('city', $accomodation->city) }}"
       />
     </div>
 
@@ -113,6 +115,7 @@
         cols="30"
         rows="10"
         class="form-control"
+        value="{{ old('province', $accomodation->province) }}"
       />
     </div>
 
@@ -125,6 +128,7 @@
         cols="30"
         rows="10"
         class="form-control"
+        value="{{ old('zip', $accomodation->zip) }}"
       />
     </div>
 
@@ -146,6 +150,8 @@
         cols="30"
         rows="10"
         class="form-control"
+        value="{{ old('street_name', $accomodation->street_name) }}"
+        
       />
     </div>
 
@@ -158,6 +164,7 @@
         cols="30"
         rows="10"
         class="form-control"
+        value="{{ old('building_number', $accomodation->building_number) }}"
       />
     </div>
 
