@@ -2,25 +2,67 @@
 
 namespace App\Http\Controllers;
 
+use App\Accomodation;
+use App\Sponsorship;
+use App\User;
 use Illuminate\Http\Request;
 use Braintree\Transaction;
-
-
+use Illuminate\Support\Facades\Auth;
 
 class PaymentsController extends Controller
 {
 
     public function make(Request $request)
     {
+        $sponsorTypeName = $request->input('value');
+
+        if($sponsorTypeName === 'bronze') {
+            $verify = true;
+            $sponsor = [
+                'title' => 'bronze',
+                'price' => 2.99,
+                'duration' => 24,
+            ];
+        }
+        if($sponsorTypeName === 'silver') {
+            $verify = true;
+            $sponsor = [
+                'title' => 'bronze',
+                'price' => 4.99,
+                'duration' => 72,
+            ];
+        }
+        if($sponsorTypeName === 'gold') {
+            $verify = true;
+            $sponsor = [
+                'title' => 'gold',
+                'price' => 9.99,
+                'duration' => 144,
+            ];
+        }
+
         $payload = $request->input('payload', false);
         $nonce = $payload['nonce'];
         $status = Transaction::sale([
-            'amount' => '10.00',
+            'amount' => $sponsor['price'],
             'paymentMethodNonce' => $nonce,
             'options' => [
                 'submitForSettlement' => True
             ]
         ]);
-        return response()->json($status);
+
+        if($status->success){
+            $sponsorship = new Sponsorship();
+            $sponsorship->accomodation_id =  $request->input('flat');
+            $sponsorship->title = $sponsor['title'];
+            $sponsorship->duration = $sponsor['duration'];
+            $sponsorship->price = $sponsor['price'];
+            $sponsorship->end_date = date("Y-m-d H:i:s", strtotime(sprintf("+%d hours", $sponsorship->duration)));
+            $sponsorship->save();
+
+            return response()->json($status);
+        }else{
+            return response()->json($status);
+        }
     }
 }
