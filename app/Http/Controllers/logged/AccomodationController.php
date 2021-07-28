@@ -71,12 +71,13 @@ class AccomodationController extends Controller
         $new_accomodation->lat = $lat;
         $new_accomodation->lon = $lon;
 
+        $new_accomodation->save();
+        
         if (isset($data['services'])) {
             $new_accomodation->services()->sync($data['services']);
             $new_accomodation->count_services = count($data['services']);
         }
-        $new_accomodation->save();
-
+        
         // if($new_accomodation->visibility) {
         //     $user = User::findOrFail($request->user()->id);
         //     Mail::to($new_accomodation->user_id->email)->send(new newAccomodationMail($new_accomodation));

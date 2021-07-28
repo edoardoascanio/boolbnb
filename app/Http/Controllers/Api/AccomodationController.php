@@ -15,6 +15,7 @@ class AccomodationController extends Controller
         $accomodations = Accomodation::with('services')->with('sponsorships')->with('views')->where('visibility', 1)->paginate(10);
 
         foreach ($accomodations as $accomodation) {
+            
             $accomodation->link = route("guest.show", ["id" => $accomodation->id]);
             $accomodation->placeholder = $accomodation->placeholder ? asset('storage/' . $accomodation->placeholder) : asset('placeholder/house-placeholder.jpeg');
         }
