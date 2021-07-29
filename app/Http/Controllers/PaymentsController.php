@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Accomodation;
+use App\Mail\SponsorshipMail;
 use App\Sponsorship;
 use App\User;
 use Illuminate\Http\Request;
 use Braintree\Transaction;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class PaymentsController extends Controller
 {
@@ -59,6 +61,16 @@ class PaymentsController extends Controller
             $sponsorship->price = $sponsor['price'];
             $sponsorship->end_date = date("Y-m-d H:i:s", strtotime(sprintf("+%d hours", $sponsorship->duration)));
             $sponsorship->save();
+
+            // $user = Auth::user()->id;
+            // $accomodation = Accomodation::findOrFail($request->input('flat'));
+
+            // $argument = [
+            //     'accomodation' => $accomodation,
+            //     'sponsorship' => $sponsorship,
+            // ];
+
+            // Mail::to($user->email)->send(new SponsorshipMail($argument));
 
             return response()->json($status);
         }else{
