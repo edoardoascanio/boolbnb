@@ -15,9 +15,9 @@ class ImageController extends Controller
         $accomodation = Accomodation::find($id);
         
         if($accomodation->placeholder) {
-            $placeholder = $accomodation->placeholder;
-            $placeholder->url_img = asset('storage/' . $accomodation->placeholder);
-            $results[] = $placeholder->url_img;
+            // $placeholder = $accomodation->placeholder;
+            $url_img = asset('storage/' . $accomodation->placeholder);
+            $results[] = $url_img;
 
         }  
 
@@ -25,8 +25,8 @@ class ImageController extends Controller
 
         if(count($images)  > 0 )  {
             foreach($images as $image) {
-                $image->url_img = asset('storage/' . $image->url_img);
-                $results[] = $image->url_img;
+                $url_img = asset('storage/' . $image->url_img);
+                $results[] = $url_img;
             }
         }
 
