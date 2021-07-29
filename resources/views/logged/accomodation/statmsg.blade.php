@@ -3,28 +3,28 @@
 @section('content')
 
 <div class="container">
-<button id="btn" onclick="#">messages</button>
+
 
     <div>
-        <canvas id="myViews"></canvas>
+        <canvas id="myMessage"></canvas>
     </div>
 </div>
 
 
 <script>
     const id = {{$id}}
-    var views = null
+    var messages = null
 
     window.addEventListener('load', () => {    
-        callViews()
+        callMessages()
     })
 
 
 
-    function callViews() {
+    function callMessages() {
         axios.get('http://127.0.0.1:8000/api/stat/' + id)
             .then((resp) => {
-                views = resp.data.views
+                messages = resp.data.messages
                 
                 const labelsV = [
                 'Gennaio',
@@ -40,10 +40,10 @@
                     labels: labelsV,
 
                     datasets: [{
-                        label: 'Views',
+                        label: 'Messages',
                         backgroundColor: 'rgb(71, 110, 227)',
                         borderColor: 'rgb(71, 110, 227)',
-                        data: views,
+                        data: messages,
                         }]
                 };
 
@@ -53,7 +53,7 @@
                     options: {}
                 };
                 var myChart = new Chart(
-                    document.getElementById('myViews'),
+                    document.getElementById('myMessage'),
                     config
                 );
         })

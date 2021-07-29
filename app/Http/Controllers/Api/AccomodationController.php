@@ -104,7 +104,7 @@ class AccomodationController extends Controller
         ]);
     }
     
-    public function statviews($id) {
+    public function stat($id) {
         // $accomodation = Accomodation::where('id', $id)->with('messages')->with('views')->get();
         $views = View::where('accomodation_id', $id)->get();
         $months = [1,2,3,4,5,6,7];
