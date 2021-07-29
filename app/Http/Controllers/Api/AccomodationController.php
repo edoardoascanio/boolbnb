@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use App\Accomodation;
 use App\Http\Controllers\Controller;
+use App\Message;
+use App\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Symfony\Component\Console\Input\Input;
@@ -99,6 +101,63 @@ class AccomodationController extends Controller
             'success' => true,
             'params' => $params,
             'results' => $filtered_accomodations,
+        ]);
+    }
+    
+    public function statviews($id) {
+        // $accomodation = Accomodation::where('id', $id)->with('messages')->with('views')->get();
+        $views = View::where('accomodation_id', $id)->get();
+        $months = [1,2,3,4,5,6,7];
+        $calendarV = [
+            '1' => [],
+            '2' => [],
+            '3' => [],
+            '4' => [],
+            '5' => [],
+            '6' => [],
+            '7' => [],
+        ];
+
+        foreach($views as $view) {
+            foreach($months as $month) {  
+                if(date("m",strtotime($view->created_at)) == $month) {
+                    $calendarV[$month][] = 'v';
+                }
+            }
+        }
+        $statViews = [];
+        foreach($calendarV as $month) {
+            $statViews[] = count($month);
+        }
+
+        $messages = Message::where('accomodation_id', $id)->get();
+        $calendarM = [
+            '1' => [],
+            '2' => [],
+            '3' => [],
+            '4' => [],
+            '5' => [],
+            '6' => [],
+            '7' => [],
+        ];
+        
+        foreach($messages as $message) {
+            foreach($months as $month) { 
+                if(date("m",strtotime($message->created_at)) == $month) {
+                    $calendarM[$month][] = 'm';
+                }
+            }
+        }
+
+        $statMessages = [];
+        foreach($calendarM as $month) {
+            $statMessages[] = count($month);
+        }
+
+        return response()->json([
+            'success' => true,
+            'views' => $statViews,
+            'messages' => $statMessages,
         ]);
     }
 }

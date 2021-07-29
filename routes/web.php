@@ -55,6 +55,7 @@ Route::prefix('logged')
         Route::post('create/images/{id}', "ImageController@store")->name("image.store");
         Route::get('sponsorship/create/{id}', "SponsorshipController@create")->name('sponsorship.create');
         Route::post('sponsorship/payment/{id}/store', "SponsorshipController@store")->name('sponsorship.store');
+        Route::get('accomodation/statviews/{id}', "AccomodationController@statviews")->name('statviews');
     });
 
     //ROUTE PER PAGAMENTI BRAINTREE
