@@ -208,4 +208,13 @@ class AccomodationController extends Controller
         }
         return view('guest.home');
     }
+
+    public function statviews($id) {
+
+        return view('logged.accomodation.statviews', ['id' => $id]);
+    }
+    public function statmsg($id) {
+
+        return view('logged.accomodation.statmsg', ['id' => $id]);
+    }
 }
