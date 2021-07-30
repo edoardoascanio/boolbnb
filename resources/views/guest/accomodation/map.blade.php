@@ -7,14 +7,16 @@
 <div class='control-panel'>
     <div class='heading'>
         <img src='https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/032017/untitled-6_25.png?itok=9ZEI6gJ3'>
+        <button onclick="clearAccomodations(); ">Cleara Accomodations</button>
         <button onclick="callAccomodations()">Chiama Accomodations</button>
     </div>
     <div id='store-list'></div>
 </div>
-<div class='map' id='map'></div>
+<div class='map' id='map' style="width: 75%; height: 100%"></div>
 
 
 <script>
+   
     //myMethods
     //
     //
@@ -29,7 +31,59 @@
 window.addEventListener('load', () => {
     callAccomodations()
 })
+
+function mixAccomodations() {
+    clearAccomodations()
+    clearAccomodations()
+    
+}
+
+
+
+    function clearAccomodations() {
+        arrayAccomodation = []
+
+        
+        
+
+        var mylength = $('[id^=banana]').length 
+
+        for(i=0; mylength; i++) {
+            var myobj = document.getElementById("banana");
+        myobj.remove();
+        }
+
+        myMarkerLength = $( ".mapboxgl-marker-anchor-bottom" ).length
+
+        for(y=0; y<myMarkerLength; y++) {
+            $( ".mapboxgl-marker-anchor-bottom" ).remove()
+        }
+
+        
+        
+        //callAccomodations()
+
+        // myPointerLength = document.getElementsByClassName("mapboxgl-marker-anchor-bottom").length
+
+        // for(i=0; i<myPointerLength; i++) {
+        //     document.getElementsByClassName("mapboxgl-marker-anchor-bottom").remove()
+            
+        // }
+        // console.log(document.getElementsByClassName("mapboxgl-marker-anchor-bottom").length)
+        // var myMarker = document.getElementsByClassName("mapboxgl-marker-anchor-bottom")
+        // myMarker.remove()
+
+        
+
+        
+        
+        
+        
+    }
+
     function callAccomodations() {
+
+
         axios.get("/api/accomodation").then((resp) => {
             originalAccomodations = resp.data.results.data;
             filteredAccomodations = resp.data.results.data;
@@ -45,45 +99,56 @@ window.addEventListener('load', () => {
                         ]
                     }
                     , "properties": {
-                        "address": filteredAccomodations[i].street_name + " " + filteredAccomodations[i].building_number + ", " + filteredAccomodations[i].zip + " " + filteredAccomodations[i].province
-                        , "city": filteredAccomodations[i].city
+                        "address": filteredAccomodations[i].street_name + " " + filteredAccomodations[i].building_number + ", " + filteredAccomodations[i].zip + " " + filteredAccomodations[i].province,
+                        "city": filteredAccomodations[i].city,
+                        "title": filteredAccomodations[i].title,
+                        "number_rooms": filteredAccomodations[i].number_rooms,
+                        "placeholder": "https://i0.wp.com/reviveyouthandfamily.org/wp-content/uploads/2016/11/house-placeholder.jpg?ssl=1"
                     }
                 }, )
+
+                
 
 
             }
 
-            const apiKey = 'x03gOYgHS1403BuzYDLDXT3SZEhCK1sB';
-            const map = tt.map({
+            let apiKey = 'x03gOYgHS1403BuzYDLDXT3SZEhCK1sB';
+            let map = tt.map({
                 key: apiKey, 
                 container: 'map',
-                center: [4.573040, 52.138950],
-                zoom: 9,
+                center: [filteredAccomodations[1].lon, filteredAccomodations[1].lat],
+                zoom: 18,
 
             });
 
-            const markersCity = [];
-            const list = document.getElementById('store-list');
+            let markersCity = [];
+            let list = document.getElementById('store-list');
 
             stores.features.forEach(function(store, index) {
 
-                const city = store.properties.city;
-                const address = store.properties.address;
-                const location = store.geometry.coordinates;
-                const marker = new tt.Marker().setLngLat(location).setPopup(new tt.Popup({
-                    offset: 35
+                let placeholder = store.properties.placeholder;
+                let city = store.properties.city;
+                let address = store.properties.address;
+                let location = store.geometry.coordinates;
+                let title = store.properties.title;
+                let marker = new tt.Marker().setLngLat(location).setPopup(new tt.Popup({
+                    offset: 35,
+                    
                 }).setHTML(address)).addTo(map);
                 markersCity[index] = {
-                    marker
-                    , city
+                    marker,
+                    placeholder,
+                    city,
+                    title,
                 };
 
                 let cityStoresList = document.getElementById(city);
                 if (cityStoresList === null) {
-                    const cityStoresListHeading = list.appendChild(document.createElement('h3'));
-                    cityStoresListHeading.innerHTML = city;
+                    let cityStoresListHeading = list.appendChild(document.createElement('h3'));
+                    // cityStoresListHeading.innerHTML = city;
                     cityStoresList = list.appendChild(document.createElement('div'));
-                    cityStoresList.id = city;
+                    cityStoresList.id = "banana";
+
                     cityStoresList.className = 'list-entries-container';
                     cityStoresListHeading.addEventListener('click', function(e) {
                         map.fitBounds(getMarkersBoundsForCity(e.target.innerText), {
@@ -92,10 +157,10 @@ window.addEventListener('load', () => {
                     });
                 }
 
-                const details = buildLocation(cityStoresList, address);
+                let details = buildLocation(cityStoresList, address, title);
 
                 marker.getElement().addEventListener('click', function() {
-                    const activeItem = document.getElementsByClassName('selected');
+                    let activeItem = document.getElementsByClassName('selected');
                     if (activeItem[0]) {
                         activeItem[0].classList.remove('selected');
                     }
@@ -104,7 +169,7 @@ window.addEventListener('load', () => {
                 });
 
                 details.addEventListener('click', function() {
-                    const activeItem = document.getElementsByClassName('selected');
+                    let activeItem = document.getElementsByClassName('selected');
                     if (activeItem[0]) {
                         activeItem[0].classList.remove('selected');
                     }
@@ -119,10 +184,10 @@ window.addEventListener('load', () => {
                 });
 
                 function buildLocation(htmlParent, text) {
-                    const details = htmlParent.appendChild(document.createElement('a'));
+                    let details = htmlParent.appendChild(document.createElement('div'));
                     details.href = '#';
                     details.className = 'list-entry';
-                    details.innerHTML = text;
+                    details.innerHTML = "<img style='height: 100px; width: 100px;' src='" + placeholder + "' alt=''> " + "<h2>" + title + "</h2>" + "<p>" + text + "</p>" ;
                     return details;
                 }
 
@@ -135,7 +200,7 @@ window.addEventListener('load', () => {
                 }
 
                 function getMarkersBoundsForCity(city) {
-                    const bounds = new tt.LngLatBounds();
+                    let bounds = new tt.LngLatBounds();
                     markersCity.forEach(markerCity => {
                         if (markerCity.city === city) {
                             bounds.extend(markerCity.marker.getLngLat());
@@ -145,8 +210,8 @@ window.addEventListener('load', () => {
                 }
 
                 function openCityTab(selected_id) {
-                    const storeListElement = $('#store-list');
-                    const citiesListDiv = storeListElement.find('div.list-entries-container');
+                    let storeListElement = $('#store-list');
+                    let citiesListDiv = storeListElement.find('div.list-entries-container');
                     for (let activeCityIndex = 0; activeCityIndex < citiesListDiv.length; activeCityIndex++) {
                         if (citiesListDiv[activeCityIndex].id === selected_id) {
                             storeListElement.accordion('option', {
@@ -157,20 +222,14 @@ window.addEventListener('load', () => {
                 }
             });
 
-            $('#store-list').accordion({
-                'icons': {
-                    'header': 'ui-icon-plus'
-                    , 'activeHeader': 'ui-icon-minus'
-                }
-                , 'heightStyle': 'content'
-                , 'collapsible': true
-                , 'active': false
-            });
+            
 
 
         })
 
     }
+
+    
 
 </script>
 

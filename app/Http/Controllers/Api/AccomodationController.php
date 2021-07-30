@@ -88,6 +88,7 @@ class AccomodationController extends Controller
             } else {
 
                 $accomodations->where($filter, "LIKE", "%$value%");
+                
             }
         }
 
