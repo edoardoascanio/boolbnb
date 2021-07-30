@@ -49,9 +49,9 @@
     <div class='control-panel'>
         <div class='heading'>
             <img src='https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/032017/untitled-6_25.png?itok=9ZEI6gJ3'>
-            <button onclick="clearAccomodations(); ">Cleara Accomodations</button>
-            <button onclick="callAccomodations()">Chiama Accomodations</button>
-            <button onclick="mixAccomodations()">Chiama mix</button>
+            
+            <button id="el">Chiama Accomodations</button>
+            
         </div>
         <div id='store-list'></div>
     </div>
@@ -64,6 +64,16 @@
 
     //
     var arrayAccomodation = [];
+    var el = document.getElementById('el')
+    el.addEventListener('click', function() {
+        clearAccomodations()
+    })
+    el.addEventListener('click', function() {
+        clearAccomodations()
+    })
+    el.addEventListener('click', function() {
+        callAccomodations()
+    })
     let stores = {
         "type": "FeatureCollection"
         , "features": arrayAccomodation

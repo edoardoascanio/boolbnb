@@ -37,7 +37,8 @@ class AccomodationController extends Controller
 
     public function filtered(Request $request)
     {
-        
+        $now = date("Y-m-d H:i:s");
+
         DB::enableQueryLog();
         $filters = $request->only(["number_beds", "number_rooms", "city", "services"]);
 
@@ -90,7 +91,6 @@ class AccomodationController extends Controller
             } else if ($filter === "city") {
 
                 $accomodations->where($filter, "LIKE", "%$value%");
-                
             }
         }
 
@@ -101,7 +101,17 @@ class AccomodationController extends Controller
         foreach ($filtered_accomodations as $accomodation) {
             $accomodation->link = route("guest.show", ["id" => $accomodation->id]);
             $accomodation->placeholder = $accomodation->placeholder ? asset('storage/' . $accomodation->placeholder) : asset('placeholder/house-placeholder.jpeg');
+
+            $sponsor = Sponsorship::where('accomodation_id', $accomodation->id)->where('end_date', '>', $now)->orderBy("created_at", "DESC")->limit(1)->get();
+            if (count($sponsor) == 0) {
+
+                $accomodation->sponsorActive = 0;
+            } else {
+                $accomodation->sponsorActive = 1;
+            }
         }
+
+
         return response()->json([
             'success' => true,
             'params' => $params,
@@ -115,7 +125,7 @@ class AccomodationController extends Controller
         $start_year = strtotime($current_year . "/01/01");
         $date = date("Y-m-d", $start_year);
         $future_year = strtotime('+1 year', $start_year);
-        $end_date = date("Y-m-d" , $future_year);
+        $end_date = date("Y-m-d", $future_year);
 
         $current_month = (int)date('m');
 
@@ -184,5 +194,3 @@ class AccomodationController extends Controller
         ]);
     }
 }
-
-
