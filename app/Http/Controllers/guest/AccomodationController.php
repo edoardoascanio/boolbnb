@@ -16,9 +16,10 @@ class AccomodationController extends Controller
 {
     public function index()
     {
-        $accomodations = Accomodation::orderBy('created_at', 'DESC')->where('visibility', true)->get();
+        // $accomodations = Accomodation::orderBy('created_at', 'DESC')->where('visibility', true)->get();
+        $services = Service::all();
 
-        return view('guest.accomodation.index', ['accomodations' => $accomodations]);
+        return view('guest.accomodation.map', ['services' => $services]);
     }
 
     public function show($id)

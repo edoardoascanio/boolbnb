@@ -87,10 +87,10 @@
 
 
         </div>
-
         <main class="py-4">
             @yield('content')
         </main>
+
     
     {{-- <script src={{asset('js/tomtom.js')}}></script> --}}
     <script src='{{ asset('js/app.js') }}'></script>
