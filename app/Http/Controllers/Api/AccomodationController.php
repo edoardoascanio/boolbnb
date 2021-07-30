@@ -10,6 +10,7 @@ use App\Sponsorship;
 use App\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 use Symfony\Component\Console\Input\Input;
 
 class AccomodationController extends Controller
@@ -110,12 +111,20 @@ class AccomodationController extends Controller
                 $accomodation->sponsorActive = 1;
             }
         }
+        
+            $response = Http::withOptions(['verify' => false])->get('https://api.tomtom.com/search/2/geocode/' . $filters['city'] . '.json?Key=t4QufcKAvdkiBeKqaOB5kwMYk71Rx8b6')->json();
+            
+            $position = [
+                'lat' => $response['results'][0]['position']['lat'],
+                'lon' => $response['results'][0]['position']['lon'],
+            ];
 
 
         return response()->json([
             'success' => true,
             'params' => $params,
             'results' => $filtered_accomodations,
+            'position' => $position
         ]);
     }
 

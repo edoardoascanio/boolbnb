@@ -144,6 +144,7 @@
     };
 
         var city = document.getElementById('city').value
+        var center_point = null
         var beds = document.getElementById('beds').value
         var rooms = document.getElementById('rooms').value
         var services = document.getElementsByClassName('services')
@@ -180,6 +181,7 @@
             })
             .then((resp) => {
                 filteredAccomodations = resp.data.results;
+                center_point = resp.data.position;
 
                 console.log(servicesValue)
 
@@ -211,7 +213,7 @@
                 let map = tt.map({
                     key: apiKey
                     , container: 'map'
-                    , center: [filteredAccomodations[0].lon, filteredAccomodations[0].lat]
+                    , center: [center_point.lon, center_point.lat]
                     , zoom: 13,
 
                 });
