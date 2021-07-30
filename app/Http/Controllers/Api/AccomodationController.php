@@ -108,10 +108,15 @@ class AccomodationController extends Controller
 
     public function stat($id)
     {
-        $current_year = (int)date('y');
+        $current_year = date('Y');
+        $start_year = strtotime($current_year . "/01/01");
+        $date = date("Y-m-d", $start_year);
+        $future_year = strtotime('+1 year', $start_year);
+        $end_date = date("Y-m-d" , $future_year);
+        
         $current_month = (int)date('m');
 
-        $views = View::where('accomodation_id', $id)->where('created_at', '>', ($current_year . '/01/01'))->get();
+        $views = View::where('accomodation_id', $id)->where('created_at', '>', $date)->where('created_at', '<', $end_date)->get();
         $calendarV = [
             '1' => [],
             '2' => [],
@@ -127,8 +132,6 @@ class AccomodationController extends Controller
             '12' => [],
         ];
 
-
-
         foreach ($views as $view) {
             for ($i = 1; $i <= $current_month; $i++) {
                 if (date("m", strtotime($view->created_at)) == $i) {
@@ -137,13 +140,12 @@ class AccomodationController extends Controller
             }
         }
 
-
         $statViews = [];
         foreach ($calendarV as $month) {
             $statViews[] = count($month);
         }
 
-        $messages = Message::where('accomodation_id', $id)->get();
+        $messages = Message::where('accomodation_id', $id)->where('created_at', '>', $date)->get();
         $calendarM = [
             '1' => [],
             '2' => [],
