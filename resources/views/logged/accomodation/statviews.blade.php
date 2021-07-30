@@ -5,7 +5,6 @@
 <div class="container">
 
 <div class="row">
-<h1>ciao</h1>
     <div class="col-6">
         <canvas id="myViews"></canvas>
     </div>
