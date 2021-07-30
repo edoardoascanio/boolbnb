@@ -23,8 +23,6 @@
     <link href='https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.6.0/maps/maps.css' rel='stylesheet' type='text/css'>
     <script src='https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.6.0/maps/maps-web.min.js'></script>
     <link href='https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css' rel='stylesheet'>
-    <script src='stores.js' type='text/javascript'></script>
-    <link href='styles.css' rel='stylesheet' type='text/css' />
     <script src='https://code.jquery.com/jquery-1.12.4.js'></script>
     <script src='https://code.jquery.com/ui/1.12.1/jquery-ui.js'></script>
 
@@ -89,10 +87,10 @@
 
 
         </div>
-
         <main class="py-4">
             @yield('content')
         </main>
+
     
     {{-- <script src={{asset('js/tomtom.js')}}></script> --}}
     <script src='{{ asset('js/app.js') }}'></script>

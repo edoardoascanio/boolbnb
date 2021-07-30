@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Accomodation;
 use App\Http\Controllers\Controller;
 use App\Message;
+use App\Service;
 use App\Sponsorship;
 use App\View;
 use Illuminate\Http\Request;
@@ -36,23 +37,24 @@ class AccomodationController extends Controller
 
     public function filtered(Request $request)
     {
+        
         DB::enableQueryLog();
         $filters = $request->only(["number_beds", "number_rooms", "city", "services"]);
 
-        if (count($filters) == 0) {
-            $accomodations = Accomodation::with('services')->with('sponsorships')->with('views')->where('visibility', 1)->paginate(10);
+        // if (count($filters) == 0) {
+        //     $accomodations = Accomodation::with('services')->with('sponsorships')->with('views')->where('visibility', 1)->paginate(10);
 
-            foreach ($accomodations as $accomodation) {
-                $accomodation->link = route("guest.show", ["id" => $accomodation->id]);
-                $accomodation->placeholder = $accomodation->placeholder ? asset('storage/' . $accomodation->placeholder) : asset('placeholder/house-placeholder.jpeg');
-            }
+        //     foreach ($accomodations as $accomodation) {
+        //         $accomodation->link = route("guest.show", ["id" => $accomodation->id]);
+        //         $accomodation->placeholder = $accomodation->placeholder ? asset('storage/' . $accomodation->placeholder) : asset('placeholder/house-placeholder.jpeg');
+        //     }
 
-            return response()->json([
-                'success' => true,
-                'filters' => $filters,
-                'results' => $accomodations,
-            ]);
-        }
+        //     return response()->json([
+        //         'success' => true,
+        //         'filters' => $filters,
+        //         'results' => $accomodations,
+        //     ]);
+        // }
 
         $query  = explode('&', $_SERVER['QUERY_STRING']);
         $accomodations = Accomodation::select('accomodations.*')->with('services')->where('visibility', 1);
@@ -85,9 +87,10 @@ class AccomodationController extends Controller
                     ->whereIn("accomodation_service.service_id", $value)
                     ->groupBy('accomodations.id')
                     ->havingRaw("COUNT(DISTINCT `accomodation_service`.`service_id`) = " . count($value));
-            } else {
+            } else if ($filter === "city") {
 
                 $accomodations->where($filter, "LIKE", "%$value%");
+                
             }
         }
 

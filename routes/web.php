@@ -32,7 +32,7 @@ Route::prefix('guest')
     ->namespace('Guest')
     ->name("guest.")
     ->group(function () {
-        Route::get('map', "AccomodationController@map")->name("map");
+        Route::get('map', "AccomodationController@index")->name("map");
 
         Route::get('index', "AccomodationController@index")->name("index");
         Route::get('show/{id}', "AccomodationController@show")->name("show");
