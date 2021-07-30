@@ -17,6 +17,7 @@
 
     window.addEventListener('load', () => {    
         callViews()
+        
     })
 
 
@@ -34,6 +35,11 @@
                 'Maggio',
                 'Giugno',
                 'Luglio',
+                'Agosto',
+                'Settembre',
+                'Ottobre',
+                'Novembre',
+                'Dicembre',
                 ];
 
                 const data = {

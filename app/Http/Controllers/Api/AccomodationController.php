@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Accomodation;
 use App\Http\Controllers\Controller;
 use App\Message;
+use App\Sponsorship;
 use App\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -15,12 +16,17 @@ class AccomodationController extends Controller
     public function index(Request $request)
     {
         $accomodations = Accomodation::with('services')->with('sponsorships')->with('views')->where('visibility', 1)->paginate(10);
+        $now = date("Y-m-d H:i:s");
 
+        
         foreach ($accomodations as $accomodation) {
-            
+            $sponsor = Sponsorship::where('accomodation_id', $accomodation->id)->where('end_date', '>', $now)->orderBy("created_at", "DESC")->limit(1)->get();
             $accomodation->link = route("guest.show", ["id" => $accomodation->id]);
             $accomodation->placeholder = $accomodation->placeholder ? asset('storage/' . $accomodation->placeholder) : asset('placeholder/house-placeholder.jpeg');
         }
+
+        // $result = $accomodation->orderBy('sponsorActive');
+        
 
         return response()->json([
             'success' => true,
@@ -105,9 +111,10 @@ class AccomodationController extends Controller
     }
     
     public function stat($id) {
-        // $accomodation = Accomodation::where('id', $id)->with('messages')->with('views')->get();
-        $views = View::where('accomodation_id', $id)->get();
-        $months = [1,2,3,4,5,6,7];
+        $current_year = (int)date('y');
+        $current_month = (int)date('m');
+
+        $views = View::where('accomodation_id', $id)->where('created_at', '>', ($current_year . '/01/01'))->get();
         $calendarV = [
             '1' => [],
             '2' => [],
@@ -116,12 +123,17 @@ class AccomodationController extends Controller
             '5' => [],
             '6' => [],
             '7' => [],
+            '8' => [],
+            '9' => [],
+            '10' => [],
+            '11' => [],
+            '12' => [],
         ];
-
+        for($i = 0; $i < 12; $i++) {}
         foreach($views as $view) {
-            foreach($months as $month) {  
-                if(date("m",strtotime($view->created_at)) == $month) {
-                    $calendarV[$month][] = 'v';
+            for($i = 1; $i <= $current_month; $i++) {  
+                if(date("m",strtotime($view->created_at)) == $i) {
+                    $calendarV[$i][] = 'v';
                 }
             }
         }
@@ -142,9 +154,9 @@ class AccomodationController extends Controller
         ];
         
         foreach($messages as $message) {
-            foreach($months as $month) { 
-                if(date("m",strtotime($message->created_at)) == $month) {
-                    $calendarM[$month][] = 'm';
+            for($i = 1; $i <= $current_month; $i++) {  
+                if(date("m",strtotime($message->created_at)) == $i) {
+                    $calendarM[$i][] = 'v';
                 }
             }
         }
@@ -156,8 +168,8 @@ class AccomodationController extends Controller
 
         return response()->json([
             'success' => true,
-            'views' => $statViews,
-            'messages' => $statMessages,
+            'views' => array_slice($statViews, 0, $current_month),
+            'messages' => array_slice($statMessages, 0, $current_month)
         ]);
     }
 }
