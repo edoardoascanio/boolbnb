@@ -3,16 +3,13 @@
 @section('content')
 
 <div class="container">
-@php
-    $x = date("Y");
-    $y = strtotime($x . '/01/01');
-    dump(date("Y-m-d", $y));
-@endphp
-<div class="row">
 
+<div class="row">
+<h1>ciao</h1>
     <div class="col-6">
         <canvas id="myViews"></canvas>
     </div>
+
     <div class="col-6">
         <canvas id="myMessages"></canvas>
     </div>
@@ -20,7 +17,6 @@
 </div>
     
 </div>
-
 
 <script>
     const id = {{$id}}
@@ -66,13 +62,31 @@
                 const config = {
                     type: 'line',
                     data,
-                    options: {}
-                };
+                    options: {
+                        scales: {
+                            y: {
+                                title: {
+                                display: true,
+                                text: 'Value'
+                                },
+                                min: 0,
+                                max: 20,
+                                ticks: {
+                                // forces step size to be 50 units
+                                stepSize: 1
+                                
+                                }
+                            }
+                        }
+                    }
+                }
+
                 var myChart = new Chart(
                     document.getElementById('myViews'),
                     config
-                );
-        })
+                    )
+                
+        });
     }
 
     function callMessages() {
@@ -109,7 +123,23 @@
                 const config = {
                     type: 'line',
                     data,
-                    options: {}
+                    options: {
+                        scales: {
+                            y: {
+                                title: {
+                                display: true,
+                                text: 'Value'
+                                },
+                                min: 0,
+                                max: 20,
+                                ticks: {
+                                // forces step size to be 50 units
+                                stepSize: 1
+                                
+                                }
+                            }
+                        }
+                    }
                 };
                 var myChart = new Chart(
                     document.getElementById('myMessages'),

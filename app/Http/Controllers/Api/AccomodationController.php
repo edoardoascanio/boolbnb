@@ -113,7 +113,7 @@ class AccomodationController extends Controller
         $date = date("Y-m-d", $start_year);
         $future_year = strtotime('+1 year', $start_year);
         $end_date = date("Y-m-d" , $future_year);
-        
+
         $current_month = (int)date('m');
 
         $views = View::where('accomodation_id', $id)->where('created_at', '>', $date)->where('created_at', '<', $end_date)->get();
@@ -181,3 +181,5 @@ class AccomodationController extends Controller
         ]);
     }
 }
+
+
