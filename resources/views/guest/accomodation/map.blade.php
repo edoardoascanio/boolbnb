@@ -3,12 +3,12 @@
 @section('content')
 
 <div class="card-body">
-@dump($city)
+
     <form @submit.prevent="filterData">
         <div class="row">
             <input type="text" placeholder="citta" id="city" value="{{ $city['city'] }}">
 
-            <input type="number" placeholder="n letti" id="beds">
+            <input type="number" placeholder="n letti" id="beds" value="{{ $number_beds['number_beds'] }}">
 
             <input type="number" placeholder="n stanze" id="rooms">
 

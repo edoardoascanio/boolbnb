@@ -2,11 +2,11 @@
 
 @section('content')
 
-
-
 <div class="container">
+@if($sponsorActive)
+   <h1> Il tuo appartamento è già sponsorizzato </h1>
+@else
     <div class="row">
-
         <div class="form-check bnb-formCheck">
             <input class="form-check-input sponsor-type bnb-sponsorType" checked type="radio"  name="sponsor-type" id="1" value="bronze">
             <label class="form-check-label" for="sponsor-type">
@@ -129,10 +129,10 @@
                         function(response) {
                             if (response.success) {
                                 alert('Pagamento avvenuto con sucesso!');
+                                window.location.replace('http://127.0.0.1:8000/logged/area-privata/' + {{ Auth::user()->id }})
                             } else {
                                 alert('Transazione fallita, riprova piu tardi!');
                             }
-                            location.reload();
                         }, 'json');
                 });
             });
@@ -142,5 +142,8 @@
 
 
 </div>
+
+@endif
+
 
 @endsection
