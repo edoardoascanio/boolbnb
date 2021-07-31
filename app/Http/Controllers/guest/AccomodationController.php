@@ -110,7 +110,11 @@ class AccomodationController extends Controller
         return view('guest.accomodation.show', ['accomodation' => $accomodation, 'images' => $images]);
     }
 
-    public function map() {
-        return view('guest.accomodation.map');
+    public function map(Request $request) {
+
+        $city = $request->only(["city"]);
+        $number_beds = $request->only(["number_beds"]);
+        $services = Service::all();
+        return view('guest.accomodation.map', ['city' => $city,'services' => $services, "number_beds" => $number_beds]);
     }
 }
