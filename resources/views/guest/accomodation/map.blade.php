@@ -3,12 +3,12 @@
 @section('content')
 
 <div class="card-body">
-@dump($city)
+
     <form @submit.prevent="filterData">
         <div class="row">
             <input type="text" placeholder="citta" id="city" value="{{ $city['city'] }}">
 
-            <input type="number" placeholder="n letti" id="beds">
+            <input type="number" placeholder="n letti" id="beds" value="{{ $number_beds['number_beds'] }}">
 
             <input type="number" placeholder="n stanze" id="rooms">
 
@@ -60,6 +60,7 @@
     <div class='map' id='map' style="width: 75%; height: 100%"></div>
 
 </div>
+
 <script>
     //myMethods
     //Filters
@@ -217,7 +218,7 @@
                     key: apiKey
                     , container: 'map'
                     , center: [center_point.lon, center_point.lat]
-                    , zoom: 13,
+                    , zoom: 11,
 
                 });
 

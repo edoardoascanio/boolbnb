@@ -17,7 +17,7 @@ class AccomodationController extends Controller
 {
     public function index(Request $request)
     {
-        $accomodations = Accomodation::with('services')->with('sponsorships')->with('views')->where('visibility', 1)->paginate(10);
+        $accomodations = Accomodation::with('services')->with('sponsorships')->with('views')->where('visibility', 1)->paginate(2);
         $now = date("Y-m-d H:i:s");
 
 
