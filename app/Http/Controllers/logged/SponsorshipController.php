@@ -11,9 +11,21 @@ use Illuminate\Http\Request;
 
 class SponsorshipController extends Controller
 {
-    public function create($id) {
+    public function create($id)
+    {
+        $accomodation = Accomodation::findOrFail($id);
+        
+        $now = date("Y-m-d H:i:s");
 
-        return view('logged.sponsorship.create', ['id' => $id]);
+        $sponsor = Sponsorship::where('accomodation_id', $accomodation->id)->where('end_date', '>', $now)->orderBy("created_at", "DESC")->limit(1)->get();
+        if (count($sponsor) == 0) {
+
+            $accomodation->sponsorActive = false;
+        } else {
+            $accomodation->sponsorActive = true;
+        }
+
+        return view('logged.sponsorship.create', ['id' => $id, 'sponsorActive' => $accomodation->sponsorActive]);
     }
 
     public function store(Request $request, $id)
@@ -29,7 +41,7 @@ class SponsorshipController extends Controller
         $verify = null;
         $sponsor = [];
 
-        if($data['option'] === 'bronze') {
+        if ($data['option'] === 'bronze') {
             $verify = true;
             $sponsor = [
                 'title' => 'bronze',
@@ -39,7 +51,7 @@ class SponsorshipController extends Controller
                 'accomodation_id' => $id,
             ];
         }
-        if($data['option'] === 'silver') {
+        if ($data['option'] === 'silver') {
             $verify = true;
             $sponsor = [
                 'title' => 'bronze',
@@ -49,7 +61,7 @@ class SponsorshipController extends Controller
                 'accomodation_id' => $id,
             ];
         }
-        if($data['option'] === 'gold') {
+        if ($data['option'] === 'gold') {
             $verify = true;
             $sponsor = [
                 'title' => 'gold',
@@ -60,15 +72,14 @@ class SponsorshipController extends Controller
             ];
         }
 
-        if($verify) {
+        if ($verify) {
 
             $new_sponsorship->fill($sponsor);
             $new_sponsorship->accomodation_id = $id;
-    
+
             $new_sponsorship->save();
         }
 
         return redirect()->route('logged.show', $id);
-
     }
 }
