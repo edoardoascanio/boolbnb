@@ -1,10 +1,12 @@
 @extends('layouts.mapLayout')
 
 @section('content')
+
 <div class="card-body">
+@dump($city)
     <form @submit.prevent="filterData">
         <div class="row">
-            <input type="text" placeholder="citta" id="city">
+            <input type="text" placeholder="citta" id="city" value="{{ $city['city'] }}">
 
             <input type="number" placeholder="n letti" id="beds">
 
@@ -80,6 +82,7 @@
     };
 
     window.addEventListener('load', () => {
+
         callAccomodations()
     })
 

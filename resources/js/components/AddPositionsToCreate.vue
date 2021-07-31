@@ -85,7 +85,7 @@
       <select name="check_in" id="check_in">
         <option value="" seletced>-- Scegli orario --</option>
         <option v-for="i in 24" :key="i" :value="i">
-          {{ (i < 10) ? "0" + i : i }}:00
+         
         </option>
       </select>
     </div>
@@ -95,7 +95,7 @@
       <select name="check_out" id="check_out">
         <option value="" seletced>-- Scegli orario --</option>
         <option v-for="i in 24" :key="i" :value="i">
-          {{ i < 10 ? "0" + i : i }}:00
+          
         </option>
       </select>
     </div>

@@ -14,12 +14,13 @@ use Illuminate\Support\Facades\Auth;
 
 class AccomodationController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $city = $request->only(["city"]);
         // $accomodations = Accomodation::orderBy('created_at', 'DESC')->where('visibility', true)->get();
         $services = Service::all();
 
-        return view('guest.accomodation.map', ['services' => $services]);
+        return view('guest.accomodation.map', ['services' => $services, 'city' => $city]);
     }
 
     public function show($id)
