@@ -1,10 +1,12 @@
 @extends('layouts.mapLayout')
 
 @section('content')
+
 <div class="card-body">
+@dump($city)
     <form @submit.prevent="filterData">
         <div class="row">
-            <input type="text" placeholder="citta" id="city">
+            <input type="text" placeholder="citta" id="city" value="{{ $city['city'] }}">
 
             <input type="number" placeholder="n letti" id="beds">
 
@@ -49,9 +51,9 @@
     <div class='control-panel'>
         <div class='heading'>
             <img src='https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/032017/untitled-6_25.png?itok=9ZEI6gJ3'>
-            <button onclick="clearAccomodations(); ">Cleara Accomodations</button>
-            <button onclick="callAccomodations()">Chiama Accomodations</button>
-            <button onclick="mixAccomodations()">Chiama mix</button>
+            
+            <button id="el">Chiama Accomodations</button>
+            
         </div>
         <div id='store-list'></div>
     </div>
@@ -64,12 +66,23 @@
 
     //
     var arrayAccomodation = [];
+    var el = document.getElementById('el')
+    el.addEventListener('click', function() {
+        clearAccomodations()
+    })
+    el.addEventListener('click', function() {
+        clearAccomodations()
+    })
+    el.addEventListener('click', function() {
+        callAccomodations()
+    })
     let stores = {
         "type": "FeatureCollection"
         , "features": arrayAccomodation
     };
 
     window.addEventListener('load', () => {
+
         callAccomodations()
     })
 
@@ -134,6 +147,7 @@
     };
 
         var city = document.getElementById('city').value
+        var center_point = null
         var beds = document.getElementById('beds').value
         var rooms = document.getElementById('rooms').value
         var services = document.getElementsByClassName('services')
@@ -170,6 +184,7 @@
             })
             .then((resp) => {
                 filteredAccomodations = resp.data.results;
+                center_point = resp.data.position;
 
                 console.log(servicesValue)
 
@@ -201,7 +216,7 @@
                 let map = tt.map({
                     key: apiKey
                     , container: 'map'
-                    , center: [filteredAccomodations[0].lon, filteredAccomodations[0].lat]
+                    , center: [center_point.lon, center_point.lat]
                     , zoom: 13,
 
                 });
