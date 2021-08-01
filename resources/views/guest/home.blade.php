@@ -27,59 +27,75 @@
         <div class="container">
             <h3>Le città del momento</h3>
 
-            {{-- <div class="city-img row">
-                <form class="city-card col-md-3 col-sm-6">
+            <div class="city-img row">
+                <form action="{{ route('guest.map') }}" method="post" class="city-card">
+                    @csrf
                     <img src="{{asset('imgs/Roma.jpg')}}" alt="homepage">
-            <div class="caption">
-                <strong>Roma</strong>
-            </div>
-            </form>
+                    <input type="text" value="roma" name="city">
+                    <input type="text" value="0" name="number_beds">
+                    <button type="submit">v</button>
+                    <div class="caption">
+                        <strong>Roma</strong>
+                    </div>
+                </form>
+                <form action="{{ route('guest.map') }}" method="post" class="city-card">
+                    @csrf
+                    <img src="{{asset('imgs/Firenze.jpg')}}" alt="homepage">
+                    <input type="text" value="Firenze" name="city">
+                    <input type="text" value="0" name="number_beds">
+                    <button type="submit">v</button>
+                    <div class="caption">
+                        <strong>Firenze</strong>
+                    </div>
+                </form>
+                <form action="{{ route('guest.map') }}" method="post" class="city-card">
+                    @csrf
+                    <img src="{{asset('imgs/Milano.jpg')}}" alt="homepage">
+                    <input type="text" value="Milano" name="city">
+                    <input type="text" value="0" name="number_beds">
+                    <button type="submit">v</button>
+                    <div class="caption">
+                        <strong>Milano</strong>
+                    </div>
+                </form>
+                <form action="{{ route('guest.map') }}" method="post" class="city-card">
+                    @csrf
+                    <img src="{{asset('imgs/Venezia.jpg')}}" alt="homepage">
+                    <input type="text" value="Venezia" name="city">
+                    <input type="text" value="0" name="number_beds">
+                    <button type="submit">v</button>
+                    <div class="caption">
+                        <strong>Venezia</strong>
+                    </div>
+                </form>
 
-            <div class="city-card col-md-3 col-sm-6">
-                <a href=""><img src="{{asset('imgs/Milano.jpg')}}" alt="homepage"></a>
-                <div class="caption">
-                    <strong>Milano</strong>
-                </div>
+                
+                
+
             </div>
 
-            <div class="city-card col-md-3 col-sm-6">
-                <a href=""><img src="{{asset('imgs/venezia.jpg')}}" alt="homepage"></a>
-                <div class="caption">
-                    <strong>Venezia</strong>
-                </div>
-            </div>
+            {{-- <div class="row justify-content-center">
+            <a href="http://127.0.0.1:8000/guest/prova?city=roma" class="col-md-3 col-sm-6 prova">
+                <img src="{{asset('imgs/Roma.jpg')}}" alt="homepage">
 
-            <div class="city-card col-md-3 col-sm-6">
-                <a href=""><img src="{{asset('imgs/firenze.jpg')}}" alt="homepage"></a>
-                <div class="caption">
-                    <strong>Firenze</strong>
-                </div>
-            </div>
+            <div><strong id="caption">Roma</strong></div>
+            </a>
+            <a class="col-md-3 col-sm-6 prova">
+                <img src="{{asset('imgs/Roma.jpg')}}" alt="homepage">
 
+                <div><strong id="caption">Roma</strong></div>
+            </a>
+            <a class="col-md-3 col-sm-6 prova">
+                <img src="{{asset('imgs/Roma.jpg')}}" alt="homepage">
+
+                <div><strong id="caption">Roma</strong></div>
+            </a>
+            <a class="col-md-3 col-sm-6 prova">
+                <img src="{{asset('imgs/Roma.jpg')}}" alt="homepage">
+
+                <div><strong id="caption">Roma</strong></div>
+            </a>
         </div> --}}
-
-        <div class="row justify-content-center">
-            <a href="{{ route('guest.prova', ['city' => 'roma']) }}" class="col-md-3 col-sm-6 prova">
-                <img src="{{asset('imgs/Roma.jpg')}}" alt="homepage">
-
-                <div><strong id="caption">Roma</strong></div>
-            </a>
-            <a class="col-md-3 col-sm-6 prova">
-                <img src="{{asset('imgs/Roma.jpg')}}" alt="homepage">
-
-                <div><strong id="caption">Roma</strong></div>
-            </a>
-            <a class="col-md-3 col-sm-6 prova">
-                <img src="{{asset('imgs/Roma.jpg')}}" alt="homepage">
-
-                <div><strong id="caption">Roma</strong></div>
-            </a>
-            <a class="col-md-3 col-sm-6 prova">
-                <img src="{{asset('imgs/Roma.jpg')}}" alt="homepage">
-
-                <div><strong id="caption">Roma</strong></div>
-            </a>
-        </div>
 </div>
 </section>
 

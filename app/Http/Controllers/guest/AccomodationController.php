@@ -118,10 +118,4 @@ class AccomodationController extends Controller
         return view('guest.accomodation.map', ['city' => $city,'services' => $services, "number_beds" => $number_beds]);
     }
 
-    public function prova(Request $request) {
-
-        $city =  $_GET(['city']);
-        
-        return view('guest.prova', ['city' => $city]);
-    }
 }

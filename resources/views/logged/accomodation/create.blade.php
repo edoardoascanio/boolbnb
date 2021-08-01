@@ -26,7 +26,7 @@
             </div>
 
             <div class="form-group load-img col-6">
-                <label for="placeholder">Carica img di copertina</label>
+                <label for="placeholder">Carica img di copertina</label><br>
                 <input type="file" name="placeholder" id="placeholder" accept=".jpg, .png, .svg, .jpeg">
             </div>
         </div>

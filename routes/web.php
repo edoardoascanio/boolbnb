@@ -35,7 +35,7 @@ Route::prefix('guest')
         Route::get('index', "AccomodationController@index")->name("index");
 
         Route::post('map', "AccomodationController@map")->name("map");
-        Route::post('prova', "AccomodationController@prova")->name("prova");
+        Route::get('prova', "AccomodationController@prova")->name("prova");
         Route::get('show/{id}', "AccomodationController@show")->name("show");
     });
 
