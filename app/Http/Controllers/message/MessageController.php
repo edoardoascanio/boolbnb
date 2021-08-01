@@ -13,28 +13,30 @@ use Illuminate\Support\Facades\Mail;
 
 class MessageController extends Controller
 {
-    public function create($id) {
+    public function create($id)
+    {
         $accomodation = Accomodation::findOrFail($id);
 
         return view('message.create', compact('accomodation'));
     }
 
-    public function store(Request $request, $id) {
-        
+    public function store(Request $request, $id)
+    {
+
         $request->validate([
             'object_email' => 'required|string|min:1|max:255',
             'content' => 'required|string|min:5|max:1000',
             'email_sender' => 'required|string|max:255',
         ]);
-        
+
         $message = new Message();
-        
+
         $data = $request->all();
-        
+
         $message->fill($data);
-        
+
         $message->accomodation_id = $id;
-        
+
         $message->save();
         $accomodation = Accomodation::findOrFail($id);
         $owner = User::findOrFail($accomodation->user_id);
@@ -44,15 +46,25 @@ class MessageController extends Controller
         return redirect()->route('guest.show', $id);
     }
 
-    public function index($id) {
+    public function index($id)
+    {
         $messages = Message::where('accomodation_id', $id)->get();
+        $accomodation = Accomodation::findOrFail($id);
+        if (isset(Auth::user()->id) && Auth::user()->id == $accomodation->user_id) {
 
-        return view('message.index', ['messages' => $messages]);
+            return view('message.index', ['messages' => $messages]);
+        }
+        abort(403, 'Unauthorized action.');
     }
 
-    public function show($id) {
+    public function show($id)
+    {
         $message = Message::findOrFail($id);
+        $accomodation = Accomodation::findOrFail($message->accomodation_id);
+        if (isset(Auth::user()->id) && Auth::user()->id == $accomodation->user_id) {
 
-        return view('message.show', compact('message'));
+            return view('message.show', compact('message'));
+        }
+        abort(403, 'Unauthorized action.');
     }
 }
