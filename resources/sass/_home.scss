@@ -42,6 +42,8 @@
             margin-bottom: 40px;
         }
 
+
+
         // .city-img {
         //     align-items: center;
         //     justify-content: space-between;
@@ -72,7 +74,7 @@
         // }
         .prova {
             justify-content: space-between;
-            
+            margin-bottom: 25px;
             width: 240px;
             height: 240px;
             border-radius: 8px;
@@ -173,5 +175,12 @@
                 @include blu-btn
             }
         }
+    }
+}
+
+@media (max-width: 575px) {
+
+    .hero > .container > .row {
+        justify-content: center;
     }
 }

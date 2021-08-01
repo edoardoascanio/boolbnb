@@ -6,7 +6,7 @@
     <section class="hero">
         <div class="container">
             <div class="row">
-                <div class="card col-lg-4 col-md-6 col-sm-12 col-xs-12">
+                <div class="card col-lg-4 col-md-6 col-sm-12">
                     <div class="card-body">
                         <h1>Affitti per le tue vacanze</h1>
                         <p>Prenota un alloggio su Boolbnb</p>
@@ -58,7 +58,7 @@
 
         </div> --}}
 
-        <div class="row">
+        <div class="row justify-content-center">
             <a href="{{ route('guest.prova', ['city' => 'roma']) }}" class="col-md-3 col-sm-6 prova">
                 <img src="{{asset('imgs/Roma.jpg')}}" alt="homepage">
 

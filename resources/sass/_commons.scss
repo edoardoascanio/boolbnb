@@ -9,6 +9,12 @@ h1,h3{
 }
 
 main.py-4{
-    padding-top: 79px !important;
+    padding-top: 60px !important;
     padding-bottom: 0;
+}
+
+@media (min-width: 768px) {
+    main.py-4 {
+        padding-top: 79px !important;
+    }
 }

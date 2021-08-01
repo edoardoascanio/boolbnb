@@ -10954,8 +10954,14 @@ h3 {
 }
 
 main.py-4 {
-  padding-top: 79px !important;
+  padding-top: 60px !important;
   padding-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  main.py-4 {
+    padding-top: 79px !important;
+  }
 }
 
 .navbar {
@@ -11092,6 +11098,7 @@ footer {
 
 .home-container .city .prova {
   justify-content: space-between;
+  margin-bottom: 25px;
   width: 240px;
   height: 240px;
   border-radius: 8px;
@@ -11222,6 +11229,12 @@ footer {
 .home-container .register .reg-img .reg-btn:hover {
   background-color: #3490dc;
   transition: 0.2s;
+}
+
+@media (max-width: 575px) {
+  .hero > .container > .row {
+    justify-content: center;
+  }
 }
 
 .background-page {
