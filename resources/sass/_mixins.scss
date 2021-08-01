@@ -37,6 +37,17 @@
     }
 }
 
+@mixin red-btn {
+    color: $body-bg;
+    background-color: $orange;
+    padding: 10px;
+
+    &:hover {
+        background-color: $red;
+        transition: 0.2s;
+    }
+}
+
 @mixin background-img {
     background-size: cover;
     background-repeat: no-repeat;

@@ -47,10 +47,16 @@
     .accomodation-btn{
         display:flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        width: 100%;
         align-items: center;
-        .btn {
+        .card-btn {
+            // width: 130px;
             @include blu-btn;
+        }
+        .danger {
+            @include red-btn;
         }
     }
     .prova {
@@ -64,6 +70,7 @@
             max-height: 210px;
             text-overflow: ellipsis;
             margin: 0;
+            padding-bottom: 10px;
         }
     }
 }

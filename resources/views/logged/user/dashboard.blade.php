@@ -71,7 +71,7 @@
 @section('content')
 <div class="container dash-container">
     <div class="card dash-card">
-        <h3 class="dash-title">Benvenuto {{Auth::user()->name}}</h3>
+        <h3 class="dash-title">Dashboard di {{Auth::user()->name}}</h3>
         <a href="{{ route('logged.create') }}"> <i class="fa fa-plus-square-o"></i> <strong>Crea</strong></a>
     </div>
 
@@ -90,27 +90,27 @@
 
                             <p class="">{{ $accomodation->description }}</p>
 
-                            <div class="">
+                            
                                 <div class="accomodation-btn">
-                                    <div class="visua">
-                                        <a href="{{ route('logged.show', ['id' => $accomodation->id]) }}" class="card-btn btn btn-primary">Visualizza</a>
-                                    </div>
+                                    
+                                        <a href="{{ route('logged.show', ['id' => $accomodation->id]) }}" class="card-btn btn">Visualizza</a>
+                                    
 
-                                    <div class="message">
-                                        @if(count($accomodation->messages) > 0)
-                                        <a href="{{ route('message.index', $accomodation->id) }}" class="card-btn btn btn-primary">Hai {{ count($accomodation->messages) }} Messaggi</a>
-                                        @else
+                                    
+                                        {{-- @if(count($accomodation->messages) > 0) --}}
+                                        {{-- <a href="{{ route('message.index', $accomodation->id) }}" class="card-btn btn btn-primary">Hai {{ count($accomodation->messages) }} Messaggi</a> --}}
+                                        {{-- @else
                                         <p>Non hai nessun messaggio</p>
-                                        @endif
+                                        @endif --}}
                                         @if($accomodation->sponsorActive)
-                                        <p>Hai già una sponsorizzazione</p>
+                                        <button class="card-btn btn danger">Già sponsorizzato</button>
                                         @else
-                                        <a href="{{ route('logged.sponsorship.create', $accomodation->id) }}" class="btn btn-primary">Sponsorizza</a><br>
+                                        <a href="{{ route('logged.sponsorship.create', $accomodation->id) }}" class="card-btn btn">Sponsorizza</a><br>
                                         @endif
 
-                                    </div>
+                                    
                                 </div>
-                            </div>
+                            
 
                         </div>
                     </div>

@@ -11074,6 +11074,7 @@ footer {
   border-radius: 5px;
   border: 1px solid #9198a4;
   margin-bottom: 20px;
+  outline-color: #71a8cd;
 }
 
 .home-container .hero .card .card-body .search-btn {
@@ -11365,18 +11366,31 @@ footer {
 .dash-container .accomodation-btn {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 100%;
   align-items: center;
 }
 
-.dash-container .accomodation-btn .btn {
+.dash-container .accomodation-btn .card-btn {
   color: #ffff;
   background-color: #71a8cd;
   padding: 10px;
 }
 
-.dash-container .accomodation-btn .btn:hover {
+.dash-container .accomodation-btn .card-btn:hover {
   background-color: #3490dc;
+  transition: 0.2s;
+}
+
+.dash-container .accomodation-btn .danger {
+  color: #ffff;
+  background-color: #f6993f;
+  padding: 10px;
+}
+
+.dash-container .accomodation-btn .danger:hover {
+  background-color: #e3342f;
   transition: 0.2s;
 }
 
@@ -11393,6 +11407,7 @@ footer {
   max-height: 210px;
   text-overflow: ellipsis;
   margin: 0;
+  padding-bottom: 10px;
 }
 
 .create-container {
