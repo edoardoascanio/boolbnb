@@ -144,7 +144,7 @@
     <div class="container">
         <h3>Servizi che potresti trovare </h3>
 
-        <div class="row text-center">
+        <div class="row text-center justify-content-between">
 
             <div class="servicies-card col-lg-2 col-md-12 col-sm-12 col-xs-12">
                 <i class="fa fa-cutlery" aria-hidden="true"></i>
