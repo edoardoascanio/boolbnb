@@ -151,7 +151,8 @@
                             , "city": filteredAccomodations[i].city
                             , "title": filteredAccomodations[i].title
                             , "number_rooms": filteredAccomodations[i].number_rooms
-                            , "placeholder": "https://i0.wp.com/reviveyouthandfamily.org/wp-content/uploads/2016/11/house-placeholder.jpg?ssl=1"
+                            , "placeholder": filteredAccomodations[i].placeholder
+                            
                         }
                     }, )
                 }
