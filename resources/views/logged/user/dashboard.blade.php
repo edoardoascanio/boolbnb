@@ -103,7 +103,7 @@
                                         <p>Non hai nessun messaggio</p>
                                         @endif --}}
                                         @if($accomodation->sponsorActive)
-                                        <button class="card-btn btn danger">Già sponsorizzato</button>
+                                        <button class="card-btn btn danger">Già Sponsorizzato</button>
                                         @else
                                         <a href="{{ route('logged.sponsorship.create', $accomodation->id) }}" class="card-btn btn">Sponsorizza</a><br>
                                         @endif
