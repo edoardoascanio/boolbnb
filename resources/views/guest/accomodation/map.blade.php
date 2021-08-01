@@ -33,8 +33,8 @@
             @endforeach
         </div>
         <div>
-            <input type="button" value="FILTRA" />
-            <input type="button" value="RESET" />
+            <input type="button" id="el" value="FILTRA" />
+            <input type="reset" value="RESET" onclick="doSomethingWith(20)"/>
         </div>
     </form>
 </div>
@@ -42,16 +42,13 @@
     <div class='control-panel'>
         <div class='heading'>
             <img src='https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/032017/untitled-6_25.png?itok=9ZEI6gJ3'>
-            <button id="el">Chiama Accomodations</button>
         </div>
         <div id='store-list'></div>
     </div>
     <div class='map' id='map' style="width: 75%; height: 100%"></div>
 </div>
 <script>
-    //myMethods
-    //Filters
-    //
+   
     var dynamicRange = document.getElementById('range');
     dynamicRange.addEventListener('input', function(event) {
         var inputValue = event.target.value;
@@ -149,6 +146,7 @@
                             ]
                         }
                         , "properties": {
+                            //Aggiungere qua 1
                             "address": filteredAccomodations[i].street_name + " " + filteredAccomodations[i].building_number + ", " + filteredAccomodations[i].zip + " " + filteredAccomodations[i].province
                             , "city": filteredAccomodations[i].city
                             , "title": filteredAccomodations[i].title
@@ -167,6 +165,7 @@
                 let markersCity = [];
                 let list = document.getElementById('store-list');
                 stores.features.forEach(function(store, index) {
+                    //Aggiungere qua 2
                     let placeholder = store.properties.placeholder;
                     let city = store.properties.city;
                     let address = store.properties.address;
@@ -177,6 +176,7 @@
                     , }).setHTML(address)).addTo(map);
                     markersCity[index] = {
                         marker
+                        //Forse aggiungere qua
                         , placeholder
                         , city
                         , title
