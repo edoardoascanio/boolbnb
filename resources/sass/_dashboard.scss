@@ -1,0 +1,69 @@
+.dash-container {
+    padding-top: 30px;
+    .dash-card {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background-color: $primary;
+        color: $body-bg;
+        .dash-title {
+            text-transform: capitalize;
+            margin: 0;
+        }
+
+        a {
+            color: $body-bg;
+            font-size: 16px;
+        }
+        
+    }
+
+    .dash-body {
+        height: 70vh;
+        overflow: auto;
+
+        .accomodation-card {
+            padding: 15px 0;
+
+            .card-body {
+                width: 80%;
+                margin: auto;
+                .card-title {
+                    text-transform: capitalize;
+                }
+            }
+        }
+
+    }
+
+    .card-text {
+        display: flex;
+        flex-direction: column;
+        align-content: space-between;
+    }
+
+    .accomodation-btn{
+        display:flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        .btn {
+            @include blu-btn;
+        }
+    }
+    .prova {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        p {
+            flex-grow: 1;
+            overflow: auto;
+            max-height: 210px;
+            text-overflow: ellipsis;
+            margin: 0;
+        }
+    }
+}

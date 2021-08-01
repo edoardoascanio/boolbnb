@@ -1,8 +1,39 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css2?family=Maven');
 
 // Variables
 @import 'variables';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+// Commons
+@import 'commons';
+
+// Mixins
+@import 'mixins';
+
+// Nav bar
+@import 'nav';
+
+// Footer
+@import 'footer';
+
+// Home
+@import 'home';
+
+// Register
+@import 'register';
+
+// Dashboard
+@import 'dashboard';
+
+// Create-edit
+@import 'create-edit';
+
+// Form-image
+@import 'form-image';
+
+
+
+
