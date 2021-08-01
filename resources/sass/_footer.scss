@@ -1,0 +1,48 @@
+footer {
+    background-color: $foot-bg;
+    padding: 30px;
+}
+
+.footer-block {
+    ul { 
+        list-style: none;
+
+        li {
+            margin-top: 15px;
+
+            a {
+                text-decoration: none;
+                color: $secondColor;
+
+                &:hover {
+                    color: black;
+                    transition: 0.1s;
+                    margin-left: 1px;
+                }
+            }
+        }
+    }
+
+    .copyright p,.copyright i {
+        flex-direction: column;
+        color: $secondColor;
+        font-size: 14px;
+    }
+
+    .footer-right{
+        
+        strong{
+            margin-right: 20px;
+        }
+        .footer-icons{
+            display: inline-block;
+            
+            i{
+                margin-right: 10px;
+                &:hover{
+                    color: $primary;
+                }
+            }
+        }
+    }
+}
