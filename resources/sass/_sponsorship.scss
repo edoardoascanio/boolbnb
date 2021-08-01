@@ -1,0 +1,94 @@
+
+#sponsorships {
+
+    .col-md-8 {
+       margin: 0 auto 10px;
+       text-align: center;
+ 
+       h5 {
+          margin-bottom: 15px;
+       }
+ 
+       h6 {
+          margin-bottom: 10px;
+          padding: 0 15px;
+          font-size: 15px;
+       }
+    }
+ 
+    .form-check {
+       padding: 0 !important;
+    }
+ 
+    .card {
+       margin-bottom: 15px;
+       box-shadow: 0px 0px 5px -1px rgb(0 0 0 / 30%);
+ 
+       .card-body {
+          padding-left: 0;
+          padding-right: 0;
+       }
+ 
+       label {
+          cursor: pointer;
+       }
+ 
+       .color {
+          margin-bottom: 20px;
+ 
+          .bronze {
+             color: #cd7f32;
+          }
+          .silver {
+             color: #c0c0c0;
+          }
+          .gold {
+             color: #ffd700;
+          }
+ 
+          h6:last-child {
+             font-weight: bold;
+          }
+       }
+ 
+       .form-check-input {
+          transform: translate(-50%,-50%);
+          left: 50%;
+          height: 15px;
+          margin: 0 !important;
+          cursor: pointer;
+       }
+    }
+ 
+    .card:hover {
+       box-shadow: 0px 0px 5px 0px rgb(0 0 0 / 30%);
+    }
+ }
+ 
+ .bnb-totalMain {
+ 
+    .bnb-mainPayment {
+       text-align: center;
+    }
+ 
+    .row, .bnb-totalContainer {
+       display: flex;
+       justify-content: center;
+    }
+ 
+    #submit-button {
+       margin: 0 auto;
+    }
+ }
+ 
+ @media (min-width: 992px) {
+ 
+    #sponsorships .col-md-8 > .row {
+       display: flex;
+       justify-content: space-around;
+    }
+ 
+    #sponsorships .col-md-8 {
+       margin: 15px auto 25px;
+    }
+ }

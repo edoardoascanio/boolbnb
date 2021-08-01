@@ -11459,3 +11459,93 @@ footer {
   transition: 0.2s;
 }
 
+#sponsorships .col-md-8 {
+  margin: 0 auto 10px;
+  text-align: center;
+}
+
+#sponsorships .col-md-8 h5 {
+  margin-bottom: 15px;
+}
+
+#sponsorships .col-md-8 h6 {
+  margin-bottom: 10px;
+  padding: 0 15px;
+  font-size: 15px;
+}
+
+#sponsorships .form-check {
+  padding: 0 !important;
+}
+
+#sponsorships .card {
+  margin-bottom: 15px;
+  box-shadow: 0px 0px 5px -1px rgba(0, 0, 0, 0.3);
+}
+
+#sponsorships .card .card-body {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#sponsorships .card label {
+  cursor: pointer;
+}
+
+#sponsorships .card .color {
+  margin-bottom: 20px;
+}
+
+#sponsorships .card .color .bronze {
+  color: #cd7f32;
+}
+
+#sponsorships .card .color .silver {
+  color: #c0c0c0;
+}
+
+#sponsorships .card .color .gold {
+  color: #ffd700;
+}
+
+#sponsorships .card .color h6:last-child {
+  font-weight: bold;
+}
+
+#sponsorships .card .form-check-input {
+  transform: translate(-50%, -50%);
+  left: 50%;
+  height: 15px;
+  margin: 0 !important;
+  cursor: pointer;
+}
+
+#sponsorships .card:hover {
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+}
+
+.bnb-totalMain .bnb-mainPayment {
+  text-align: center;
+}
+
+.bnb-totalMain .row,
+.bnb-totalMain .bnb-totalContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.bnb-totalMain #submit-button {
+  margin: 0 auto;
+}
+
+@media (min-width: 992px) {
+  #sponsorships .col-md-8 > .row {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  #sponsorships .col-md-8 {
+    margin: 15px auto 25px;
+  }
+}
+

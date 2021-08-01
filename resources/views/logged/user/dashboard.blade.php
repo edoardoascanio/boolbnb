@@ -102,6 +102,11 @@
                                         @else
                                         <p>Non hai nessun messaggio</p>
                                         @endif
+                                        @if($accomodation->sponsorActive)
+                                        <p>Hai già una sponsorizzazione</p>
+                                        @else
+                                        <a href="{{ route('logged.sponsorship.create', $accomodation->id) }}" class="btn btn-primary">Sponsorizza</a><br>
+                                        @endif
 
                                     </div>
                                 </div>

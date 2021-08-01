@@ -6,83 +6,80 @@
 @if($sponsorActive)
    <h1> Il tuo appartamento è già sponsorizzato </h1>
 @else
-    <div class="row">
-        <div class="form-check bnb-formCheck">
-            <input class="form-check-input sponsor-type bnb-sponsorType" checked type="radio"  name="sponsor-type" id="1" value="bronze">
-            <label class="form-check-label" for="sponsor-type">
-                Pacchetto Bronzo
-            </label>
-        </div>
-        <div class="form-check bnb-formCheck">
-            <input class="form-check-input sponsor-type bnb-sponsorType" type="radio"  name="sponsor-type" id="2" value="silver">
-            <label class="form-check-label" for="sponsor-type">
-                Pacchetto silver
-            </label>
-        </div>
-        <div class="form-check bnb-formCheck">
-            <input class="form-check-input sponsor-type bnb-sponsorType" type="radio"  name="sponsor-type" id="3" value="gold">
-            <label class="form-check-label" for="sponsor-type">
-                Pacchetto Oro
-            </label>
-        </div>
+    <div id="sponsorships" class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="card col-12 col-lg-3">
+                        <label class="form-check-label" for="1">
+                            <div class="card-body">
+                                <div class="form-check bnb-formCheck">
+                                    <div class="color">
+                                        <h5 class="bronze">Pacchetto Bronze</h5>
+                                        <h6>Appartamento sponsorizzato per 24 ore</h6>
+                                        <h6>2.99&#8364;</h6>
+                                    </div>
+                                    <input class="form-check-input sponsor-type bnb-sponsorType" checked type="radio"  name="sponsor-type" id="1" value="bronze">
+                                </div>
+                            </div>
+                        </label>
+                    </div>
 
+                    <div class="card col-12 col-lg-3">
+                        <label class="form-check-label" for="2">
+                            <div class="card-body">
+                                <div class="form-check bnb-formCheck">
+                                    <div class="color">
+                                        <h5 class="silver">Pacchetto Silver</h5>
+                                        <h6>Appartamento sponsorizzato per 72 ore</h6>
+                                        <h6>5.99&#8364;</h6>
+                                    </div>
+                                    <input class="form-check-input sponsor-type bnb-sponsorType" type="radio"  name="sponsor-type" id="2" value="silver">
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="card col-12 col-lg-3">
+                        <label class="form-check-label" for="3">
+                            <div class="card-body">
+                                <div class="form-check bnb-formCheck">
+                                    <div class="color">
+                                        <h5 class="gold">Pacchetto Gold</h5>
+                                        <h6>Appartamento sponsorizzato per 144 ore</h6>
+                                        <h6>9.99&#8364;</h6>
+                                    </div>
+                                    <input class="form-check-input sponsor-type bnb-sponsorType" type="radio"  name="sponsor-type" id="3" value="gold">
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="container bnb-totalMain">
-
         <div class="bnb-mainPayment">
-            <div class="container bnb-totalContainer">
-                <div class="bnb-text">
+            <div class="bnb-totalContainer">
+                <div class="bnb-text col-md-8">
                     <h1>Sponsorizza il tuo appartamento!</h1>
-                    <p>
-                        Sponsorizza ora il tuo appartamento e questo verrà mostrato per primo nella homepage o se corrisponde ad una
-                        ricerca!
-                    </p>
+                    <p>Sponsorizza ora il tuo appartamento e questo verrà mostrato per primo nella homepage o se corrisponde ad una ricerca!</p>
                 </div>
-
-                @php
-                /* if (count($flat->sponsor) > 0) {
-                $sponsorEnd = $flat->sponsor[count($flat->sponsor) - 1]->sponsor_end;
-                if($sponsorEnd > date("Y-m-d H:i:s")){
-                $sponsorActiveFlag = true;
-                }else {
-                $sponsorActiveFlag = false;
-                }
-                }else{
-                $sponsorEnd = 0;
-                $sponsorActiveFlag = false;
-                } */
-                @endphp
-
-
-                {{--@if (!$sponsorActiveFlag)
-        @foreach ($sponsorTypes as $sponsorType)
-        <div class="form-check bnb-formCheck">
-            <input class="form-check-input sponsor-type bnb-sponsorType" type="radio" v-on:click="changeFlag()" name="sponsor-type" id="sponsor-type{{ $sponsorType->id }}" value="{{ $sponsorType->id }}">
-                <label class="form-check-label" for="sponsor-type">
-                    Pacchetto {{ $sponsorType->sponsor_name }}: &nbsp; Durata della sponsorizzazione: {{ $sponsorType->sponsor_duration }}/h &nbsp;&nbsp; Prezzo:
-                    {{ $sponsorType->sponsor_price }} &euro;
-                </label>
             </div>
-            @endforeach
-            @endif
-
-            @if ($sponsorActiveFlag)
-            <h2 class="advertice">Questo appartamento ha già una sponsorizzazione attiva in scadenza il {{$sponsorEnd}}</h2>
-            @endif
-            --}}
-
         </div>
-    </div>
-    {{-- container pagamento --}}
-    <div id="payment-container" class="container disabled-payment">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div id="dropin-container"></div>
-                <button class="btn btn-dark" id="submit-button">Invia Pagamento</button>
+        <div id="payment-container" class="disabled-payment">
+            <div class="row">
+                <div class="col-md-8">
+                    <div id="dropin-container"></div>
+                    <div class="d-flex">
+                        <button class="btn btn-dark" id="submit-button">Invia Pagamento</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
 </div>
 
 <script>
@@ -129,7 +126,7 @@
                         function(response) {
                             if (response.success) {
                                 alert('Pagamento avvenuto con sucesso!');
-                                window.location.replace('http://127.0.0.1:8000/logged/area-privata')
+                                window.location.replace('http://127.0.0.1:8000/logged/area-privata/)
                             } else {
                                 alert('Transazione fallita, riprova piu tardi!');
                             }
@@ -140,10 +137,6 @@
 
 </script>
 
-
-</div>
-
 @endif
-
 
 @endsection
