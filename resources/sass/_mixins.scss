@@ -1,0 +1,54 @@
+@mixin overlay {
+    height: 100%;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgb(128, 226, 180);
+    background: linear-gradient(0deg, rgba(128,226,180,0.7402311266303396) 0%, rgba(66,126,213,0.8) 100%);
+    color: #f1f1f1;
+    width: 100%;
+    transition: 0.5s ease;
+    opacity: 0;
+
+
+    i {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 20px;
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.8);
+        border-radius: 50%;
+
+    }
+}
+
+@mixin blu-btn {
+    color: $body-bg;
+    background-color: $primary;
+    padding: 10px;
+
+    &:hover {
+        background-color: $blue;
+        transition: 0.2s;
+    }
+}
+
+@mixin background-img {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: cover;
+}
+
+@mixin background-page {
+    width: 100%;
+    height: 100vh;
+    padding-top: 150px;
+    background-image: url(imgs/jumbo-cover.jpg);
+    background-size: cover;
+    background-position: cover;
+    background-repeat: no-repeat;
+}

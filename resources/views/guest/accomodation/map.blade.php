@@ -1,22 +1,15 @@
 @extends('layouts.mapLayout')
-
 @section('content')
-
 <div class="card-body">
-
     <form @submit.prevent="filterData">
         <div class="row">
             <input type="text" placeholder="citta" id="city" value="{{ $city['city'] }}">
-
             <input type="number" placeholder="n letti" id="beds" value="{{ $number_beds['number_beds'] }}">
-
             <input type="number" placeholder="n stanze" id="rooms">
-
-
             <div class="mb-3">
-                <label for="distance" class="forma-label">Distanza</label>
-                <input class="form-control" type="range" id="distance" name="distance" min="0" max="40" step="1" list="tickmarks" />
-
+                <label for="range" class="forma-label">Distanza:</label>
+                <span id="ciccio">20 Km</span>
+                <input class="form-control" type="range" id="range" name="range" min="0" max="40" step="1" list="tickmarks" />
                 <datalist id="tickmarks">
                     <option value="0"></option>
                     <option value="5"></option>
@@ -40,32 +33,33 @@
             @endforeach
         </div>
         <div>
-            <input type="button" value="FILTRA" />
-            <input type="button" value="RESET" />
+            <input type="button" id="el" value="FILTRA" />
+            <input type="reset" value="RESET" onclick="doSomethingWith(20)"/>
         </div>
     </form>
 </div>
-
 <div class="container_map">
-
     <div class='control-panel'>
         <div class='heading'>
             <img src='https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/032017/untitled-6_25.png?itok=9ZEI6gJ3'>
-            
-            <button id="el">Chiama Accomodations</button>
-            
         </div>
         <div id='store-list'></div>
     </div>
     <div class='map' id='map' style="width: 75%; height: 100%"></div>
-
 </div>
-
 <script>
-    //myMethods
-    //Filters
+   
+    var dynamicRange = document.getElementById('range');
+    dynamicRange.addEventListener('input', function(event) {
+        var inputValue = event.target.value;
+        doSomethingWith(inputValue);
+    });
 
-    //
+    function doSomethingWith(value) {
+        console.log(value)
+        var myel = document.getElementById("ciccio");
+        myel.innerHTML = value + " Km"
+    }
     var arrayAccomodation = [];
     var el = document.getElementById('el')
     el.addEventListener('click', function() {
@@ -81,9 +75,7 @@
         "type": "FeatureCollection"
         , "features": arrayAccomodation
     };
-
     window.addEventListener('load', () => {
-
         callAccomodations()
     })
 
@@ -92,103 +84,57 @@
         alert('cacdnjkbf')
         clearAccomodations()
         alert('v,m sdkjvbkwejv')
-
         callAccomodations()
-        
-
     }
-
-
 
     function clearAccomodations() {
         arrayAccomodation = []
-
-
-
-
         var mylength = $('[id^=banana]').length
-        if(mylength > 0) {
-        for (i = 0; mylength; i++) {
-            var myobj = document.getElementById("banana");
-            myobj.remove();
+        if (mylength > 0) {
+            for (i = 0; mylength; i++) {
+                var myobj = document.getElementById("banana");
+                myobj.remove();
             }
         }
         myMarkerLength = $(".mapboxgl-marker-anchor-bottom").length
-
         for (y = 0; y < myMarkerLength; y++) {
             $(".mapboxgl-marker-anchor-bottom").remove()
         }
-
-
-
-        //callAccomodations()
-
-        // myPointerLength = document.getElementsByClassName("mapboxgl-marker-anchor-bottom").length
-
-        // for(i=0; i<myPointerLength; i++) {
-        //     document.getElementsByClassName("mapboxgl-marker-anchor-bottom").remove()
-
-        // }
-        // console.log(document.getElementsByClassName("mapboxgl-marker-anchor-bottom").length)
-        // var myMarker = document.getElementsByClassName("mapboxgl-marker-anchor-bottom")
-        // myMarker.remove()
-
-
-
-
-
-
     }
 
     function callAccomodations() {
-    var filteredAccomodations = []
-    stores = {
-        "type": "FeatureCollection"
-        , "features": arrayAccomodation
-    };
-
+        var filteredAccomodations = []
+        stores = {
+            "type": "FeatureCollection"
+            , "features": arrayAccomodation
+        };
         var city = document.getElementById('city').value
         var center_point = null
         var beds = document.getElementById('beds').value
         var rooms = document.getElementById('rooms').value
+        var range = document.getElementById('range').value
         var services = document.getElementsByClassName('services')
         var empty = [].filter.call(services, function(el) {
             return !el.checked.value
         });
         var servicesValue = []
-        
         $.each($("input[name='service']:checked"), function() {
             servicesValue.push(parseInt($(this).val()));
         });
-        //if(services.lenght > 0) {
-
-        //for(x = 0; x < services.lenght; x++) {
-
-        //    servicesValue.push(services[x].id)
-        //}
-        //}
-
-        var filters = {
-            city: city
-            , number_beds: beds
-            , number_rooms: rooms
-        , }
 
         axios.get("/api/accomodation/filtered", {
                 params: {
                     city: city
                     , number_beds: beds
-                    , number_rooms: rooms,
-                    services: servicesValue
-                   
-                 }
+                    , number_rooms: rooms
+                    , services: servicesValue
+                    , range: range
+                }
             })
             .then((resp) => {
                 filteredAccomodations = resp.data.results;
                 center_point = resp.data.position;
-
                 console.log(servicesValue)
-
                 for (i = 0; i < filteredAccomodations.length; i++) {
                     arrayAccomodation.push({
                         "type": "Feature"
@@ -200,6 +146,7 @@
                             ]
                         }
                         , "properties": {
+                            //Aggiungere qua 1
                             "address": filteredAccomodations[i].street_name + " " + filteredAccomodations[i].building_number + ", " + filteredAccomodations[i].zip + " " + filteredAccomodations[i].province
                             , "city": filteredAccomodations[i].city
                             , "title": filteredAccomodations[i].title
@@ -207,49 +154,39 @@
                             , "placeholder": "https://i0.wp.com/reviveyouthandfamily.org/wp-content/uploads/2016/11/house-placeholder.jpg?ssl=1"
                         }
                     }, )
-
-
-
-
                 }
-
                 let apiKey = 'x03gOYgHS1403BuzYDLDXT3SZEhCK1sB';
                 let map = tt.map({
                     key: apiKey
                     , container: 'map'
                     , center: [center_point.lon, center_point.lat]
-                    , zoom: 11,
-
-                });
-
+                    , zoom: 11
+                , });
                 let markersCity = [];
                 let list = document.getElementById('store-list');
-
                 stores.features.forEach(function(store, index) {
-
+                    //Aggiungere qua 2
                     let placeholder = store.properties.placeholder;
                     let city = store.properties.city;
                     let address = store.properties.address;
                     let location = store.geometry.coordinates;
                     let title = store.properties.title;
                     let marker = new tt.Marker().setLngLat(location).setPopup(new tt.Popup({
-                        offset: 35,
-
-                    }).setHTML(address)).addTo(map);
+                        offset: 35
+                    , }).setHTML(address)).addTo(map);
                     markersCity[index] = {
                         marker
+                        //Forse aggiungere qua
                         , placeholder
                         , city
                         , title
                     , };
-
                     let cityStoresList = document.getElementById(city);
                     if (cityStoresList === null) {
                         let cityStoresListHeading = list.appendChild(document.createElement('h3'));
                         // cityStoresListHeading.innerHTML = city;
                         cityStoresList = list.appendChild(document.createElement('div'));
                         cityStoresList.id = "banana";
-
                         cityStoresList.className = 'list-entries-container';
                         cityStoresListHeading.addEventListener('click', function(e) {
                             map.fitBounds(getMarkersBoundsForCity(e.target.innerText), {
@@ -257,9 +194,7 @@
                             });
                         });
                     }
-
                     let details = buildLocation(cityStoresList, address, title);
-
                     marker.getElement().addEventListener('click', function() {
                         let activeItem = document.getElementsByClassName('selected');
                         if (activeItem[0]) {
@@ -268,7 +203,6 @@
                         details.classList.add('selected');
                         openCityTab(city);
                     });
-
                     details.addEventListener('click', function() {
                         let activeItem = document.getElementsByClassName('selected');
                         if (activeItem[0]) {
@@ -281,7 +215,6 @@
                         });
                         closeAllPopups();
                         marker.togglePopup();
-
                     });
 
                     function buildLocation(htmlParent, text) {
@@ -322,12 +255,7 @@
                         }
                     }
                 });
-
-
-
-
             })
-
     }
 
 </script>

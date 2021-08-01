@@ -62,16 +62,6 @@ class PaymentsController extends Controller
             $sponsorship->end_date = date("Y-m-d H:i:s", strtotime(sprintf("+%d hours", $sponsorship->duration)));
             $sponsorship->save();
 
-            // $user = Auth::user()->id;
-            // $accomodation = Accomodation::findOrFail($request->input('flat'));
-
-            // $argument = [
-            //     'accomodation' => $accomodation,
-            //     'sponsorship' => $sponsorship,
-            // ];
-
-            // Mail::to($user->email)->send(new SponsorshipMail($argument));
-
             return response()->json($status);
         }else{
             return response()->json($status);

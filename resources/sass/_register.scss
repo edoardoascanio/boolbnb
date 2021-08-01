@@ -1,0 +1,42 @@
+.background-page{
+
+    @include background-page;
+}
+
+.card{
+    box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.3);
+
+    .card-header{
+        color: $body-bg;
+        background-color: $primary;
+    }
+
+    .blu-btn{
+        @include blu-btn;
+        padding: 5px 20px;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        #birth_date{
+            width: 94%;
+        }
+
+        em {
+            font-size: 12px;
+            margin-left: 5px;
+            color: crimson;
+        }
+        
+        i {
+            font-size: 10px;
+            margin-left: 10px;
+            color: crimson;
+        }
+    }
+
+    
+}

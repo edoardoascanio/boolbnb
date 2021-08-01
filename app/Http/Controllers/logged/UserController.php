@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Logged;
 
 use App\Accomodation;
 use App\Http\Controllers\Controller;
+use App\Message;
 use App\Sponsorship;
 use App\User;
 use DateTime;
@@ -12,9 +13,11 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    public function dashboard($id)
+    public function dashboard()
     {
-        $accomodations = Accomodation::orderBy("created_at", "DESC")->where('user_id', $id)->get();
+        $id_user = Auth::user()->id;
+        $accomodations = Accomodation::orderBy("created_at", "DESC")->where('user_id', $id_user)->get();
+        // $messages = Message::orderBy("created_at", "DESC")->where('user_id', $id_user)->get();
         $list = [];
         $now = date("Y-m-d H:i:s");
 

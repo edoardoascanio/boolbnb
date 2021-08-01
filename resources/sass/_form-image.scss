@@ -1,0 +1,21 @@
+.form-container {
+    @include background-page;
+
+    .form-img {
+
+        .card {
+            width: 60%;
+            margin: auto;
+        }
+
+        .card-body {
+            width: 80%;
+            margin: auto;
+        }
+
+        .img-btn{
+            @include blu-btn;
+            padding:5px 20px;
+        }
+    }
+}

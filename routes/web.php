@@ -35,6 +35,7 @@ Route::prefix('guest')
         Route::get('index', "AccomodationController@index")->name("index");
 
         Route::post('map', "AccomodationController@map")->name("map");
+        Route::post('prova', "AccomodationController@prova")->name("prova");
         Route::get('show/{id}', "AccomodationController@show")->name("show");
     });
 
@@ -49,16 +50,14 @@ Route::prefix('logged')
         Route::get('edit/{id}', "AccomodationController@edit")->name("edit");
         Route::match(["PUT", "PATCH"], "accomodation/{id}/update", "AccomodationController@update")->name("update");
         Route::delete('destroy/{id}', "AccomodationController@destroy")->name("destroy");
-        Route::get('area-privata/{id}', "UserController@dashboard")->name("dashboard");
+        Route::get('area-privata', "UserController@dashboard")->name("dashboard");
         Route::match(["PUT", "PATCH"],'visibility/{id}', "AccomodationController@visibility")->name("visibility");
         Route::get('images/{id}', "ImageController@create")->name("image.create");
         Route::post('create/images/{id}', "ImageController@store")->name("image.store");
         Route::get('sponsorship/create/{id}', "SponsorshipController@create")->name('sponsorship.create');
         Route::post('sponsorship/payment/{id}/store', "SponsorshipController@store")->name('sponsorship.store');
-        Route::get('accomodation/statviews/{id}', "AccomodationController@statviews")->name('statviews');
-        Route::get('accomodation/statmsg/{id}', "AccomodationController@statmsg")->name('statmsg');
+        Route::get('accomodation/stat/{id}', "AccomodationController@stat")->name('stat');
     });
 
     //ROUTE PER PAGAMENTI BRAINTREE
     Route::get('/payment/make', 'PaymentsController@make')->name('payment.make');
-    // Route::get('/payment/make', 'PaymentsController@make')->name('payment.make');
