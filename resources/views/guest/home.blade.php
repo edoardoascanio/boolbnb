@@ -32,7 +32,7 @@
                     @csrf
                     <img src="{{asset('imgs/Roma.jpg')}}" alt="homepage">
                     <input type="text" value="roma" name="city">
-                    <input type="text" value="0" name="number_beds">
+                    <input type="text" value="" name="number_beds">
                     <button type="submit">v</button>
                     <div class="caption">
                         <strong>Roma</strong>
@@ -42,7 +42,7 @@
                     @csrf
                     <img src="{{asset('imgs/Firenze.jpg')}}" alt="homepage">
                     <input type="text" value="Firenze" name="city">
-                    <input type="text" value="0" name="number_beds">
+                    <input type="text" value="" name="number_beds">
                     <button type="submit">v</button>
                     <div class="caption">
                         <strong>Firenze</strong>
@@ -52,7 +52,7 @@
                     @csrf
                     <img src="{{asset('imgs/Milano.jpg')}}" alt="homepage">
                     <input type="text" value="Milano" name="city">
-                    <input type="text" value="0" name="number_beds">
+                    <input type="text" value="" name="number_beds">
                     <button type="submit">v</button>
                     <div class="caption">
                         <strong>Milano</strong>
@@ -62,7 +62,7 @@
                     @csrf
                     <img src="{{asset('imgs/Venezia.jpg')}}" alt="homepage">
                     <input type="text" value="Venezia" name="city">
-                    <input type="text" value="0" name="number_beds">
+                    <input type="text" value="" name="number_beds">
                     <button type="submit">v</button>
                     <div class="caption">
                         <strong>Venezia</strong>
