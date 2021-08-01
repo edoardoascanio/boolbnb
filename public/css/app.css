@@ -11392,6 +11392,7 @@ footer {
 .dash-container .accomodation-btn .danger:hover {
   background-color: #e3342f;
   transition: 0.2s;
+  cursor: not-allowed;
 }
 
 .dash-container .prova {
