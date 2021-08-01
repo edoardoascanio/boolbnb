@@ -126,7 +126,7 @@
                         function(response) {
                             if (response.success) {
                                 alert('Pagamento avvenuto con sucesso!');
-                                window.location.replace('http://127.0.0.1:8000/logged/area-privata/)
+                                window.location.replace('http://127.0.0.1:8000/logged/area-privata/' + {{ Auth::user()->id }})
                             } else {
                                 alert('Transazione fallita, riprova piu tardi!');
                             }
