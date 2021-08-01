@@ -7,7 +7,8 @@
             <input type="number" placeholder="n letti" id="beds" value="{{ $number_beds['number_beds'] }}">
             <input type="number" placeholder="n stanze" id="rooms">
             <div class="mb-3">
-                <label for="distance" class="forma-label">Distanza</label>
+                <label for="range" class="forma-label">Distanza:</label>
+                <span id="ciccio">20 Km</span>
                 <input class="form-control" type="range" id="range" name="range" min="0" max="40" step="1" list="tickmarks" />
                 <datalist id="tickmarks">
                     <option value="0"></option>
@@ -51,6 +52,17 @@
     //myMethods
     //Filters
     //
+    var dynamicRange = document.getElementById('range');
+    dynamicRange.addEventListener('input', function(event) {
+        var inputValue = event.target.value;
+        doSomethingWith(inputValue);
+    });
+
+    function doSomethingWith(value) {
+        console.log(value)
+        var myel = document.getElementById("ciccio");
+        myel.innerHTML = value + " Km"
+    }
     var arrayAccomodation = [];
     var el = document.getElementById('el')
     el.addEventListener('click', function() {

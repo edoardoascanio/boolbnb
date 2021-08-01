@@ -192,3 +192,14 @@ class AccomodationController extends Controller
         ]);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
