@@ -103,14 +103,6 @@
         for (y = 0; y < myMarkerLength; y++) {
             $(".mapboxgl-marker-anchor-bottom").remove()
         }
-        //callAccomodations()
-        // myPointerLength = document.getElementsByClassName("mapboxgl-marker-anchor-bottom").length
-        // for(i=0; i<myPointerLength; i++) {
-        //     document.getElementsByClassName("mapboxgl-marker-anchor-bottom").remove()
-        // }
-        // console.log(document.getElementsByClassName("mapboxgl-marker-anchor-bottom").length)
-        // var myMarker = document.getElementsByClassName("mapboxgl-marker-anchor-bottom")
-        // myMarker.remove()
     }
 
     function callAccomodations() {
@@ -132,17 +124,7 @@
         $.each($("input[name='service']:checked"), function() {
             servicesValue.push(parseInt($(this).val()));
         });
-        //if(services.lenght > 0) {
-        //for(x = 0; x < services.lenght; x++) {
-        //    servicesValue.push(services[x].id)
-        //}
-        //}
-        var filters = {
-            city: city
-            , number_beds: beds
-            , number_rooms: rooms
-            , range: range
-        }
+
         axios.get("/api/accomodation/filtered", {
                 params: {
                     city: city

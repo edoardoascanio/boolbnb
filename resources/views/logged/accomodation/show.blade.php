@@ -11,20 +11,17 @@
     <h2>{{ $accomodation->description }}</h2>
     <h2>{{ $accomodation->city }} - {{ $accomodation->streat_name }} - {{ $accomodation->zip }}</h2>
     <a href="{{ route('logged.edit', $accomodation->id) }}" class="card-link btn btn-primary">Modifica</a><br>
-    <form action="{{ route('logged.visibility', $accomodation->id) }}" method="post">
+    <form action="{{ route('logged.visibility', $accomodation->id) }}" method="post" id="visibility-form">
         @csrf
         @method('PATCH')
 
-        <label for="tue">Visibile
-            <input name="visibility" type="radio" value="1" id="true" {{ $accomodation->visibility == true ? 'checked' : "" }}>
+        <label for="true">Visibile
+            <input onclick="send()" name="visibility" type="radio" value="1" id="true" {{ $accomodation->visibility == true ? 'checked' : "" }}>
         </label>
 
         <label for="false">Non visibile
-            <input name="visibility" type="radio" value="0" id="false" {{ $accomodation->visibility == false ? 'checked' : "" }}>
+            <input onclick="send()" name="visibility" type="radio" value="0" id="false" {{ $accomodation->visibility == false ? 'checked' : "" }}>
         </label>
-
-        <button type="submit">Applica
-        </button>
     </form>
     <form class="delete_form" action="{{ route('logged.destroy', $accomodation->id) }}" method="post">
         @csrf
@@ -46,4 +43,18 @@
 
 
 </div>
+
 @endsection
+<script>
+
+function send() {
+
+document.getElementById('visibility-form').submit()
+}
+
+
+
+                                  // or '.your_radio_class_name'
+
+
+</script>
