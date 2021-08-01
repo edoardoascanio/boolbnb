@@ -32,7 +32,7 @@
 
         <input id="ciao" class="log" type="submit" value="Elimina">
     </form>
-    <a href="{{ route('logged.statviews', $accomodation->id) }}">Statistiche</a>
+    <a href="{{ route('logged.stat', $accomodation->id) }}">Statistiche</a>
     <p>Visualizzazioni: {{ count($accomodation->views) }}</p>
     @if(count($accomodation->messages) > 0)
     @foreach($messages as $message)

@@ -66,7 +66,7 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a href="{{ route('logged.dashboard', ['id' => Auth::user()->id]) }}">Area Privata</a>
+                                <a href="{{ route('logged.dashboard') }}">Area Privata</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
@@ -82,14 +82,6 @@
                 </div>
             </div>
         </nav>
-        <div class="container">
-            <a href="{{ route('guest.index') }}">appartamenti</a>
-
-
-
-
-
-        </div>
 
         <main class="py-4">
             @yield('content')

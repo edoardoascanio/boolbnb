@@ -8,24 +8,27 @@ use App\Sponsorship;
 use App\User;
 use DateTime;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SponsorshipController extends Controller
 {
     public function create($id)
     {
         $accomodation = Accomodation::findOrFail($id);
-        
-        $now = date("Y-m-d H:i:s");
+        if (Auth::user()->id == $accomodation->user_id) {
 
-        $sponsor = Sponsorship::where('accomodation_id', $accomodation->id)->where('end_date', '>', $now)->orderBy("created_at", "DESC")->limit(1)->get();
-        if (count($sponsor) == 0) {
+            $now = date("Y-m-d H:i:s");
 
-            $accomodation->sponsorActive = false;
-        } else {
-            $accomodation->sponsorActive = true;
+            $sponsor = Sponsorship::where('accomodation_id', $accomodation->id)->where('end_date', '>', $now)->orderBy("created_at", "DESC")->limit(1)->get();
+            if (count($sponsor) == 0) {
+
+                $accomodation->sponsorActive = false;
+            } else {
+                $accomodation->sponsorActive = true;
+            }
+            return view('logged.sponsorship.create', ['id' => $id, 'sponsorActive' => $accomodation->sponsorActive]);
         }
-
-        return view('logged.sponsorship.create', ['id' => $id, 'sponsorActive' => $accomodation->sponsorActive]);
+        abort(403, 'Unauthorized action.');
     }
 
     public function store(Request $request, $id)
