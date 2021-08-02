@@ -10953,9 +10953,17 @@ h3 {
   font-weight: 600;
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 main.py-4 {
   padding-top: 60px !important;
-  padding-bottom: 0;
+  padding-bottom: 0 !important;
+}
+
+main.py-4 > * {
+  padding-bottom: 40px;
 }
 
 .line {
@@ -11271,7 +11279,6 @@ footer {
   width: 100%;
   height: 100vh;
   padding-top: 150px;
-  background-image: url(/images/jumbo-cover.jpg?7a988e7bb1718309c0b8902b65b6912e);
   background-size: cover;
   background-position: cover;
   background-repeat: no-repeat;
@@ -11318,6 +11325,12 @@ footer {
   font-size: 10px;
   margin-left: 10px;
   color: crimson;
+}
+
+#user-dashboard {
+  background-repeat: no-repeat;
+  background-position: cover;
+  background-image: url(/images/back-img-1.jpg?5403655994bc85b7ae073969855c00c6);
 }
 
 .dash-container {
@@ -11452,7 +11465,6 @@ footer {
   width: 100%;
   height: 100vh;
   padding-top: 150px;
-  background-image: url(/images/jumbo-cover.jpg?7a988e7bb1718309c0b8902b65b6912e);
   background-size: cover;
   background-position: cover;
   background-repeat: no-repeat;
@@ -11685,7 +11697,7 @@ section.my-slider .right-arrow {
 }
 
 .my-panel .panel-item:hover {
-  top: -5px;
+  top: -12px;
 }
 
 .my-panel .panel-item.no-effect {
@@ -11831,6 +11843,12 @@ a {
   margin-right: 15px;
 }
 
+#messages {
+  background-repeat: no-repeat;
+  background-position: cover;
+  background-image: url(/images/back-img-2.jpg?384e8cead4ba8db5ec7c15d2aac71dd5);
+}
+
 #messages .row {
   justify-content: space-evenly;
 }
@@ -11935,7 +11953,14 @@ a {
 }
 
 #message {
+  background-repeat: no-repeat;
+  background-position: cover;
+  background-image: url(/images/back-img-3.jpg?e026528ef15269757c2e398f83c68d3f);
   height: calc(100vh - 80px);
+}
+
+#message > .container {
+  padding-top: 35px;
 }
 
 #message .object {

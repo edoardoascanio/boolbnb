@@ -1,7 +1,13 @@
 #message {
-    
-        height: calc(100vh - 80px);
-    
+    background-repeat: no-repeat;
+    background-position: cover;
+    background-image: url('public/imgs/back-img-3.jpg');
+    height: calc(100vh - 80px);
+
+    & > .container {
+        padding-top: 35px;
+    }
+
     .object {
         text-transform: capitalize;
         font-size: 18px;
@@ -19,8 +25,6 @@
 
 @media (max-width: 767px) {
     #message {
-
         height: calc(100vh - 59px);
     }
-    
 }

@@ -1,5 +1,12 @@
+#user-dashboard {
+    background-repeat: no-repeat;
+    background-position: cover;
+    background-image: url('public/imgs/back-img-1.jpg');
+}
+
 .dash-container {
     padding-top: 30px;
+
     .dash-card {
         display: flex;
         flex-direction: row;
@@ -8,6 +15,7 @@
         padding: 20px;
         background-color: $primary;
         color: $body-bg;
+
         .dash-title {
             text-transform: capitalize;
             margin: 0;
@@ -17,7 +25,6 @@
             color: $body-bg;
             font-size: 16px;
         }
-        
     }
 
     .dash-body {

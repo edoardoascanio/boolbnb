@@ -4,7 +4,8 @@ footer {
 }
 
 .footer-block {
-    ul { 
+
+    ul {
         list-style: none;
 
         li {
@@ -29,16 +30,18 @@ footer {
         font-size: 14px;
     }
 
-    .footer-right{
-        
-        strong{
+    .footer-right {
+
+        strong {
             margin-right: 20px;
         }
-        .footer-icons{
+
+        .footer-icons {
             display: inline-block;
-            
-            i{
+
+            i {
                 margin-right: 10px;
+
                 &:hover{
                     color: $primary;
                 }

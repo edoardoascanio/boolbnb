@@ -9,7 +9,7 @@
         <h3 class="dash-title">I tuoi messaggi</h3>
     </div>
 
-    <div class="card dash-body">
+    <div class="card dash-body container">
         <div class="row">
             @foreach($messages as $message)
             <div class="accomodation-card col-10 col-md-5">
@@ -26,10 +26,5 @@
     </div>
 </div>
 </section>
-
-
-
-
-
 
 @endsection

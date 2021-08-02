@@ -8,9 +8,17 @@ h1,h3{
     font-weight: 600;
 }
 
+a:hover {
+    text-decoration: none;
+}
+
 main.py-4{
     padding-top: 60px !important;
-    padding-bottom: 0;
+    padding-bottom: 0 !important;
+
+    & > * {
+        padding-bottom: 40px;
+    }
 }
 
 .line {

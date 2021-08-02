@@ -1,4 +1,8 @@
 #messages {
+    background-repeat: no-repeat;
+    background-position: cover;
+    background-image: url('public/imgs/back-img-2.jpg');
+
     .row {
         justify-content: space-evenly;
     }
@@ -82,3 +86,4 @@
         }
     }    
 }
+
