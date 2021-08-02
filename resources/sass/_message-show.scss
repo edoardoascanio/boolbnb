@@ -1,0 +1,14 @@
+#message {
+    .object {
+        text-transform: capitalize;
+        font-size: 18px;
+        font-weight: 800;
+        flex-grow: 1;
+    }
+    .details {
+        text-align: right;
+        p {
+            margin-bottom: 0;
+        }
+    }
+}

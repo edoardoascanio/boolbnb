@@ -1,18 +1,30 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-<div class="card" style="width: 18rem;">
-        <div class="card-body">
-    <ul>
-        <li>{{ $message->object_email }}</li>
-        <li>{{ $message->content }}</li>
-        <li>{{ $message->email_sender }}</li>
+<section id="message">
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+
+            <div class="card col-10">
+                <div class="card-body">
+
+                    <div class="object">{{ $message->object_email }}</div>
 
 
-    </ul>
 
-</div>
-</div>
-</div>
+                    <div class="mt-3">
+                        <p>{{ $message->content }}</p>
+
+                    </div>
+                    <div class="details">
+                        <h5 class="sender">{{ $message->email_sender }}</h5>
+                        <p>{{ $message->created_at }}</p>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 @endsection

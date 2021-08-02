@@ -1,19 +1,35 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
+<section id="messages">
 
 
-        @foreach($messages as $message)
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
+<div class="container dash-container">
+    <div class="card dash-card">
+        <h3 class="dash-title">I tuoi messaggi</h3>
+    </div>
 
-                <p>messaggio da: {{ $message->email_sender }}</p>
-                <a href="{{ route('message.show', $message->id) }}">visualizza messaggio</a>
+    <div class="card dash-body">
+        <div class="row">
+            @foreach($messages as $message)
+            <div class="accomodation-card col-10 col-md-5">
+                <div class="card card-body">
+                    <h3 class="card-title">{{ $message->object_email }}</h3>
+                    <p class="">{{ $message->content }}</p>
+                    <div class="accomodation-btn">
+                        <a href="{{ route('message.show', ['id' => $message->id]) }}" class="card-btn btn">Visualizza</a>
+                    </div>
+                </div>
             </div>
+            @endforeach
         </div>
-        @endforeach
     </div>
 </div>
+</section>
+
+
+
+
+
+
 @endsection

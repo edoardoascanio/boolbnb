@@ -11824,3 +11824,121 @@ a {
   margin-right: 15px;
 }
 
+#messages .row {
+  justify-content: space-evenly;
+}
+
+#messages .dash-container {
+  padding-top: 30px;
+}
+
+#messages .dash-container .dash-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #71a8cd;
+  color: #fff;
+}
+
+#messages .dash-container .dash-card .dash-title {
+  text-transform: capitalize;
+  margin: 0;
+}
+
+#messages .dash-container .dash-card a {
+  color: #fff;
+  font-size: 16px;
+}
+
+#messages .dash-container .dash-body {
+  height: 75vh;
+  overflow: auto;
+}
+
+#messages .dash-container .dash-body .accomodation-card {
+  padding: 15px 0;
+}
+
+#messages .dash-container .dash-body .accomodation-card .card-body {
+  width: 100%;
+}
+
+#messages .dash-container .dash-body .accomodation-card .card-body .card-title {
+  text-transform: capitalize;
+}
+
+#messages .dash-container .dash-body .accomodation-card .card-body p {
+  height: 100px;
+  overflow: auto;
+}
+
+#messages .dash-container .card-text {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+}
+
+#messages .dash-container .accomodation-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 100%;
+  align-items: center;
+}
+
+#messages .dash-container .accomodation-btn .card-btn {
+  color: #fff;
+  background-color: #71a8cd;
+  padding: 10px;
+}
+
+#messages .dash-container .accomodation-btn .card-btn:hover {
+  background-color: #3490dc;
+  transition: 0.2s;
+}
+
+#messages .dash-container .accomodation-btn .danger {
+  color: #fff;
+  background-color: #f6993f;
+  padding: 10px;
+}
+
+#messages .dash-container .accomodation-btn .danger:hover {
+  background-color: #e3342f;
+  transition: 0.2s;
+  cursor: not-allowed;
+}
+
+#messages .dash-container .prova {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+#messages .dash-container .prova p {
+  flex-grow: 1;
+  overflow: auto;
+  max-height: 210px;
+  text-overflow: ellipsis;
+  margin: 0;
+  padding-bottom: 10px;
+}
+
+#message .object {
+  text-transform: capitalize;
+  font-size: 18px;
+  font-weight: 800;
+  flex-grow: 1;
+}
+
+#message .details {
+  text-align: right;
+}
+
+#message .details p {
+  margin-bottom: 0;
+}
+
