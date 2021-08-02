@@ -10,7 +10,7 @@
     // }
 }
 
-.row-my-panel {
+.row.justify-content-center.row-my-panel {
     .my_actions {
         .panel-item.btn.btn-primary {
             color: $body-bg;
@@ -19,9 +19,9 @@
             margin: auto;
             margin-top: 20px;
 
-    &:hover {
-        background-color: $blue;
-        transition: 0.2s;
+            &:hover {
+            background-color: $blue;
+            transition: 0.2s;
     }
         }
     }

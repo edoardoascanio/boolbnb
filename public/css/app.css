@@ -12075,7 +12075,7 @@ a {
   }
 }
 
-.row-my-panel .my_actions .panel-item.btn.btn-primary {
+.row.justify-content-center.row-my-panel .my_actions .panel-item.btn.btn-primary {
   color: #fff;
   background-color: #71a8cd;
   padding: 10px;
@@ -12083,7 +12083,7 @@ a {
   margin-top: 20px;
 }
 
-.row-my-panel .my_actions .panel-item.btn.btn-primary:hover {
+.row.justify-content-center.row-my-panel .my_actions .panel-item.btn.btn-primary:hover {
   background-color: #3490dc;
   transition: 0.2s;
 }
