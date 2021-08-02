@@ -27,11 +27,11 @@ class UserController extends Controller
 
                 // $last_sponsorship = Sponsorship::where('accomodation_id', $accomodation->id)->orderBy("created_at", "DESC")->limit(1)->get();
                 $accomodation->sponsorActive = false;
-                
+
             } else {
                 $accomodation->sponsorActive = true;
             }
-            $list[] = $accomodation; 
+            $list[] = $accomodation;
 
         }
         return view('logged.user.dashboard', ['accomodations' => $list]);

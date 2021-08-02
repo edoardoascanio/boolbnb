@@ -1,15 +1,20 @@
 @extends('layouts.mapLayout')
 @section('content')
-<div class="card-body">
-    <form @submit.prevent="filterData">
-        <div class="row">
-            <input type="text" placeholder="citta" id="city" value="{{ $city['city'] }}">
-            <input type="number" placeholder="n letti" id="beds" value="{{ $number_beds['number_beds'] }}">
-            <input type="number" placeholder="n stanze" id="rooms">
-            <div class="mb-3">
-                <label for="range" class="forma-label">Distanza:</label>
-                <span id="ciccio">20 Km</span>
-                <input class="form-control" type="range" id="range" name="range" min="0" max="40" step="1" list="tickmarks" />
+<div class="d-flex justify-content-center"  >
+    <form @submit.prevent="filterData" class=" bg-light"  id="searchForm">
+            <div>
+                <input type="text" placeholder="citta" id="city" value="{{ $city['city'] }}">
+            </div>
+            <div >
+                <input type="number" placeholder="n letti" id="beds" value="{{ $number_beds['number_beds'] }}">
+            </div>
+            <div >
+                <input type="number" placeholder="n stanze" id="rooms">
+            </div>
+            <div >
+                    <label for="range" class="forma-label mb-0">Distanza:</label>
+                    <span id="ciccio">20 Km</span>
+                <input class=" p-0" type="range" id="range" name="range" min="0" max="40" step="1" list="tickmarks" />
                 <datalist id="tickmarks">
                     <option value="0"></option>
                     <option value="5"></option>
@@ -23,7 +28,6 @@
                 </datalist>
             </div>
             {{-- <div class="mb-3">ciao</div> --}}
-        </div>
         <div>
             @foreach($services as $service)
             <label for="{{ $service->id }}">
@@ -38,23 +42,32 @@
         </div>
     </form>
 </div>
-<div class="container_map">
+<div class="container_map" id="container_map">
     <div class='control-panel'>
-        <div class='heading'>
-            <img src='https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/032017/untitled-6_25.png?itok=9ZEI6gJ3'>
-        </div>
         <div id='store-list'></div>
     </div>
-    <div class='map' id='map' style="width: 75%; height: 100%"></div>
+    <div class='map' id='map' style="height:100%; width: 60%"></div>
 </div>
+
 <script>
-   
+    var searchButton = document.getElementById("searchButton")
+    var mapContainer = document.getElementById("container_map")
+    var formDisplay = 1
+    searchButton.addEventListener("click", function () {
+        var form = document.getElementById("searchForm")
+        if (form.style.display === "none") {
+            form.style.display = "flex";
+            mapContainer.style.marginTop = "0"
+        } else {
+            form.style.display = "none";
+            mapContainer.style.marginTop = "80px"
+  }
+    })
     var dynamicRange = document.getElementById('range');
     dynamicRange.addEventListener('input', function(event) {
         var inputValue = event.target.value;
         doSomethingWith(inputValue);
     });
-
     function doSomethingWith(value) {
         console.log(value)
         var myel = document.getElementById("ciccio");
@@ -78,7 +91,6 @@
     window.addEventListener('load', () => {
         callAccomodations()
     })
-
     function mixAccomodations() {
         clearAccomodations()
         alert('cacdnjkbf')
@@ -86,7 +98,6 @@
         alert('v,m sdkjvbkwejv')
         callAccomodations()
     }
-
     function clearAccomodations() {
         arrayAccomodation = []
         var mylength = $('[id^=banana]').length
@@ -101,7 +112,6 @@
             $(".mapboxgl-marker-anchor-bottom").remove()
         }
     }
-
     function callAccomodations() {
         var filteredAccomodations = []
         stores = {
@@ -121,7 +131,6 @@
         $.each($("input[name='service']:checked"), function() {
             servicesValue.push(parseInt($(this).val()));
         });
-
         axios.get("/api/accomodation/filtered", {
                 params: {
                     city: city
@@ -151,8 +160,8 @@
                             , "city": filteredAccomodations[i].city
                             , "title": filteredAccomodations[i].title
                             , "number_rooms": filteredAccomodations[i].number_rooms
-                            , "placeholder": filteredAccomodations[i].placeholder
-                            
+                            , "placeholder": filteredAccomodations[i].placeholder,
+                            "link": filteredAccomodations[i].link
                         }
                     }, )
                 }
@@ -172,6 +181,7 @@
                     let address = store.properties.address;
                     let location = store.geometry.coordinates;
                     let title = store.properties.title;
+                    let link = store.properties.link
                     let marker = new tt.Marker().setLngLat(location).setPopup(new tt.Popup({
                         offset: 35
                     , }).setHTML(address)).addTo(map);
@@ -217,15 +227,14 @@
                         closeAllPopups();
                         marker.togglePopup();
                     });
-
                     function buildLocation(htmlParent, text) {
-                        let details = htmlParent.appendChild(document.createElement('div'));
-                        details.href = '#';
+                        let details = htmlParent.appendChild(document.createElement('a'));
+                        details.href =  link;
                         details.className = 'list-entry';
                         details.innerHTML = "<img style='height: 100px; width: 100px;' src='" + placeholder + "' alt=''> " + "<h2>" + title + "</h2>" + "<p>" + text + "</p>";
+                        details.target = "_blanc"
                         return details;
                     }
-
                     function closeAllPopups() {
                         markersCity.forEach(markerCity => {
                             if (markerCity.marker.getPopup().isOpen()) {
@@ -233,7 +242,6 @@
                             }
                         });
                     }
-
                     function getMarkersBoundsForCity(city) {
                         let bounds = new tt.LngLatBounds();
                         markersCity.forEach(markerCity => {
@@ -243,7 +251,6 @@
                         });
                         return bounds;
                     }
-
                     function openCityTab(selected_id) {
                         let storeListElement = $('#store-list');
                         let citiesListDiv = storeListElement.find('div.list-entries-container');
@@ -258,131 +265,5 @@
                 });
             })
     }
-
 </script>
-
-
-
-
-
-<style>
-    html {
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-    }
-
-    *,
-    *:before,
-    *:after {
-        box-sizing: inherit;
-    }
-
-    body {
-        color: #707070;
-        font-size: 14px;
-        margin: 0;
-        padding: 0;
-    }
-
-    a {
-        text-decoration: none;
-    }
-
-    .container_map {
-        position: relative;
-        height: 800px;
-    }
-
-    .map {
-        bottom: 0;
-        left: 40%;
-        position: absolute;
-        top: 0;
-        width: 60%;
-    }
-
-    .control-panel {
-        -webkit-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.3);
-        box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.3);
-        height: calc(100% - 100px);
-        left: 0;
-        overflow: hidden;
-        position: absolute;
-        top: 0;
-        width: 40%;
-    }
-
-    .heading {
-        background: #fff;
-        border-bottom: 1px solid #eee;
-        -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
-        box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
-        position: relative;
-        z-index: 1;
-    }
-
-    .heading>img {
-        height: auto;
-        margin: 10px 0 8px 0;
-        width: 150px;
-    }
-
-    #store-list {
-        height: 100%;
-        overflow: auto;
-    }
-
-    #store-list .list-entries-container .list-entry {
-        border-bottom: 1px solid #e8e8e8;
-        display: block;
-        padding: 10px 50px 10px;
-    }
-
-    #store-list .list-entries-container .list-entry:nth-of-type(even) {
-        background-color: #f5f5f5;
-    }
-
-    #store-list .list-entries-container .list-entry:hover,
-    #store-list .list-entries-container .list-entry.selected {
-        background-color: #CDDE75;
-        border-bottom-color: #CDDE75;
-    }
-
-    .ui-accordion h3.ui-accordion-header {
-        background-color: #F4F6F8;
-        border-color: #dddfe0;
-        border-style: solid;
-        border-width: 0 0 3px 0;
-        color: #707070;
-        display: block;
-        font-size: 1.143em;
-        margin: 0;
-        padding: 15px 20px;
-    }
-
-    .ui-accordion h3.ui-accordion-header.ui-state-active {
-        color: #fff;
-        background-color: #BDD731;
-        border-bottom-color: #a2ba24;
-    }
-
-    .ui-accordion .ui-accordion-content {
-        border: none;
-        padding: 0;
-    }
-
-    .ui-icon,
-    .ui-widget-content .ui-icon {
-        margin-right: 15px;
-    }
-
-</style>
-
-
-
-
-
-
-
-
 @endsection

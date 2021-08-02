@@ -8,6 +8,7 @@ use App\Mail\AccomodationMail;
 use App\Mail\newAccomodationMail;
 use App\Message;
 use App\Service;
+use App\Sponsorship;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
@@ -88,13 +89,23 @@ class AccomodationController extends Controller
 
     public function show($id)
     {
+        $now = date("Y-m-d H:i:s");
         $accomodation = Accomodation::findOrFail($id);
-        if (Auth::user()->id == $accomodation->user_id) {
+        $sponsor = Sponsorship::where('accomodation_id', $accomodation->id)->where('end_date', '>', $now)->orderBy("created_at", "DESC")->limit(1)->get();
 
+        if (count($sponsor) == 0) {
+            // $last_sponsorship = Sponsorship::where('accomodation_id', $accomodation->id)->orderBy("created_at", "DESC")->limit(1)->get();
+            $accomodation->sponsorActive = false;
+        } else {
+            $accomodation->sponsorActive = true;
+        }
+
+        if (Auth::user()->id == $accomodation->user_id) {
             $messages = Message::where('accomodation_id', $id)->get();
 
             return view('logged.accomodation.show', ['accomodation' => $accomodation, 'messages' => $messages]);
         }
+
         abort(403, 'Unauthorized action.');
     }
 
@@ -103,11 +114,11 @@ class AccomodationController extends Controller
         $accomodation = Accomodation::findOrFail($id);
 
         if (Auth::user()->id == $accomodation->user_id) {
-
             $services = Service::all();
 
             return view('logged.accomodation.edit', ['accomodation' => $accomodation, 'services' => $services]);
         }
+
         abort(403, 'Unauthorized action.');
     }
 

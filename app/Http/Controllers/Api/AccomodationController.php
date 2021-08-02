@@ -114,6 +114,7 @@ class AccomodationController extends Controller
                 $distance = round(distance($response['results'][0]['position']['lat'],  $response['results'][0]['position']['lon'], $singleApartment->lat,  $singleApartment->lon, 'K'), 1);
                 if ($distance <= $myRange) {
                     $singleApartment->distance = $distance;
+                    $singleApartment->link = "http://127.0.0.1:8000/guest/show/" . $singleApartment->id;
                     $finalResult[] = $singleApartment;
                 }
             }
