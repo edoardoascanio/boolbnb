@@ -1,0 +1,24 @@
+.stat-container{
+    background-image: url(imgs/back-img-4.jpg);
+    @include background-page;
+    height: calc(100vh - 79px) !important;
+
+   .card-header {
+      border: 2px solid $primary;
+      background-color: rgba(255,255,255,.4);
+   }
+
+    .stat-card{
+        padding: 40px;
+
+        .row .col-12 {
+           margin-bottom: 25px;
+        }
+    }
+}
+
+@media (max-width: 575px) {
+   .stat-container {
+      height: calc(100vh - 60px) !important;
+   }
+}

@@ -10,56 +10,80 @@
     <div class="row row-my-panel">
         <div class="my-panel">
             {{-- image --}}
-            <div class="my_actions">
-                <a class="panel-item" href="{{ route('logged.image.create', $accomodation->id) }}">
-                    <i class="fas fa-images"></i>
-                </a>
+            <div class="ah-boh">
+                <div class="my_actions panel-item">
+                    <a href="{{ route('logged.image.create', $accomodation->id) }}">
+                        <i class="fas fa-images"></i>
+                    </a>
+                </div>
+                <div class="ciao">Add img</div>
             </div>
             {{-- edit --}}
-            <div class="my_actions">
-                <a class="panel-item" href="{{ route('logged.edit', $accomodation->id) }}">
-                    <i class="fas fa-pencil-alt"></i>
-                </a>
+            <div class="ah-boh">
+                <div class="my_actions">
+                    <a class="panel-item" href="{{ route('logged.edit', $accomodation->id) }}">
+                        <i class="fas fa-pencil-alt"></i>
+                    </a>
+                </div>
+                <div class="ciao">Edit</div>
             </div>
             {{-- stat --}}
-            <div class="my_actions">
-                <a class="panel-item" href="{{ route('logged.stat', $accomodation->id) }}">
-                    <i class="far fa-chart-bar"></i>
-                </a>
+            <div class="ah-boh">
+                <div class="my_actions">
+                    <a class="panel-item" href="{{ route('logged.stat', $accomodation->id) }}">
+                        <i class="far fa-chart-bar"></i>
+                    </a>
+                </div>
+                <div class="ciao">Stats</div>
             </div>
             {{-- messages --}}
             @if(count($accomodation->messages) > 0)
-                <div class="my_actions">
-                    <a class="panel-item btn btn-primary" href="{{ route('message.index', $accomodation->id) }}">
-                        <i class="far fa-envelope"></i>
-                        <span class="notify">
-                            {{ count($accomodation->messages) }}
-                        </span>
-                    </a>
+                <div class="ah-boh">
+                    <div class="my_actions">
+                        <a class="panel-item btn btn-primary" href="{{ route('message.index', $accomodation->id) }}">
+                            <i class="far fa-envelope"></i>
+                            <span class="notify">
+                                {{ count($accomodation->messages) }}
+                            </span>
+                        </a>
+                    </div>
+                    <div class="ciao">Mails</div>
                 </div>
             @else
-                <div class="my_actions">
-                    <i class="fas fa-comment-slash panel-item"></i>
+                <div class="ah-boh">
+                    <div class="my_actions">
+                        <i class="fas fa-comment-slash panel-item"></i>
+                    </div>
+                    <div class="ciao">Mails</div>
                 </div>
             @endif
             {{-- sponsorship --}}
             @if($accomodation->sponsorActive)
-                <div class="my_actions panel-item no-effect sponsor">
-                    <i class="fas fa-tag"></i>
+                <div class="ah-boh">
+                    <div class="my_actions panel-item no-effect sponsor">
+                        <i class="fas fa-tag"></i>
+                    </div>
+                    <div class="ciao">Sponsor</div>
                 </div>
             @else
-                <a class="panel-item" href="{{ route('logged.sponsorship.create', $accomodation->id) }}">
-                    <i class="fas fa-tag"></i>
-                </a>
+                <div class="ah-boh">
+                    <a class="panel-item" href="{{ route('logged.sponsorship.create', $accomodation->id) }}">
+                        <i class="fas fa-tag"></i>
+                    </a>
+                    <div class="ciao">Sponsor</div>
+                </div>
             @endif
             {{-- delete --}}
             <form class="delete_form" action="{{ route('logged.destroy', $accomodation->id) }}" method="post">
                 @csrf
                 @method('DELETE')
 
-                <button class="my_actions panel-item" type="submit">
-                    <i class="far fa-trash-alt my-delete"></i>
-                </button>
+                <div class="ah-boh">
+                    <button class="my_actions panel-item" type="submit">
+                        <i class="far fa-trash-alt my-delete"></i>
+                    </button>
+                    <div class="ciao">Delete</div>
+                </div>
             </form>
         </div>
     </div>
@@ -79,7 +103,7 @@
             @csrf
             @method('PATCH')
 
-            <h3 class="inline-block mr-1">Visibility:</h3>
+            <h3 class="inline-block mr-1">Appartamento visibile:</h3>
             <div class="inline-block">
                 <label for="true">Sì
                     <input name="visibility" type="radio" value="1" id="true" onchange="send()" {{ $accomodation->visibility == true ? 'checked' : "" }}>

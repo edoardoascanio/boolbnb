@@ -36,34 +36,39 @@
 
 </head>
 <body>
-    
+
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+
+                    <div class="logo">
+                        <img src="{{ asset('imgs/b-blue.png') }}">
+                    </div>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto right-nav-item  ">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href=""> <strong>Diventa Host</strong></a>
+                        </li>
                         <!-- Authentication Links -->
                         @guest
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
                         @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Registrati') }}</a>
                         </li>
                         @endif
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Accedi')  }} <i class="fa fa-user-circle-o"></i> </a>
+                        </li>
+
                         @else
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -71,7 +76,7 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a href="{{ route('logged.dashboard', ['id' => Auth::user()->id]) }}">Area Privata</a>
+                                <a class="dropdown-item" href="{{ route('logged.dashboard', ['id' => Auth::user()->id]) }}">Area Privata</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
@@ -87,19 +92,11 @@
                 </div>
             </div>
         </nav>
-        <div class="container">
-            <a href="{{ route('guest.index') }}">appartamenti</a>
-
-
-
-
-
-        </div>
 
         <main class="py-4">
             @yield('content')
         </main>
-    
+
     <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.64.0/maps/maps-web.min.js"></script>
     <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.64.0/services/services-web.min.js"></script>
     <script src='{{ asset('js/app.js') }}'></script>
