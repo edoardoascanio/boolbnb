@@ -68,76 +68,31 @@
                         <strong>Venezia</strong>
                     </div>
                 </form>
-
-                
-                
-
             </div>
-
-            {{-- <div class="row justify-content-center">
-            <a href="http://127.0.0.1:8000/guest/prova?city=roma" class="col-md-3 col-sm-6 prova">
-                <img src="{{asset('imgs/Roma.jpg')}}" alt="homepage">
-
-            <div><strong id="caption">Roma</strong></div>
-            </a>
-            <a class="col-md-3 col-sm-6 prova">
-                <img src="{{asset('imgs/Roma.jpg')}}" alt="homepage">
-
-                <div><strong id="caption">Roma</strong></div>
-            </a>
-            <a class="col-md-3 col-sm-6 prova">
-                <img src="{{asset('imgs/Roma.jpg')}}" alt="homepage">
-
-                <div><strong id="caption">Roma</strong></div>
-            </a>
-            <a class="col-md-3 col-sm-6 prova">
-                <img src="{{asset('imgs/Roma.jpg')}}" alt="homepage">
-
-                <div><strong id="caption">Roma</strong></div>
-            </a>
-        </div> --}}
-</div>
+    </div>
 </section>
 
+@if(count($accomodations) > 0)
 <section class="house-type">
     <div class="container">
-        <h3>Una casa per ogni tuo bisogno</h3>
-        <p>Scegli case o stanze che più si addicono ai tuoi gusti e bisogni personali</p>
+        <h3>Appartamenti in vetrina</h3>
+        <p>Affitti per le vacanze con le migliori valutazioni in tutta Italia</p>
 
-        <div class="type-content row">
+        <div class="type-content row justify-content-between">
+            @foreach($accomodations as $accomodation)
             <div class="type-card col-md-4">
                 <div class="type-img">
-                    <img src="{{asset('imgs/casa-natura.jpg')}}" alt="homepage">
-                    <div class="overlay"><i class="fa fa-home" aria-hidden="true"></i></div>
-                </div>
-                <div class="caption">
-                    <strong>Soggiorni nella natura</strong>
-                </div>
-            </div>
-
-            <div class="type-card col-md-4">
-                <div class="type-img">
-                    <img src="{{asset('imgs/casa-intera.jpg')}}" alt="homepage">
-                    <div class="overlay"><i class="fa fa-home" aria-hidden="true"></i></div>
-                </div>
-                <div class="caption">
-                    <strong>Case intere</strong>
+                    <img src="{{ $accomodation->placeholder }}" alt="homepage">
+                    <a class="overlay" href="{{ $accomodation->link }}">
+                        <i class="fa fa-home" aria-hidden="true"></i>
+                    </a>
                 </div>
             </div>
-
-            <div class="type-card col-md-4">
-                <div class="type-img">
-                    <img src="{{asset('imgs/hotel-room.jpg')}}" alt="homepage">
-                    <div class="overlay"><i class="fa fa-home" aria-hidden="true"></i></div>
-                </div>
-                <div class="caption">
-                    <strong>Hotel rooms</strong>
-                </div>
-            </div>
-
+            @endforeach
         </div>
     </div>
 </section>
+@endif
 
 
 <section class="servicies">

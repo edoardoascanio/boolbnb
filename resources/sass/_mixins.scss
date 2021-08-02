@@ -1,5 +1,7 @@
 @mixin overlay {
     height: 100%;
+    width: 100%;
+    display: inline-block;
     border-radius: 10px;
     position: absolute;
     top: 0;
@@ -10,10 +12,11 @@
     width: 100%;
     transition: 0.5s ease;
     opacity: 0;
+    overflow: hidden;
 
     i {
         position: absolute;
-        top: 50%;
+        top: -20%;
         left: 50%;
         transform: translate(-50%, -50%);
         color: white;
@@ -21,6 +24,7 @@
         padding: 20px;
         background-color: rgba(0, 0, 0, 0.8);
         border-radius: 50%;
+        transition: all .6s;
     }
 }
 

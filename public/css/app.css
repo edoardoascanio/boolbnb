@@ -10954,7 +10954,7 @@ h3 {
 }
 
 a:hover {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 main.py-4 {
@@ -11117,11 +11117,12 @@ footer {
 
 .home-container .city .city-img .city-card {
   height: 200px;
-  width: 200px;
+  width: 250px;
   position: relative;
   top: 0;
   transition: all 0.4s;
   margin: 0 0 40px 0;
+  padding: 0 15px;
 }
 
 .home-container .city .city-img .city-card:hover {
@@ -11164,8 +11165,14 @@ footer {
   margin-bottom: 20px;
 }
 
+.home-container .house-type .type-content .type-card {
+  margin-bottom: 25px;
+}
+
 .home-container .house-type .type-content .type-img {
   position: relative;
+  width: 100%;
+  height: 200px;
 }
 
 .home-container .house-type .type-content .type-img:hover .overlay {
@@ -11174,11 +11181,16 @@ footer {
 
 .home-container .house-type .type-content .type-img img {
   width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 10px;
 }
 
 .home-container .house-type .type-content .overlay {
   height: 100%;
+  width: 100%;
+  display: inline-block;
   border-radius: 10px;
   position: absolute;
   top: 0;
@@ -11189,11 +11201,12 @@ footer {
   width: 100%;
   transition: 0.5s ease;
   opacity: 0;
+  overflow: hidden;
 }
 
 .home-container .house-type .type-content .overlay i {
   position: absolute;
-  top: 50%;
+  top: -20%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
@@ -11201,6 +11214,12 @@ footer {
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 50%;
+  transition: all 0.6s;
+}
+
+.home-container .house-type .type-content .overlay:hover i {
+  transition: all 0.6s;
+  top: 50%;
 }
 
 .home-container .house-type .type-content .caption {
@@ -11463,21 +11482,21 @@ footer {
 
 .form-container {
   width: 100%;
-  height: 100vh;
+  height: 75vh;
   padding-top: 150px;
   background-size: cover;
   background-position: cover;
   background-repeat: no-repeat;
+  background-image: url(/images/back-img-2.jpg?384e8cead4ba8db5ec7c15d2aac71dd5);
 }
 
 .form-container .form-img .card {
-  width: 60%;
+  width: 350px;
   margin: auto;
 }
 
 .form-container .form-img .card-body {
-  width: 80%;
-  margin: auto;
+  width: 100%;
 }
 
 .form-container .form-img .img-btn {
@@ -11854,6 +11873,34 @@ a {
 .ui-icon,
 .ui-widget-content .ui-icon {
   margin-right: 15px;
+}
+
+.message-container {
+  padding-top: 60px;
+}
+
+.message-container .btn {
+  color: #fff;
+  background-color: #71a8cd;
+  padding: 10px;
+  padding: 6px 25px;
+}
+
+.message-container .btn:hover {
+  background-color: #3490dc;
+  transition: 0.2s;
+}
+
+.message-container .form-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.message-container .form-group i {
+  font-size: 10px;
+  margin-left: 10px;
+  color: crimson;
 }
 
 #messages {

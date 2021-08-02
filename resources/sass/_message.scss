@@ -1,0 +1,20 @@
+.message-container{
+    padding-top: 60px;
+
+    .btn{
+        @include blu-btn;
+        padding: 6px 25px;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        i {
+            font-size: 10px;
+            margin-left: 10px;
+            color: crimson;
+        }
+    }
+} 

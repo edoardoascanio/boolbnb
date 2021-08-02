@@ -1,16 +1,21 @@
 .form-container {
-    @include background-page;
+    width: 100%;
+    height: 75vh;
+    padding-top: 150px;
+    background-size: cover;
+    background-position: cover;
+    background-repeat: no-repeat;
+    background-image: url('public/imgs/back-img-2.jpg');
 
     .form-img {
 
         .card {
-            width: 60%;
+            width: 350px;
             margin: auto;
         }
 
         .card-body {
-            width: 80%;
-            margin: auto;
+            width: 100%;
         }
 
         .img-btn{
