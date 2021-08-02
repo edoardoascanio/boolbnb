@@ -1,7 +1,7 @@
 @extends('layouts.mapLayout')
 @section('content')
-<div class="d-flex justify-content-center"  >
-    <form @submit.prevent="filterData" class=" bg-light"  id="searchForm">
+<div class="d-flex"  >
+    <form @submit.prevent="filterData" class=" bg-light flex-wrap"  id="searchForm">
             <div>
                 <input type="text" placeholder="citta" id="city" value="{{ $city['city'] }}">
             </div>
@@ -42,25 +42,48 @@
         </div>
     </form>
 </div>
-<div class="container_map" id="container_map">
+<div class="container_map" id="container_map" style="margin-top: 80px; height: calc(100vh - 80px);">
     <div class='control-panel'>
         <div id='store-list'></div>
     </div>
-    <div class='map' id='map' style="height:100%; width: 60%"></div>
+    <div class='map' id='map' style="height:100%; width: 40%"></div>
 </div>
 
 <script>
+    //Mappa e suoi spostamenti
+     let apiKey = 'x03gOYgHS1403BuzYDLDXT3SZEhCK1sB';
+                let map = tt.map({
+                    key: apiKey, 
+                    container: 'map', 
+                    center: [42, 12],
+                    zoom: 5
+                 });
+        let moveMap = function(lnglat) {
+            map.flyTo({
+                center: lnglat,
+                zoom: 10
+            })
+        }
+        let handleResults = function(result) {
+            if (result.results) {
+                moveMap(result.results[0].position)
+            }
+        }
+        let search = function() {
+            tt.services.fuzzySearch({
+                key: apiKey,
+                query: document.getElementById("city").value,
+            }).go().then(handleResults)    
+        }
     var searchButton = document.getElementById("searchButton")
     var mapContainer = document.getElementById("container_map")
     var formDisplay = 1
     searchButton.addEventListener("click", function () {
         var form = document.getElementById("searchForm")
         if (form.style.display === "none") {
-            form.style.display = "flex";
-            mapContainer.style.marginTop = "0"
+            form.style.display = "flex"; 
         } else {
-            form.style.display = "none";
-            mapContainer.style.marginTop = "80px"
+            form.style.display = "none";         
   }
     })
     var dynamicRange = document.getElementById('range');
@@ -84,6 +107,9 @@
     el.addEventListener('click', function() {
         callAccomodations()
     })
+    el.addEventListener('click', function() {
+        search()
+    })
     let stores = {
         "type": "FeatureCollection"
         , "features": arrayAccomodation
@@ -91,13 +117,9 @@
     window.addEventListener('load', () => {
         callAccomodations()
     })
-    function mixAccomodations() {
-        clearAccomodations()
-        alert('cacdnjkbf')
-        clearAccomodations()
-        alert('v,m sdkjvbkwejv')
-        callAccomodations()
-    }
+    window.addEventListener('load', () => {
+        search()
+    })
     function clearAccomodations() {
         arrayAccomodation = []
         var mylength = $('[id^=banana]').length
@@ -119,7 +141,6 @@
             , "features": arrayAccomodation
         };
         var city = document.getElementById('city').value
-        var center_point = null
         var beds = document.getElementById('beds').value
         var rooms = document.getElementById('rooms').value
         var range = document.getElementById('range').value
@@ -142,7 +163,6 @@
             })
             .then((resp) => {
                 filteredAccomodations = resp.data.results;
-                center_point = resp.data.position;
                 console.log(servicesValue)
                 for (i = 0; i < filteredAccomodations.length; i++) {
                     arrayAccomodation.push({
@@ -165,13 +185,6 @@
                         }
                     }, )
                 }
-                let apiKey = 'x03gOYgHS1403BuzYDLDXT3SZEhCK1sB';
-                let map = tt.map({
-                    key: apiKey
-                    , container: 'map'
-                    , center: [center_point.lon, center_point.lat]
-                    , zoom: 11
-                , });
                 let markersCity = [];
                 let list = document.getElementById('store-list');
                 stores.features.forEach(function(store, index) {
@@ -267,3 +280,4 @@
     }
 </script>
 @endsection
+
