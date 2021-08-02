@@ -13,6 +13,11 @@ main.py-4{
     padding-bottom: 0;
 }
 
+.line {
+    border-bottom: 2px solid $primary;
+    margin: 10px 0 15px;
+}
+
 @media (min-width: 768px) {
     main.py-4 {
         padding-top: 79px !important;

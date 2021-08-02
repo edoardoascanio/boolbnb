@@ -42,7 +42,6 @@
                     <i class="fas fa-comment-slash panel-item"></i>
                 </div>
             @endif
-            
             {{-- sponsorship --}}
             @if($accomodation->sponsorActive)
                 <div class="my_actions panel-item no-effect sponsor">
@@ -67,55 +66,50 @@
 
     <div class="row justify-content-center align-items-center">
         <div class="wrap col-12 col-md-10">
-            <h1 class="title">{{ $accomodation->title }}</h1>
-            <p class="city">{{ $accomodation->city }} - {{ $accomodation->zip }} - {{ $accomodation->number_rooms }} stanza/e - {{ $accomodation->number_beds }} camera/e da letto - {{ $accomodation->number_bathrooms }} bagno/i</p>
+            <h3 class="title text-capitalize">{{ $accomodation->title }}</h3>
+            <p class="city">
+                <span class="text-capitalize">{{ $accomodation->city }} - {{ $accomodation->type_street}} {{ $accomodation->street_name}} {{ $accomodation->building_number}} - {{ $accomodation->zip }}</span> - {{ $accomodation->number_rooms }} stanza/e - {{ $accomodation->number_beds }} camera/e da letto - {{ $accomodation->number_bathrooms }} bagno/i</p>
             <p class="description text-justify">{{ $accomodation->description }}</p>
             <div class="line"></div>
         </div>
     </div>
 
-    <div class="row justify-content-center">
+    <div class="row justify-content-center my-visibility">
         <form action="{{ route('logged.visibility', $accomodation->id) }}" method="post" id="visibility-form">
             @csrf
             @method('PATCH')
-            <label for="true">Visibile
-                <input name="visibility" type="radio" value="1" id="true" onchange="send()" {{ $accomodation->visibility == true ? 'checked' : "" }}>
-            </label>
-            <label for="false">Non visibile
-                <input name="visibility" type="radio" value="0" id="false" onchange="send()" {{ $accomodation->visibility == false ? 'checked' : "" }}>
-            </label>
 
+            <h3 class="inline-block mr-1">Visibility:</h3>
+            <div class="inline-block">
+                <label for="true">Sì
+                    <input name="visibility" type="radio" value="1" id="true" onchange="send()" {{ $accomodation->visibility == true ? 'checked' : "" }}>
+                </label>
+                <label for="false">No
+                    <input name="visibility" type="radio" value="0" id="false" onchange="send()" {{ $accomodation->visibility == false ? 'checked' : "" }}>
+                </label>
+            </div>
         </form>
     </div>
 
-    {{-- @if(count($accomodation->views) > 0)
-                <div class="my_actions panel-item no-effect">
-                    <i class="far fa-eye"></i>
-                    <span class="notify">
-                        {{ count($accomodation->views) }}
-                    </span>
-                </div>
-            @else
-                <div class="my_actions panel-item no-effect">
-                    <i class="far fa-eye-slash"></i>
-                </div>
-            @endif --}}
 
+    @if(count($accomodation->services) > 0)
     <div class="row justify-content-center">
         <div class="col-12 col-md-10" >
+            <div class="line"></div>
             <h3>Servizi disponibili</h3>
             <div class="row">
                 @foreach($accomodation->services as $service)
-                    <div class="col-sm-6 col-md-4 col-lg-3 d-flex align-items-center mb-2">
-                        <i class="fas fa-circle"></i>
-                        <h4 class="my_badge text-capitalize mb-0">
-                            {{ $service->title }}
-                        </h4>
-                    </div>
+                <div class="col-sm-6 col-md-4 col-lg-3 d-flex align-items-center mb-2">
+                    <i class="fas fa-circle"></i>
+                    <p class="my_badge text-capitalize mb-0">
+                        {{ $service->title }}
+                    </p>
+                </div>
                 @endforeach
             </div>
         </div>
     </div>
+    @endif
 </div>
 
 @endsection

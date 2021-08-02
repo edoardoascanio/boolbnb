@@ -10958,6 +10958,11 @@ main.py-4 {
   padding-bottom: 0;
 }
 
+.line {
+  border-bottom: 2px solid #71a8cd;
+  margin: 10px 0 15px;
+}
+
 @media (min-width: 768px) {
   main.py-4 {
     padding-top: 79px !important;
@@ -11692,8 +11697,12 @@ section.my-slider .right-arrow {
 }
 
 i.fas.fa-circle {
-  font-size: 10px;
+  font-size: 6px;
   margin-right: 10px;
+}
+
+.row.my-visibility .inline-block {
+  display: inline-block !important;
 }
 
 #searchForm {

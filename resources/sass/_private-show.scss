@@ -124,6 +124,13 @@ section.my-slider {
 }
 
 i.fas.fa-circle {
-   font-size: 10px;
+   font-size: 6px;
    margin-right: 10px;
+}
+
+.row.my-visibility {
+
+   .inline-block {
+      display: inline-block !important;
+   }
 }
