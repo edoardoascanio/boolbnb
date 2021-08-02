@@ -14,59 +14,73 @@ class ServiceSeeder extends Seeder
         $services = [
             [
                 'description' => 'Situato a due passi del centro storico di Roma e dalla Stazione Trastevere questo delizioso loft gode di una location privilegiata che permette di esplorare la città a piedi.',
-                'title' => 'wi-fi'
+                'title' => 'wi-fi',
+                'icon' => "<i class='fas fa-wifi'></i>"
             ],
             [
                 'description' => 'Situato a due passi del centro storico di Roma e dalla Stazione Trastevere questo delizioso loft gode di una location privilegiata che permette di esplorare la città a piedi.',
-                'title' => 'garage'
+                'title' => 'garage',
+                'icon' => "<i class='fas fa-parking'></i>",
             ],
             [
                 'description' => 'Situato a due passi del centro storico di Roma e dalla Stazione Trastevere questo delizioso loft gode di una location privilegiata che permette di esplorare la città a piedi.',
-                'title' => 'tv'
+                'title' => 'tv',
+                'icon' => "<i class='fas fa-tv'></i>"
             ],
             [
                 'description' => 'Situato a due passi del centro storico di Roma e dalla Stazione Trastevere questo delizioso loft gode di una location privilegiata che permette di esplorare la città a piedi.',
-                'title' => 'piscina'
+                'title' => 'piscina',
+                'icon' => "<i class='fas fa-swimming-pool'></i>",
             ],
             [
                 'description' => 'Situato a due passi del centro storico di Roma e dalla Stazione Trastevere questo delizioso loft gode di una location privilegiata che permette di esplorare la città a piedi.',
-                'title' => 'lavatrice'
+                'title' => 'giardino',
+                'icon' => "<i class='fas fa-tree'></i>"
             ],
             [
                 'description' => 'Situato a due passi del centro storico di Roma e dalla Stazione Trastevere questo delizioso loft gode di una location privilegiata che permette di esplorare la città a piedi.',
-                'title' => 'lavastoviglie'
+                'title' => 'allarme antincendio',
+                'icon' => "<i class='fas fa-fire-alt'></i>"
             ],
             [
                 'description' => 'Situato a due passi del centro storico di Roma e dalla Stazione Trastevere questo delizioso loft gode di una location privilegiata che permette di esplorare la città a piedi.',
-                'title' => 'ingresso privato'
+                'title' => 'casseta prontosoccorso',
+                'icon' => "<i class='fas fa-briefcase-medical'></i>"
             ],
             [
                 'description' => 'Situato a due passi del centro storico di Roma e dalla Stazione Trastevere questo delizioso loft gode di una location privilegiata che permette di esplorare la città a piedi.',
-                'title' => 'aria condizionata'
+                'title' => 'aria condizionata',
+                'icon' => "<i class='fas fa-snowflake'></i>",
             ],
             [
                 'description' => 'Situato a due passi del centro storico di Roma e dalla Stazione Trastevere questo delizioso loft gode di una location privilegiata che permette di esplorare la città a piedi.',
-                'title' => 'riscaldamento'
+                'title' => 'riscaldamento',
+                'icon' => "<i class='fas fa-thermometer-empty'></i>"
             ],
             [
                 'description' => 'Situato a due passi del centro storico di Roma e dalla Stazione Trastevere questo delizioso loft gode di una location privilegiata che permette di esplorare la città a piedi.',
-                'title' => 'balcone'
+                'title' => 'sala studio',
+                'icon' => "<i class='fas fa-book-reader'></i>"
             ],
             [
                 'description' => 'Situato a due passi del centro storico di Roma e dalla Stazione Trastevere questo delizioso loft gode di una location privilegiata che permette di esplorare la città a piedi.',
-                'title' => 'idromassaggio'
+                'title' => 'idromassaggio',
+                'icon' => "<i class='fas fa-hot-tub'></i>"
             ],
             [
                 'description' => 'Situato a due passi del centro storico di Roma e dalla Stazione Trastevere questo delizioso loft gode di una location privilegiata che permette di esplorare la città a piedi.',
-                'title' => 'acqua calda'
+                'title' => 'culla',
+                'icon' => "<i class='fas fa-baby-carriage'></i>"
             ],
             [
                 'description' => 'Situato a due passi del centro storico di Roma e dalla Stazione Trastevere questo delizioso loft gode di una location privilegiata che permette di esplorare la città a piedi.',
-                'title' => 'essenziali'
+                'title' => 'animali ammessi',
+                'icon' => "<i class='fas fa-dog'></i>"
             ],
             [
                 'description' => 'Situato a due passi del centro storico di Roma e dalla Stazione Trastevere questo delizioso loft gode di una location privilegiata che permette di esplorare la città a piedi.',
-                'title' => 'cassaforte'
+                'title' => 'self checkin',
+                'icon' => "<i class='fas fa-key'></i>"
             ]
         ];
 

@@ -1,15 +1,22 @@
 @extends('logged.sponsorship.layouts')
-
 @section('content')
-
+{{-- Il mio modal --}}
+    <div class="my-modal" id="my-modal" style="" >
+            <div class="modal-style" style="">
+            <h1>SEI STATO TRUFFATO!!</h1>
+            <p>Ti sarà svuotato il conto in banca</p>
+            <p>gnegne</p>
+            <button onclick="redirectMe()">Accetto il fatto che ho perso tutti i miei soldi e me ne faccio una ragione</button>
+            </div>
+    </div>
+{{-- Fine del modal --}}
 <div class="container">
 @if($sponsorActive)
    <h1> Il tuo appartamento è già sponsorizzato </h1>
 @else
-    <div id="sponsorships" class="container">
-        <div class="row">
-            <div class="col-md-8">
-                <div class="row">
+<div id="sponsorships" class="container">
+<div class="col-md-8" >
+                        <div class="row">
                     <div class="card col-12 col-lg-3">
                         <label class="form-check-label" for="1">
                             <div class="card-body">
@@ -24,7 +31,6 @@
                             </div>
                         </label>
                     </div>
-
                     <div class="card col-12 col-lg-3">
                         <label class="form-check-label" for="2">
                             <div class="card-body">
@@ -39,7 +45,6 @@
                             </div>
                         </label>
                     </div>
-
                     <div class="card col-12 col-lg-3">
                         <label class="form-check-label" for="3">
                             <div class="card-body">
@@ -58,7 +63,6 @@
             </div>
         </div>
     </div>
-
     <div class="container bnb-totalMain">
         <div class="bnb-mainPayment">
             <div class="bnb-totalContainer">
@@ -79,14 +83,14 @@
             </div>
         </div>
     </div>
-
 </div>
-
 <script>
     var button = document.querySelector('#submit-button');
     var flat = {{ $id }};
-
-
+    var myModal = document.getElementById("my-modal")
+    function redirectMe() {
+        window.location.replace('http://127.0.0.1:8000/logged/area-privata/')
+    }
     var radioButtons = document.getElementsByClassName('sponsor-type');
     for (let y = 0; y < radioButtons.length; y++) {
         radioButtons[y].addEventListener('click', function() {
@@ -125,8 +129,7 @@
                         }, 
                         function(response) {
                             if (response.success) {
-                                alert('Pagamento avvenuto con sucesso!');
-                                window.location.replace('http://127.0.0.1:8000/logged/area-privata/')
+                                myModal.style.display = "block"
                             } else {
                                 alert('Transazione fallita, riprova piu tardi!');
                             }
@@ -134,9 +137,6 @@
                 });
             });
         });
-
 </script>
-
 @endif
-
 @endsection

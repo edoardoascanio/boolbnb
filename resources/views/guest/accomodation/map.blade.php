@@ -44,10 +44,14 @@
 </div>
 <div class="container_map" id="container_map" style="margin-top: 80px; height: calc(100vh - 80px);">
     <div class='control-panel'>
-        <div id='store-list'></div>
+        <h1 style="color: black; font-weight: 500; padding-left: 50px; padding-top: 10px">Scopri tutti gli alloggi</h1>
+        <div id='store-list' style="padding-bottom: 80px"></div>
     </div>
     <div class='map' id='map' style="height:100%; width: 40%"></div>
 </div>
+
+
+
 
 <script>
     //Mappa e suoi spostamenti
@@ -163,8 +167,12 @@
             })
             .then((resp) => {
                 filteredAccomodations = resp.data.results;
-                console.log(servicesValue)
                 for (i = 0; i < filteredAccomodations.length; i++) {
+                    let servicesArray = []
+                    for (p=0; p < filteredAccomodations[i].services.length; p++) {
+                        servicesArray.push(filteredAccomodations[i].services[p].title)
+                    }
+                    console.log(servicesArray)
                     arrayAccomodation.push({
                         "type": "Feature"
                         , "geometry": {
@@ -181,7 +189,10 @@
                             , "title": filteredAccomodations[i].title
                             , "number_rooms": filteredAccomodations[i].number_rooms
                             , "placeholder": filteredAccomodations[i].placeholder,
-                            "link": filteredAccomodations[i].link
+                            "link": filteredAccomodations[i].link,
+                            "number_bathrooms": filteredAccomodations[i].number_bathrooms,
+                            "number_beds": filteredAccomodations[i].number_beds,
+                            "services": servicesArray
                         }
                     }, )
                 }
@@ -195,6 +206,9 @@
                     let location = store.geometry.coordinates;
                     let title = store.properties.title;
                     let link = store.properties.link
+                    let number_beds = store.properties.number_beds
+                    let number_bathrooms = store.properties.number_bathrooms
+                    let services = store.properties.services
                     let marker = new tt.Marker().setLngLat(location).setPopup(new tt.Popup({
                         offset: 35
                     , }).setHTML(address)).addTo(map);
@@ -203,7 +217,9 @@
                         //Forse aggiungere qua
                         , placeholder
                         , city
-                        , title
+                        , title,
+                        number_beds,
+                        number_bathrooms
                     , };
                     let cityStoresList = document.getElementById(city);
                     if (cityStoresList === null) {
@@ -241,11 +257,9 @@
                         marker.togglePopup();
                     });
                     function buildLocation(htmlParent, text) {
-                        let details = htmlParent.appendChild(document.createElement('a'));
-                        details.href =  link;
+                        let details = htmlParent.appendChild(document.createElement('div'));
                         details.className = 'list-entry';
-                        details.innerHTML = "<img style='height: 100px; width: 100px;' src='" + placeholder + "' alt=''> " + "<h2>" + title + "</h2>" + "<p>" + text + "</p>";
-                        details.target = "_blanc"
+                        details.innerHTML = "<img style='height: 200px; width: 300px; margin-right: 20px' src='" + placeholder + "' alt=''> " + "<div style: display: flex; flex-direction: column; width: 100%>" +  "<h3>" + title + "</h3>" + "<p>" + text + "</p>" + "<hr style='width: 50px;'>" + "<p>" + "letti: " + number_beds + " - " + "bagni: " + number_bathrooms +  "</p>" + "<p>" + services + "</p>" + "<a target='_blanc' href='" + link +  "''>" + "Visualizza" +  "</a>" + "</div>";
                         return details;
                     }
                     function closeAllPopups() {
@@ -280,4 +294,3 @@
     }
 </script>
 @endsection
-
