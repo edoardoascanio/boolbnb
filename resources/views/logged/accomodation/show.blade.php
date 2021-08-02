@@ -87,12 +87,17 @@
     </div>
 
     <div class="row justify-content-center">
-        <label for="tue">Visibile
-            <input name="visibility" type="radio" value="1" id="true" {{ $accomodation->visibility == true ? 'checked' : "" }}>
-        </label>
-        <label for="false">Non visibile
-            <input name="visibility" type="radio" value="0" id="false" {{ $accomodation->visibility == false ? 'checked' : "" }}>
-        </label>
+        <form action="{{ route('logged.visibility', $accomodation->id) }}" method="post" id="visibility-form">
+            @csrf
+            @method('PATCH')
+            <label for="true">Visibile
+                <input name="visibility" type="radio" value="1" id="true" onchange="send()" {{ $accomodation->visibility == true ? 'checked' : "" }}>
+            </label>
+            <label for="false">Non visibile
+                <input name="visibility" type="radio" value="0" id="false" onchange="send()" {{ $accomodation->visibility == false ? 'checked' : "" }}>
+            </label>
+
+        </form>
     </div>
 
     {{-- RIUTILIZZARE QUESTO PEZZO PER LA SHOW PUBBLICA --}}
