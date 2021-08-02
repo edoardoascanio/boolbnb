@@ -30,7 +30,7 @@
             {{-- messages --}}
             @if(count($accomodation->messages) > 0)
                 <div class="my_actions">
-                    <a class="panel-item" href="{{ route('message.index', $accomodation->id) }}" class="btn btn-primary">
+                    <a class="panel-item btn btn-primary" href="{{ route('message.index', $accomodation->id) }}">
                         <i class="far fa-envelope"></i>
                         <span class="notify">
                             {{ count($accomodation->messages) }}
@@ -42,19 +42,7 @@
                     <i class="fas fa-comment-slash panel-item"></i>
                 </div>
             @endif
-            {{-- views --}}
-            @if(count($accomodation->views) > 0)
-                <div class="my_actions panel-item no-effect">
-                    <i class="far fa-eye"></i>
-                    <span class="notify">
-                        {{ count($accomodation->views) }}
-                    </span>
-                </div>
-            @else
-                <div class="my_actions panel-item no-effect">
-                    <i class="far fa-eye-slash"></i>
-                </div>
-            @endif
+            
             {{-- sponsorship --}}
             @if($accomodation->sponsorActive)
                 <div class="my_actions panel-item no-effect sponsor">
@@ -100,33 +88,18 @@
         </form>
     </div>
 
-    {{-- RIUTILIZZARE QUESTO PEZZO PER LA SHOW PUBBLICA --}}
-
-    {{-- <div class="row justify-content-center">
-        <div class="col-12 col-md-10 py-4">
-            <div class="padding-left">
-                <i class="fas fa-home my_home"></i>
-                <span class="padding-left">
-                    Casa intera.
-                    Appartamento: sarà a tua completa disposizione.
-                </span>
-            </div>
-        </div>
-        <div class="line"></div>
-    </div> --}}
-
-
-    {{-- <div class="row justify-content-center">
-        <div class="col-12 col-md-10">
-            <h3 class="text-font">Dove dormirai</h3>
-            <div>
-                <p>
-                    <i class=" my-beds fas fa-bed"></i>
-                    Camera da letto: {{ $accomodation->number_beds }}
-                </p>
-            </div>
-        </div>
-    </div> --}}
+    {{-- @if(count($accomodation->views) > 0)
+                <div class="my_actions panel-item no-effect">
+                    <i class="far fa-eye"></i>
+                    <span class="notify">
+                        {{ count($accomodation->views) }}
+                    </span>
+                </div>
+            @else
+                <div class="my_actions panel-item no-effect">
+                    <i class="far fa-eye-slash"></i>
+                </div>
+            @endif --}}
 
     <div class="row justify-content-center">
         <div class="col-12 col-md-10" >

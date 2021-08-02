@@ -76,7 +76,6 @@
                 @yield('content')
             </main>
         </div>
-        @include('layouts.footer')
     </div>
     {{-- <script src={{asset('js/tomtom.js')}}></script> --}}
     <script src='{{ asset('js/app.js') }}'></script>
