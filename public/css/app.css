@@ -11301,6 +11301,7 @@ footer {
   background-size: cover;
   background-position: cover;
   background-repeat: no-repeat;
+  background-image: url(/images/back-img-1.jpg?5403655994bc85b7ae073969855c00c6);
 }
 
 .card {
@@ -11349,7 +11350,7 @@ footer {
 #user-dashboard {
   background-repeat: no-repeat;
   background-position: cover;
-  background-image: url(/images/back-img-1.jpg?5403655994bc85b7ae073969855c00c6);
+  background-image: url(/images/back-img-5.jpg?95e928f06285ffea921d678a625c483d);
 }
 
 .dash-container {
@@ -12072,5 +12073,34 @@ a {
   .stat-container {
     height: calc(100vh - 60px) !important;
   }
+}
+
+.row-my-panel .my_actions .panel-item.btn.btn-primary {
+  color: #fff;
+  background-color: #71a8cd;
+  padding: 10px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.row-my-panel .my_actions .panel-item.btn.btn-primary:hover {
+  background-color: #3490dc;
+  transition: 0.2s;
+}
+
+.card_beds {
+  height: 100px;
+  width: 200px;
+  text-align: center;
+  position: relative;
+  top: 0;
+  transition: all 0.4s;
+  border: 1px solid grey;
+  border-radius: 13px;
+  margin: 0 0 30px 0;
+}
+
+.card_beds:hover {
+  top: -10px;
 }
 

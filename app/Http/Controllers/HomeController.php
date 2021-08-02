@@ -18,7 +18,7 @@ class HomeController extends Controller
             $accomodation->link = route("guest.show", ["id" => $accomodation->id]);
             $accomodation->placeholder = $accomodation->placeholder ? asset('storage/' . $accomodation->placeholder) : asset('placeholder/house-placeholder.jpeg');
             $sponsor = Sponsorship::where('accomodation_id', $accomodation->id)->where('end_date', '>', $now)->get();
-            if (count($sponsor) > 0 && count($accomodation_sponsored) <= 3) {
+            if (count($sponsor) > 0 && count($accomodation_sponsored) < 3) {
                 $accomodation_sponsored[] = $accomodation;
             }
         }

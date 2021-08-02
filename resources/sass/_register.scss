@@ -1,6 +1,7 @@
 .background-page{
 
     @include background-page;
+    background-image: url('public/imgs/back-img-1.jpg');
 }
 
 .card{
