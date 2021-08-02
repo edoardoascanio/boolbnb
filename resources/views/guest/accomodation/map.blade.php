@@ -1,19 +1,25 @@
 @extends('layouts.mapLayout')
 @section('content')
-<div class="d-flex"  >
-    <form @submit.prevent="filterData" class=" bg-light flex-wrap"  id="searchForm">
-            <div>
-                <input type="text" placeholder="citta" id="city" value="{{ $city['city'] }}">
+<div class="d-flex justify-content-center " >
+    <form @submit.prevent="filterData" class="flex-wrap " id="searchForm" >
+        <div class="d-flex filters-container align-items-center">
+            <div class="input-search-map d-flex flex-column">
+                <label for="city" class="forma-label mb-0">Città</label>
+                <input class="" type="text" placeholder="Scegli la Città" id="city" value="{{ $city['city'] }}">
             </div>
-            <div >
-                <input type="number" placeholder="n letti" id="beds" value="{{ $number_beds['number_beds'] }}">
+            <div class="input-search-map d-flex flex-column">
+                <label for="beds" class="forma-label mb-0">Posti Letto</label>
+                <input type="text" placeholder="Es. 1" id="beds" value="{{ $number_beds['number_beds'] }}">
             </div>
-            <div >
-                <input type="number" placeholder="n stanze" id="rooms">
+            <div class="input-search-map d-flex flex-column">
+                <label for="rooms" class="forma-label mb-0">Stanze</label>
+                <input type="text" placeholder="Es. 3" id="rooms">
             </div>
-            <div >
-                    <label for="range" class="forma-label mb-0">Distanza:</label>
-                    <span id="ciccio">20 Km</span>
+            <div class="d-flex flex-column range-styler" >
+                <div>
+                    <label for="range" class="forma-label mb-0"><b>Distanza:</b></label>
+                    <span id="ciccio" class="">20 Km</span>
+                </div>
                 <input class=" p-0" type="range" id="range" name="range" min="0" max="40" step="1" list="tickmarks" />
                 <datalist id="tickmarks">
                     <option value="0"></option>
@@ -27,22 +33,31 @@
                     <option value="40"></option>
                 </datalist>
             </div>
-            {{-- <div class="mb-3">ciao</div> --}}
-        <div>
-            @foreach($services as $service)
-            <label for="{{ $service->id }}">
-                <input type="checkbox" id="{{ $service->id }}" class="services" value="{{ $service->id }}" name="service">
-                {{$service->title}}
-            </label>
-            @endforeach
-        </div>
-        <div>
-            <input type="button" id="el" value="FILTRA" />
-            <input type="reset" value="RESET" onclick="doSomethingWith(20)"/>
+            <div>
+                <div id="chevron-down" class="input-search-map d-flex flex-column" style="border:none;">
+                    <p style="margin-bottom: 0; transform: translateY(-1px);"><b>Servizi </b><i
+                            class="fas fa-chevron-down"></i></p>
+                    <p style="margin-bottom: 0px; transform: translateY(-1px);">Aggiungi Servizi</p>
+                </div>
+                {{-- <div class="mb-3">ciao</div> --}}
+                <div id="service-list" style="display: none">
+                    @foreach($services as $service)
+                    <label for="{{ $service->id }}">
+                        <input type="checkbox" id="{{ $service->id }}" class="services" value="{{ $service->id }}"
+                            name="service">
+                        {{$service->title}}
+                    </label>
+                    @endforeach
+                </div>
+            </div>
+            <div>
+                <i class="lens-icon fas fa-search" type="button" id="element" value="FILTRA"></i>
+                {{-- <input type="reset" value="RESET" onclick="doSomethingWith(20)"/> --}}
+            </div>
         </div>
     </form>
 </div>
-<div class="container_map" id="container_map" style="margin-top: 80px; height: calc(100vh - 80px);">
+<div class="container_map" id="container_map" style="height: calc(100vh - 225px);">
     <div class='control-panel'>
         <h1 style="color: black; font-weight: 500; padding-left: 50px; padding-top: 10px">Scopri tutti gli alloggi</h1>
         <div id='store-list' style="padding-bottom: 80px"></div>
@@ -50,10 +65,16 @@
     <div class='map' id='map' style="height:100%; width: 40%"></div>
 </div>
 
-
-
-
 <script>
+    var serviceList = document.getElementById("service-list")
+    var chevron = document.getElementById("chevron-down")
+    chevron.addEventListener("click", () => {
+        if (serviceList.style.display === "none") {
+            serviceList.style.display = "flex"
+       }  else {
+        serviceList.style.display = "none"
+       }
+    })
     //Mappa e suoi spostamenti
      let apiKey = 'x03gOYgHS1403BuzYDLDXT3SZEhCK1sB';
                 let map = tt.map({
@@ -101,7 +122,7 @@
         myel.innerHTML = value + " Km"
     }
     var arrayAccomodation = [];
-    var el = document.getElementById('el')
+    var el = document.getElementById('element')
     el.addEventListener('click', function() {
         clearAccomodations()
     })
