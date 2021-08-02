@@ -28,6 +28,6 @@ class ImageController extends Controller
             $image->save();
         }
 
-        return redirect()->route('logged.image.create', ['id' => $id]);
+        return redirect()->route('logged.show', ['id' => $id]);
     }
 }
