@@ -11,6 +11,6 @@ class ViewSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\View::class, 30)->create();
+        factory(App\View::class, 300)->create();
     }
 }

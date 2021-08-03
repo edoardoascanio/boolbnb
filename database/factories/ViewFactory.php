@@ -7,9 +7,9 @@ use Faker\Generator as Faker;
 
 $factory->define(View::class, function (Faker $faker) {
     return [
-        
-            'user_ip' => $faker->localIpv4(),
-            'accomodation_id' => $faker->numberBetween(1, 7)
-        
+
+        'user_ip' => $faker->localIpv4(),
+        'accomodation_id' => $faker->numberBetween(1, 40)
+
     ];
 });
