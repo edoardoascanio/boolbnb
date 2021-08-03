@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+<a class="btn blu-btn" id="blu-btn" href="{{ url()->previous() }}"><i class="fas fa-undo"></i> Torna Indietro</a>
+
 <section id="message">
     <div class="container">
         <div class="row justify-content-center">

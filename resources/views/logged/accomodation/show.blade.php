@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<a class="btn blu-btn" id="blu-btn" href="{{ route('logged.dashboard') }}"><i class="fas fa-undo"></i> Torna alla dashboard</a>
+<a class="btn blu-btn" id="blu-btn" href="{{ route('logged.dashboard') }}"><i class="fas fa-undo"></i> Dashboard</a>
 <div class="container">
     <section class="my-slider">
         <slider-images :id='{{$accomodation->id}}'>

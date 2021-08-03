@@ -8,7 +8,7 @@
                 <input class="" type="text" placeholder="Scegli la Città" id="city" value="{{ $city['city'] }}">
             </div>
             <div class="input-search-map d-flex flex-column">
-                <label for="beds" class="forma-label mb-0">Posti Letto</label>
+                <label for="beds" class="forma-label mb-0">Letti</label>
                 <input type="text" placeholder="Es. 1" id="beds" value="{{ $number_beds['number_beds'] }}">
             </div>
             <div class="input-search-map d-flex flex-column">
@@ -35,9 +35,9 @@
             </div>
             <div>
                 <div id="chevron-down" class="input-search-map d-flex flex-column" style="border:none;">
-                    <p style="margin-bottom: 0; transform: translateY(-1px);"><b>Servizi </b><i
-                            class="fas fa-chevron-down"></i></p>
-                    <p style="margin-bottom: 0px; transform: translateY(-1px);">Aggiungi Servizi</p>
+                    <p style="margin-bottom: 0; transform: translateY(-1px);"><i
+                            class="fas fa-chevron-down"><b>Servizi </b></i></p>
+                    <p style="margin-bottom: 0px; transform: translateY(-1px);"></p>
                 </div>
                 {{-- <div class="mb-3">ciao</div> --}}
                 <div id="service-list" style="display: none">
@@ -57,12 +57,12 @@
         </div>
     </form>
 </div>
-<div class="container_map" id="container_map" style="height: calc(100vh - 225px);">
+<div class="container_map" id="container_map" style="">
     <div class='control-panel'>
         <h1 style="color: black; font-weight: 500; padding-left: 50px; padding-top: 10px">Scopri tutti gli alloggi</h1>
         <div id='store-list' style="padding-bottom: 80px"></div>
     </div>
-    <div class='map' id='map' style="height:100%; width: 40%"></div>
+    <div class='map' id='map' style="width: 40%"></div>
 </div>
 
 <script>
@@ -100,17 +100,8 @@
                 query: document.getElementById("city").value,
             }).go().then(handleResults)    
         }
-    var searchButton = document.getElementById("searchButton")
+    var searchButton = document.getElementById("element")
     var mapContainer = document.getElementById("container_map")
-    var formDisplay = 1
-    searchButton.addEventListener("click", function () {
-        var form = document.getElementById("searchForm")
-        if (form.style.display === "none") {
-            form.style.display = "flex"; 
-        } else {
-            form.style.display = "none";         
-  }
-    })
     var dynamicRange = document.getElementById('range');
     dynamicRange.addEventListener('input', function(event) {
         var inputValue = event.target.value;

@@ -52,7 +52,7 @@ class MessageController extends Controller
         $accomodation = Accomodation::findOrFail($id);
         if (isset(Auth::user()->id) && Auth::user()->id == $accomodation->user_id) {
 
-            return view('message.index', ['messages' => $messages]);
+            return view('message.index', ['messages' => $messages, 'id' => $id]);
         }
         abort(403, 'Unauthorized action.');
     }
