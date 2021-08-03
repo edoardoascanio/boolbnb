@@ -6,6 +6,7 @@ use App\Accomodation;
 use App\Http\Controllers\Controller;
 use App\Image;
 use App\Service;
+use App\User;
 use App\View;
 use DateInterval;
 use DateTime;
@@ -26,6 +27,7 @@ class AccomodationController extends Controller
     public function show($id)
     {
         $accomodation = Accomodation::findOrFail($id);
+        $user = User::findOrFail($accomodation->user_id);
 
         $views = View::all()->where('accomodation_id', $id);
 
@@ -107,7 +109,7 @@ class AccomodationController extends Controller
 
         $images = Image::where('accomodation_id', $accomodation->id);
 
-        return view('guest.accomodation.show', ['accomodation' => $accomodation, 'images' => $images]);
+        return view('guest.accomodation.show', ['accomodation' => $accomodation, 'images' => $images, 'user' => $user]);
     }
 
     public function map(Request $request) {

@@ -48,7 +48,7 @@ class MessageController extends Controller
 
     public function index($id)
     {
-        $messages = Message::where('accomodation_id', $id)->get();
+        $messages = Message::where('accomodation_id', $id)->orderBy('created_at', 'DESC')->get();
         $accomodation = Accomodation::findOrFail($id);
         if (isset(Auth::user()->id) && Auth::user()->id == $accomodation->user_id) {
 

@@ -12071,11 +12071,6 @@ a {
   background-color: #F5F5F5;
 }
 
-#store-list .list-entries-container .list-entry:hover,
-#store-list .list-entries-container .list-entry.selected {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
 .ui-accordion h3.ui-accordion-header {
   background-color: #F4F6F8;
   border-color: #DDDFE0;

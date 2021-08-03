@@ -144,10 +144,10 @@ a {
 #store-list .list-entries-container .list-entry:nth-of-type(even) {
    background-color: #F5F5F5;
 }
-#store-list .list-entries-container .list-entry:hover,
-#store-list .list-entries-container .list-entry.selected {
-   background-color: rgba($color: #000000, $alpha: 0.1);
-}
+// #store-list .list-entries-container .list-entry:hover,
+// #store-list .list-entries-container .list-entry.selected {
+//    // background-color: rgba($color: #000000, $alpha: 1);
+// }
 .ui-accordion h3.ui-accordion-header {
    background-color: #F4F6F8;
    border-color: #DDDFE0;

@@ -7,7 +7,7 @@
                 </div>
             </div>
             <div class="col-12 col-md-10 box-height">
-                <img :src="images[activeImg]" alt="">
+                <img :src="images[activeImg]" alt="">                
             </div>
             <div class="arrow right-arrow">
                 <div v-show="images.length > 1" class="container-chevron" @click="change(1)">

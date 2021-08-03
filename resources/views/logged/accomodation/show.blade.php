@@ -101,7 +101,7 @@
         <div class="wrap col-12 col-md-10">
             <h3 class="title text-capitalize">{{ $accomodation->title }}</h3>
             <p class="city">
-                <span class="text-capitalize">{{ $accomodation->city }} - {{ $accomodation->type_street}} {{ $accomodation->street_name}} {{ $accomodation->building_number}} - {{ $accomodation->zip }}</span> - {{ $accomodation->number_rooms }} stanza/e - {{ $accomodation->number_beds }} camera/e da letto - {{ $accomodation->number_bathrooms }} bagno/i</p>
+                <span class="text-capitalize">{{ $accomodation->city }} - {{ $accomodation->type_street}} {{ $accomodation->street_name}} {{ $accomodation->building_number}} - {{ $accomodation->zip }}</span> - {{ $accomodation->number_rooms }} stanza/e - {{ $accomodation->number_beds }} camera/e da letto - {{ $accomodation->number_bathrooms }} bagno/i <br> Prezzo per Notte: {{ $accomodation->price_per_night }}€</p>
             <p class="description text-justify">{{ $accomodation->description }}</p>
             <div class="line"></div>
         </div>
