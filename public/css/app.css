@@ -11404,13 +11404,14 @@ footer {
 .dash-container .accomodation-btn {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   flex-wrap: wrap;
   width: 100%;
   align-items: center;
 }
 
 .dash-container .accomodation-btn .card-btn {
+  margin-right: 20px;
   color: #fff;
   background-color: #71a8cd;
   padding: 10px;
@@ -11449,6 +11450,23 @@ footer {
   padding-bottom: 10px;
 }
 
+#blu-btn {
+  color: #fff;
+  background-color: #71a8cd;
+  padding: 10px;
+  display: inline-block;
+  padding-bottom: 10px;
+  position: absolute;
+  top: 90px;
+  left: 10px;
+  z-index: 2;
+}
+
+#blu-btn:hover {
+  background-color: #3490dc;
+  transition: 0.2s;
+}
+
 .create-container {
   margin-top: 50px;
 }
@@ -11479,6 +11497,23 @@ footer {
 
 .create-container label {
   text-transform: capitalize;
+}
+
+#blu-btn {
+  color: #fff;
+  background-color: #71a8cd;
+  padding: 10px;
+  display: inline-block;
+  padding-bottom: 10px;
+  position: absolute;
+  top: 90px;
+  left: 10px;
+  z-index: 2;
+}
+
+#blu-btn:hover {
+  background-color: #3490dc;
+  transition: 0.2s;
 }
 
 .form-container {
@@ -11619,6 +11654,23 @@ footer {
   #sponsorships .col-md-8 {
     margin: 15px auto 25px;
   }
+}
+
+#blu-btn {
+  color: #fff;
+  background-color: #71a8cd;
+  padding: 10px;
+  display: inline-block;
+  padding-bottom: 10px;
+  position: absolute;
+  top: 90px;
+  left: 10px;
+  z-index: 2;
+}
+
+#blu-btn:hover {
+  background-color: #3490dc;
+  transition: 0.2s;
 }
 
 section.my-slider .box-height {
@@ -12122,6 +12174,23 @@ a {
   }
 }
 
+#blu-btn {
+  color: #fff;
+  background-color: #71a8cd;
+  padding: 10px;
+  display: inline-block;
+  padding-bottom: 10px;
+  position: absolute;
+  top: 90px;
+  left: 10px;
+  z-index: 2;
+}
+
+#blu-btn:hover {
+  background-color: #3490dc;
+  transition: 0.2s;
+}
+
 .stat-container {
   background-image: url(/images/back-img-4.jpg?60a4540295154f37a3a0f4f7a69a2b08);
   width: 100%;
@@ -12130,7 +12199,7 @@ a {
   background-size: cover;
   background-position: cover;
   background-repeat: no-repeat;
-  height: calc(100vh - 79px) !important;
+  height: calc(100vh - 89px) !important;
 }
 
 .stat-container .card-header {

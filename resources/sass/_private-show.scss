@@ -1,5 +1,13 @@
+#blu-btn {
+   @include blu-btn;
+   display: inline-block;
+   padding-bottom: 10px;
+   position: absolute;
+   top: 90px;
+   left: 10px;
+   z-index: 2;
+}
 section.my-slider {
-
    .box-height {
       height: 400px;
       width: 100%;
