@@ -28,7 +28,7 @@
 </head>
 <body>
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+            
                 <a class="navbar-brand" href="{{ url('/') }}">
 
                     <div class="logo">
@@ -44,9 +44,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto right-nav-item  ">
 
-                        <li class="nav-item">
-                            <a class="nav-link" href=""> <strong>Diventa Host</strong></a>
-                        </li>
+                        
                         <!-- Authentication Links -->
                         @guest
                         @if (Route::has('register'))
@@ -80,7 +78,7 @@
                         @endguest
                     </ul>
                 </div>
-            </div>
+            
         </nav>
         <div class="container">
             <a href="{{ route('guest.index') }}">appartamenti</a>

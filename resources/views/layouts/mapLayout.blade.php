@@ -25,7 +25,7 @@
 </head>
 <body style="position: relative ">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" style="height: 80px">
-            <div class="container">
+            
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <div class="logo">
                         <img src="{{ asset('imgs/b-blue.png') }}">
@@ -38,9 +38,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto right-nav-item  ">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"> <strong>Diventa Host</strong></a>
-                        </li>
+                        
                         <!-- Authentication Links -->
                         @guest
                         @if (Route::has('register'))
@@ -70,7 +68,7 @@
                         @endguest
                     </ul>
                 </div>
-            </div>
+            
         </nav>
         <div class="main-container">
             <main id="mymain" >
