@@ -11903,6 +11903,22 @@ a:hover {
   text-decoration: none;
 }
 
+.listaImg {
+  height: 200px;
+  width: 300px;
+  margin-right: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px darkgray;
+}
+
+.iconcina {
+  font-size: 30px;
+  padding: 10px;
+  border-radius: 50%;
+  background-color: #71a8cd;
+  color: white;
+}
+
 #chevron-down {
   padding: 15px;
   position: relative;
@@ -11910,12 +11926,13 @@ a:hover {
 
 #service-list {
   position: absolute;
-  top: 70px;
-  z-index: 25;
+  top: 85px;
+  z-index: 999;
   flex-direction: column;
-  border: 1px solid black;
+  border: 1px solid #71a8cd;
   background-color: white;
   padding: 15px;
+  border-radius: 10px;
 }
 
 .filters-container {
@@ -12003,6 +12020,7 @@ a {
 
 .container_map {
   position: relative;
+  height: calc(100vh - 182.4px);
 }
 
 .map {
@@ -12011,7 +12029,7 @@ a {
   position: absolute;
   top: 0;
   width: 40%;
-  height: 100%;
+  height: calc(100vh - 182.4px);
 }
 
 .control-panel {
@@ -12086,9 +12104,25 @@ a {
   margin-right: 15px;
 }
 
+#mostraLista {
+  display: none;
+}
+
+#mostraMappa {
+  display: none;
+}
+
 @media only screen and (max-width: 1200px) {
   .input-search-map {
     width: 100px;
+  }
+
+  #mostraLista {
+    display: none;
+  }
+
+  #mostraMappa {
+    display: none;
   }
 }
 
@@ -12104,14 +12138,6 @@ a {
     margin-right: 10px;
   }
 
-  canvas {
-    width: 1000px !important;
-  }
-
-  .mapboxgl-marker {
-    display: none;
-  }
-
   .control-panel {
     width: 100%;
   }
@@ -12119,6 +12145,14 @@ a {
   .range-styler {
     width: 140px;
     padding: 0 10px;
+  }
+
+  #mostraLista {
+    display: flex;
+  }
+
+  #mostraMappa {
+    display: none;
   }
 }
 
