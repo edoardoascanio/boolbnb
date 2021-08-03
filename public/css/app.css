@@ -11845,10 +11845,6 @@ a:hover {
   margin-top: 80px;
 }
 
-footer {
-  display: none;
-}
-
 main#mymain.py-4 {
   padding-bottom: 0;
   position: relative;
@@ -11959,10 +11955,6 @@ a {
 .ui-icon,
 .ui-widget-content .ui-icon {
   margin-right: 15px;
-}
-
-.message-container {
-  padding-top: 60px;
 }
 
 .message-container .btn {

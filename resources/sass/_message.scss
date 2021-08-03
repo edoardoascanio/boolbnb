@@ -1,5 +1,9 @@
 .message-container{
-    padding-top: 60px;
+    // padding-top: 60px;
+    // @include background-img;
+    // background-image: url('public/imgs/back-img-5.jpg');
+        
+    
 
     .btn{
         @include blu-btn;

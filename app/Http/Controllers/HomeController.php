@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Accomodation;
+use App\Service;
 use App\Sponsorship;
 use Illuminate\Http\Request;
 
@@ -11,6 +12,7 @@ class HomeController extends Controller
 
     public function home () {
         $accomodations = Accomodation::all();
+        $services = Service::limit(5)->get();
         $now = date("Y-m-d H:i:s");
         $accomodation_sponsored = [];
 
@@ -23,6 +25,6 @@ class HomeController extends Controller
             }
         }
 
-        return view('guest.home', ['accomodations' => $accomodation_sponsored]);
+        return view('guest.home', ['accomodations' => $accomodation_sponsored, 'services' => $services]);
     }
 }

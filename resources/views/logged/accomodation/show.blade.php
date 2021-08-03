@@ -127,7 +127,7 @@
                     <i class="fas fa-circle"></i>
                     <p class="my_badge  mb-0">
                     {!! $service->icon !!}
-                        {{ $service->title }}
+                        <span class="text-capitalize">{{ $service->title }}</span>
                     </p>
                 </div>
                 @endforeach

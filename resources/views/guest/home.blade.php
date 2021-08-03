@@ -100,13 +100,16 @@
         <h3>Servizi che potresti trovare </h3>
 
         <div class="row text-center justify-content-between">
+            @foreach($services as $service)
 
             <div class="servicies-card col-lg-2 col-md-12 col-sm-12 col-xs-12">
-                <i class="fa fa-cutlery" aria-hidden="true"></i>
-                <p><strong>Cucina</strong></p>
+                {!! $service->icon !!}
+                <p class="text-capitalize"><strong>{{$service->title}}</strong></p>
             </div>
+                
+            @endforeach
 
-            <div class="servicies-card col-lg-2 col-md-12 col-sm-12 col-xs-12">
+            {{-- <div class="servicies-card col-lg-2 col-md-12 col-sm-12 col-xs-12">
                 <i class="fa fa-wifi" aria-hidden="true"></i>
                 <p><strong>Wi-fi</strong></p>
             </div>
@@ -124,7 +127,7 @@
             <div class="servicies-card col-lg-2 col-md-12 col-sm-12 col-xs-12">
                 <i class="fa fa-snowflake-o" aria-hidden="true"></i>
                 <p><strong>Aria condizionata</strong></p>
-            </div>
+            </div> --}}
         </div>
     </div>
 </section>
