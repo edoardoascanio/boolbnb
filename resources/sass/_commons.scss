@@ -31,3 +31,11 @@ main.py-4{
         padding-top: 79px !important;
     }
 }
+
+
+@media (max-width: 768px) {
+    .blu-btn#blu-btn {
+        display: none;
+   }
+}
+

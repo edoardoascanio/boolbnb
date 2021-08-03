@@ -85,7 +85,7 @@
         <div class="container">
             <a href="{{ route('guest.index') }}">appartamenti</a>
         </div>
-        <main class="py-4" >
+        <main class="" >
             @yield('content')
         </main>
     <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.64.0/maps/maps-web.min.js"></script>

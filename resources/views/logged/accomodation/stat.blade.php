@@ -177,6 +177,7 @@
 
 </div>
 
+
 <script>
     const id = {{$id}}
     var views = null

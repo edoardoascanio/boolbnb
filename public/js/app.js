@@ -7236,7 +7236,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nhtml[data-v-406ab294] {\n    box-sizing: border-box;\n}\n*[data-v-406ab294], *[data-v-406ab294]:before, *[data-v-406ab294]:after {\n    box-sizing: inherit;\n}\nbody[data-v-406ab294] {\n    color: #707070;\n    font-size: 14px;\n    margin: 0;\n    padding: 0;\n}\na[data-v-406ab294] {\n    text-decoration: none;\n}\n.map[data-v-406ab294] {\n    bottom: 0;\n    left: 25%;\n    position: absolute;\n    top: 0;\n    width: 75%;\n}\n.control-panel[data-v-406ab294] {\n    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.3);\n    height: 100%;\n    left: 0;\n    overflow: hidden;\n    position: absolute;\n    top: 0;\n    width: 25%;\n}\n.heading[data-v-406ab294] {\n    background: #fff;\n    border-bottom: 1px solid #eee;\n    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);\n    position: relative;\n    z-index: 1;\n}\n.heading > img[data-v-406ab294] {\n    height: auto;\n    margin: 10px 0 8px 0;\n    width: 150px;\n}\n#store-list[data-v-406ab294] {\n    height: 100%;\n    overflow: auto;\n}\n#store-list .list-entries-container .list-entry[data-v-406ab294] {\n    border-bottom: 1px solid #e8e8e8;\n    display: block;\n    padding: 10px 50px 10px;\n}\n#store-list .list-entries-container .list-entry[data-v-406ab294]:nth-of-type(even) {\n    background-color: #f5f5f5;\n}\n#store-list .list-entries-container .list-entry[data-v-406ab294]:hover,\n#store-list .list-entries-container .list-entry.selected[data-v-406ab294] {\n    background-color: #CDDE75;\n    border-bottom-color: #CDDE75;\n}\n.ui-accordion h3.ui-accordion-header[data-v-406ab294] {\n    background-color: #F4F6F8;\n    border-color: #dddfe0;\n    border-style: solid;\n    border-width: 0 0 3px 0;\n    color: #707070;\n    display: block;\n    font-size: 1.143em;\n    margin: 0;\n    padding: 15px 20px;\n}\n.ui-accordion h3.ui-accordion-header.ui-state-active[data-v-406ab294] {\n    color: #fff;\n    background-color: #BDD731;\n    border-bottom-color: #a2ba24;\n}\n.ui-accordion .ui-accordion-content[data-v-406ab294] {\n    border: none;\n    padding: 0;\n}\n.ui-icon[data-v-406ab294], .ui-widget-content .ui-icon[data-v-406ab294] {\n    margin-right: 15px;\n}\n", ""]);
+exports.push([module.i, "\nhtml[data-v-406ab294] {\r\n    box-sizing: border-box;\n}\n*[data-v-406ab294], *[data-v-406ab294]:before, *[data-v-406ab294]:after {\r\n    box-sizing: inherit;\n}\nbody[data-v-406ab294] {\r\n    color: #707070;\r\n    font-size: 14px;\r\n    margin: 0;\r\n    padding: 0;\n}\na[data-v-406ab294] {\r\n    text-decoration: none;\n}\n.map[data-v-406ab294] {\r\n    bottom: 0;\r\n    left: 25%;\r\n    position: absolute;\r\n    top: 0;\r\n    width: 75%;\n}\n.control-panel[data-v-406ab294] {\r\n    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.3);\r\n    height: 100%;\r\n    left: 0;\r\n    overflow: hidden;\r\n    position: absolute;\r\n    top: 0;\r\n    width: 25%;\n}\n.heading[data-v-406ab294] {\r\n    background: #fff;\r\n    border-bottom: 1px solid #eee;\r\n    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);\r\n    position: relative;\r\n    z-index: 1;\n}\n.heading > img[data-v-406ab294] {\r\n    height: auto;\r\n    margin: 10px 0 8px 0;\r\n    width: 150px;\n}\n#store-list[data-v-406ab294] {\r\n    height: 100%;\r\n    overflow: auto;\n}\n#store-list .list-entries-container .list-entry[data-v-406ab294] {\r\n    border-bottom: 1px solid #e8e8e8;\r\n    display: block;\r\n    padding: 10px 50px 10px;\n}\n#store-list .list-entries-container .list-entry[data-v-406ab294]:nth-of-type(even) {\r\n    background-color: #f5f5f5;\n}\n#store-list .list-entries-container .list-entry[data-v-406ab294]:hover,\r\n#store-list .list-entries-container .list-entry.selected[data-v-406ab294] {\r\n    background-color: #CDDE75;\r\n    border-bottom-color: #CDDE75;\n}\n.ui-accordion h3.ui-accordion-header[data-v-406ab294] {\r\n    background-color: #F4F6F8;\r\n    border-color: #dddfe0;\r\n    border-style: solid;\r\n    border-width: 0 0 3px 0;\r\n    color: #707070;\r\n    display: block;\r\n    font-size: 1.143em;\r\n    margin: 0;\r\n    padding: 15px 20px;\n}\n.ui-accordion h3.ui-accordion-header.ui-state-active[data-v-406ab294] {\r\n    color: #fff;\r\n    background-color: #BDD731;\r\n    border-bottom-color: #a2ba24;\n}\n.ui-accordion .ui-accordion-content[data-v-406ab294] {\r\n    border: none;\r\n    padding: 0;\n}\n.ui-icon[data-v-406ab294], .ui-widget-content .ui-icon[data-v-406ab294] {\r\n    margin-right: 15px;\n}\r\n", ""]);
 
 // exports
 
@@ -7255,7 +7255,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n#map { \n    height: 50vh; \n    width: 50vw;\n} \n", ""]);
+exports.push([module.i, "\n#map { \r\n    height: 50vh; \r\n    width: 50vw;\n} \r\n", ""]);
 
 // exports
 
@@ -53404,8 +53404,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/alessiotonielli/Boolean/ProgettoFinale/boolbnb/boolbnb/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/alessiotonielli/Boolean/ProgettoFinale/boolbnb/boolbnb/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\giuli\OneDrive\Desktop\boolbnb-2\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\giuli\OneDrive\Desktop\boolbnb-2\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

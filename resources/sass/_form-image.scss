@@ -1,3 +1,11 @@
+@media (max-width: 380px) {
+    .form-img {
+
+        .card {
+            max-width: 100%; 
+        }
+    }
+}
 #blu-btn {
     @include blu-btn;
     display: inline-block;

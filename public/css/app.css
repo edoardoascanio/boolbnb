@@ -10977,6 +10977,12 @@ main.py-4 > * {
   }
 }
 
+@media (max-width: 768px) {
+  .blu-btn#blu-btn {
+    display: none;
+  }
+}
+
 .navbar {
   width: 100%;
   position: fixed;
@@ -11499,6 +11505,12 @@ footer {
   text-transform: capitalize;
 }
 
+@media (max-width: 380px) {
+  .form-img .card {
+    max-width: 100%;
+  }
+}
+
 #blu-btn {
   color: #fff;
   background-color: #71a8cd;
@@ -11569,6 +11581,7 @@ footer {
 #sponsorships .col-md-8 {
   margin: 0 auto 10px;
   text-align: center;
+  padding-top: 80px;
 }
 
 #sponsorships .col-md-8 h5 {
@@ -11654,6 +11667,10 @@ footer {
   #sponsorships .col-md-8 {
     margin: 15px auto 25px;
   }
+}
+
+#payment-container .row {
+  padding-bottom: 50px;
 }
 
 #blu-btn {
@@ -12191,15 +12208,21 @@ a {
   transition: 0.2s;
 }
 
+@media (max-width: 768px) {
+  div.stat-container {
+    height: 100% !important;
+    padding-bottom: 20px;
+  }
+}
+
 .stat-container {
-  background-image: url(/images/back-img-4.jpg?60a4540295154f37a3a0f4f7a69a2b08);
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 23px);
   padding-top: 150px;
   background-size: cover;
   background-position: cover;
   background-repeat: no-repeat;
-  height: calc(100vh - 89px) !important;
+  background-image: url(/images/back-img-4.jpg?60a4540295154f37a3a0f4f7a69a2b08);
 }
 
 .stat-container .card-header {

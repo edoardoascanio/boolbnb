@@ -7,10 +7,26 @@
    left: 10px;
    z-index: 2;
 }
+@media (max-width: 768px) {
+   div.stat-container{ 
+    height: 100% !important;
+    padding-bottom: 20px;
+    
+   }
+
+}
+
 .stat-container{
-    background-image: url(imgs/back-img-4.jpg);
-    @include background-page;
-    height: calc(100vh - 89px) !important;
+   //  background-image: url(imgs/back-img-4.jpg);
+   //  @include background-page;
+   //  height: calc(100vh - 89px) !important;
+    width: 100%;
+    height: calc(100vh - 23px);
+    padding-top: 150px;
+    background-size: cover;
+    background-position: cover;
+    background-repeat: no-repeat;
+    background-image: url('public/imgs/back-img-4.jpg');
 
    .card-header {
       border: 2px solid $primary;
