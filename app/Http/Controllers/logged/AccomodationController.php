@@ -67,6 +67,7 @@ class AccomodationController extends Controller
         if (isset($data['placeholder'])) {
             $new_accomodation->placeholder = Storage::put('placeholder', $data['placeholder']);
         }
+        
 
         $new_accomodation->user_id = $request->user()->id;
         $new_accomodation->lat = $lat;

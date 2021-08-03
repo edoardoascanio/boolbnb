@@ -461,7 +461,7 @@ class AccomodationSeeder extends Seeder
          [
             'title' => 'Bilocale Roma - ghetto ebraico',
             'description' => "Ghetto Ebraico, piano terra, bilocale 40 mq, salone e camera letto, soffitto a cassettoni e cotto, completamente ristrutturato e arredato, piastra induzione, lavatrice, piccolo bagno con doccia, aria condizionata, wi-fi.",
-            'number_rooms' => 2,
+            'number_rooms' => 4,
             'number_bathrooms' => 1,
             'number_beds' => 2,
             'square_mts' => 45,
@@ -485,8 +485,8 @@ class AccomodationSeeder extends Seeder
          [
             'title' => 'Colosseo Design Apartment',
             'description' => "Questo appartamento elegante e moderno si trova a soli 5 minuti a piedi dal Colosseo e dal Foro Romano e dispone dei servizi alberghieri più elevati.",
-            'number_rooms' => 3,
-            'number_bathrooms' => 1,
+            'number_rooms' => 5,
+            'number_bathrooms' => 2,
             'number_beds' => 3,
             'square_mts' => 105,
             'price_per_night' => 185,
@@ -512,8 +512,8 @@ class AccomodationSeeder extends Seeder
          [
             'title' => 'Intero alloggio',
             'description' => "Elegante appartamento di 90mq in Piazza Tommaseo, a pochi passi dalla stazione metropolitana Conciliazione (linea MM1 - rossa), in un quartiere aristocratico nel pieno centro di Milano.",
-            'number_rooms' => 1,
-            'number_bathrooms' => 1,
+            'number_rooms' => 5,
+            'number_bathrooms' => 2,
             'number_beds' => 1,
             'square_mts' => 90,
             'price_per_night' => 150,

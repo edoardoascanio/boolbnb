@@ -23,6 +23,7 @@ class ImageController extends Controller
         if (count($data) > 0) {
             $image = new Image();
             $image->fill($data);
+            $image->alt = 'img';
             $image->accomodation_id = $id;
             $image->url_img = Storage::put('cover_url', $data['cover_url']);
             $image->save();

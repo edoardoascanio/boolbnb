@@ -133,7 +133,7 @@
             <div class="row">
                 @foreach($accomodation->services as $service)
                 <div class="col-sm-6 col-md-4 col-lg-3 d-flex align-items-center mb-2">
-                    <i class="fas fa-circle"></i>
+                    
                     <p class="my_badge  mb-0">
                     {!! $service->icon !!}
                         <span class="text-capitalize">{{ $service->title }}</span>
