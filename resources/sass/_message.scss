@@ -1,7 +1,10 @@
+#create-img {
+    padding-top: 60px;
+    @include background-img;
+    background-image: url('public/imgs/back-img-5.jpg');
+}
 .message-container{
-    // padding-top: 60px;
-    // @include background-img;
-    // background-image: url('public/imgs/back-img-5.jpg');
+  
         
     
 

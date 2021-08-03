@@ -12069,6 +12069,14 @@ a {
   }
 }
 
+#create-img {
+  padding-top: 60px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: cover;
+  background-image: url(/images/back-img-5.jpg?95e928f06285ffea921d678a625c483d);
+}
+
 .message-container .btn {
   color: #fff;
   background-color: #71a8cd;

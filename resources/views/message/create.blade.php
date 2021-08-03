@@ -5,6 +5,9 @@ $mail = Auth::user() ? Auth::user()->email : '';
 @extends('layouts.app')
 
 @section('content')
+<section id="create-img">
+
+
 <div class="container">
 
     <div class="container message-container">
@@ -68,4 +71,6 @@ $mail = Auth::user() ? Auth::user()->email : '';
         </div>
     </div>
 </div>
+
+</section>
 @endsection
