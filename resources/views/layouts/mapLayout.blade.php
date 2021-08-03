@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <link rel="shortcut icon" href="{{ asset('imgs/B-icon.png') }}" type="image/png">
+    <title>BoolBnB</title>
     <!-- Scripts -->
     {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
     <!-- Fonts -->
@@ -26,7 +27,8 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" style="height: 80px">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <div class="logo">
-                        <img src="{{ asset('imgs/b-blue.png') }}">
+                        <img src="{{ asset('imgs/b-blue.png') }}" class="d-none d-sm-none d-md-block">
+                        <img src="{{ asset('imgs/B.png') }}" class="d-md-none">
                     </div>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

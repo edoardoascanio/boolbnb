@@ -68,15 +68,17 @@ const app = new Vue({
     el: '#app',
 });
 
-window.addEventListener("load", function() {
-    const deleteForms = document.querySelectorAll(".delete_form");
 
-    deleteForms.forEach(form => {
-        form.addEventListener("submit", (event) => {
 
-            if (!confirm("Sei sicuro di voler cancellare questo elemento?")) {
-                event.preventDefault();
-            }
-        })
-    })
-})
+document.getElementById('btn-delete').addEventListener('click', function () {
+    document.getElementById('my-form-delete').classList.toggle('active');
+});
+
+document.getElementById('disable-delete').addEventListener('click', function () {
+    document.getElementById('my-form-delete').classList.remove('active');
+});
+
+
+
+
+console.log(btnDelete);

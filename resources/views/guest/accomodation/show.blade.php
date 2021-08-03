@@ -29,7 +29,7 @@
             </div>
         </div>
         <div class="line"></div>
-    </div> 
+    </div>
 
 
     @if(count($accomodation->services) > 0)
@@ -58,7 +58,6 @@
             <div class="card_beds justify-content-center">
                 <p>
                     <i class=" my-beds fas fa-bed"></i>
-                    
                 </p>
                 Camera da letto: {{ $accomodation->number_beds }}
             </div>
@@ -67,21 +66,15 @@
 
 
     <div class="row justify-content-center row-my-panel">
-
         <div class="col-12 col-md-10 ">
             <div class="my_actions">
-            
                 <a class="panel-item btn btn-primary"  href="{{ route('message.create',['id' => $accomodation->id]) }}">
                     <i class="far fa-envelope"></i>
                     Contatta il proprietario
                 </a>
             </div>
-               
         </div>
     </div>
 
-  
-
-    
 </div>
 @endsection

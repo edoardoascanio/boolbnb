@@ -2,7 +2,7 @@
 
 @section('content')
 <section class="form-container">
-<a class="btn blu-btn" id="blu-btn" href="{{ url()->previous() }}"><i class="fas fa-undo"></i> Torna Indietro</a>
+<a class="btn blu-btn" id="blu-btn" href="{{ url()->previous() }}"><i style="color: white" class="fas fa-arrow-left"></i> Torna Indietro</a>
 
     <div class="container">
 

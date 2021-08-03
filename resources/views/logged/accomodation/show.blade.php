@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<a class="btn blu-btn" id="blu-btn" href="{{ route('logged.dashboard') }}"><i class="fas fa-undo"></i> Dashboard</a>
+
+<a class="btn blu-btn" id="blu-btn" href="{{ route('logged.dashboard') }}"><i style="color: white" class="fas fa-arrow-left"></i> Dashboard</a>
 <div class="container">
     <section class="my-slider">
         <slider-images :id='{{$accomodation->id}}'>
@@ -75,17 +76,24 @@
                 </div>
             @endif
             {{-- delete --}}
-            <form class="delete_form" action="{{ route('logged.destroy', $accomodation->id) }}" method="post">
-                @csrf
-                @method('DELETE')
+            <div class="ah-boh">
+                <button id="btn-delete" class="my_actions panel-item">
+                    <i class="far fa-trash-alt my-delete"></i>
+                </button>
+                <div class="ciao">Delete</div>
+            </div>
 
-                <div class="ah-boh">
-                    <button class="my_actions panel-item" type="submit">
-                        <i class="far fa-trash-alt my-delete"></i>
-                    </button>
-                    <div class="ciao">Delete</div>
-                </div>
-            </form>
+            <div id="my-form-delete" class="my-modal modal-style">
+                    <h3>Vuoi eliminare l'appartamento?</h3>
+                    <div class="d-flex justify-content-around">
+                        <button id="disable-delete" class="btn blu-btn">Annulla</button>
+                        <form class="delete_form" action="{{ route('logged.destroy', $accomodation->id) }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn blu-btn" type="submit">Elimina</button>
+                        </form>
+                    </div>
+            </div>
         </div>
     </div>
 
@@ -145,5 +153,14 @@
     function send() {
         document.getElementById('visibility-form').submit()
     }
+
+
+    /* $(document).ready(function() {
+        $('.my_actions.panel-item').click(function() {
+            $('.my-form-delete').toggleClass('active');
+        });
+    }); */
+
+
     // or '.your_radio_class_name'
 </script>

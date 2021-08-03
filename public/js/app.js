@@ -52676,16 +52676,13 @@ files.keys().map(function (key) {
 var app = new Vue({
   el: '#app'
 });
-window.addEventListener("load", function () {
-  var deleteForms = document.querySelectorAll(".delete_form");
-  deleteForms.forEach(function (form) {
-    form.addEventListener("submit", function (event) {
-      if (!confirm("Sei sicuro di voler cancellare questo elemento?")) {
-        event.preventDefault();
-      }
-    });
-  });
+document.getElementById('btn-delete').addEventListener('click', function () {
+  document.getElementById('my-form-delete').classList.toggle('active');
 });
+document.getElementById('disable-delete').addEventListener('click', function () {
+  document.getElementById('my-form-delete').classList.remove('active');
+});
+console.log(btnDelete);
 
 /***/ }),
 
@@ -53404,8 +53401,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\giuli\OneDrive\Desktop\boolbnb-2\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\giuli\OneDrive\Desktop\boolbnb-2\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\Boolean\class-33\exercises\boolbnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\Boolean\class-33\exercises\boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

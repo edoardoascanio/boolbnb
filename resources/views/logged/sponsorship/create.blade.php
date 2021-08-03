@@ -1,18 +1,14 @@
 @extends('logged.sponsorship.layouts')
 @section('content')
-<a class="btn blu-btn" id="blu-btn" href="{{ url()->previous() }}"><i class="fas fa-undo"></i> Torna Indietro</a>
+<a class="btn blu-btn" id="blu-btn" href="{{ url()->previous() }}"><i style="color: white" class="fas fa-arrow-left"></i> Torna Indietro</a>
 
 {{-- Il mio modal --}}
-    <div class="my-modal" id="my-modal" >
-        <div class="modal-style" style="">
-            <h3>
-                Pagamento andato a buon fine!
-            
-            </h3>
-            
-            <button class="btn blu-btn" onclick="redirectMe()">Termina il pagamento</button>
-        </div>
+<div class="my-modal" id="my-modal" >
+    <div class="modal-style" style="">
+        <h3>Pagamento andato a buon fine!</h3>
+        <button class="btn blu-btn" onclick="redirectMe()">Termina il pagamento</button>
     </div>
+</div>
 {{-- Fine del modal --}}
 <div class="container">
 @if($sponsorActive)
@@ -88,6 +84,7 @@
         </div>
     </div>
 </div>
+
 <script>
     var button = document.querySelector('#submit-button');
     var flat = {{ $id }};

@@ -4,9 +4,6 @@
     background-image: url('public/imgs/back-img-5.jpg');
 }
 .message-container{
-  
-        
-    
 
     .btn{
         @include blu-btn;
@@ -24,4 +21,4 @@
             color: crimson;
         }
     }
-} 
+}

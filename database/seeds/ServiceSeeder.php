@@ -69,8 +69,8 @@ class ServiceSeeder extends Seeder
             ],
             [
                 'description' => 'Situato a due passi del centro storico di Roma e dalla Stazione Trastevere questo delizioso loft gode di una location privilegiata che permette di esplorare la città a piedi.',
-                'title' => 'culla',
-                'icon' => "<i class='fas fa-baby-carriage'></i>"
+                'title' => 'cassaforte',
+                'icon' => "<i class='fas fa-door-closed'></i>"
             ],
             [
                 'description' => 'Situato a due passi del centro storico di Roma e dalla Stazione Trastevere questo delizioso loft gode di una location privilegiata che permette di esplorare la città a piedi.',

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<a class="btn blu-btn" id="blu-btn" href="{{ route('logged.show', [ 'id' => $id ] ) }}"><i class="fas fa-undo"></i> Torna Indietro</a>
+<a class="btn blu-btn" id="blu-btn" href="{{ route('logged.show', [ 'id' => $id ] ) }}"><i style="color: white" class="fas fa-arrow-left"></i> Torna Indietro</a>
 
 <section id="messages">
 
@@ -11,10 +11,10 @@
         <h3 class="dash-title">I tuoi messaggi</h3>
     </div>
 
-    <div class="card dash-body container">
+    <div class="card rgba dash-body container">
         <div class="row">
             @foreach($messages as $message)
-            <div class="accomodation-card col-10 col-md-5">
+            <div class="accomodation-card col-11 col-md-8">
                 <div class="card card-body">
                     <h3 class="card-title">{{ $message->object_email }}</h3>
                     <p class="">{{ $message->content }}</p>
