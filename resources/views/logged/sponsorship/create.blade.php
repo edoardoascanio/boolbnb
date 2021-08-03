@@ -1,5 +1,7 @@
 @extends('logged.sponsorship.layouts')
 @section('content')
+<a class="btn blu-btn" id="blu-btn" href="{{ url()->previous() }}"><i class="fas fa-undo"></i> Torna Indietro</a>
+
 {{-- Il mio modal --}}
     <div class="my-modal" id="my-modal" style="" >
             <div class="modal-style" style="">

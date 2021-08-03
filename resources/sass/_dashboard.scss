@@ -54,11 +54,12 @@
     .accomodation-btn{
         display:flex;
         flex-direction: row;
-        justify-content: space-evenly;
+        justify-content: flex-start;
         flex-wrap: wrap;
         width: 100%;
         align-items: center;
         .card-btn {
+            margin-right: 20px;
             // width: 130px;
             @include blu-btn;
         }

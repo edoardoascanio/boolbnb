@@ -2,7 +2,9 @@
 
 @section('content')
 @include('layouts.components.error')
+<a class="btn blu-btn" id="blu-btn" href="{{ url()->previous() }}"><i style="color: white" class="fas fa-undo"></i> Torna Indietro</a>
 <div class="container create-container">
+
 
     <p> <i class="fa fa-asterisk"></i><span><em> <strong>Tutti i campi sono obbligatori</strong></em></p>
 

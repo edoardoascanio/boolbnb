@@ -1,7 +1,16 @@
+#blu-btn {
+   @include blu-btn;
+   display: inline-block;
+   padding-bottom: 10px;
+   position: absolute;
+   top: 90px;
+   left: 10px;
+   z-index: 2;
+}
 .stat-container{
     background-image: url(imgs/back-img-4.jpg);
     @include background-page;
-    height: calc(100vh - 79px) !important;
+    height: calc(100vh - 89px) !important;
 
    .card-header {
       border: 2px solid $primary;

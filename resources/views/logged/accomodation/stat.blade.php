@@ -154,6 +154,9 @@
 
 @section('content')
 
+<a class="btn blu-btn" id="blu-btn" href="{{ url()->previous() }}"><i class="fas fa-undo"></i> Torna Indietro</a>
+
+
 <div class="stat-container">
 
     <div class="container">
