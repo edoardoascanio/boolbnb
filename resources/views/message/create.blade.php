@@ -71,6 +71,5 @@ $mail = Auth::user() ? Auth::user()->email : '';
         </div>
     </div>
 </div>
-
 </section>
 @endsection
