@@ -79,7 +79,9 @@
         <p>Affitti per le vacanze con le migliori valutazioni in tutta Italia</p>
 
         <div class="type-content row justify-content-between">
+
             @foreach($accomodations as $accomodation)
+
             <div class="type-card col-md-4">
                 <div class="type-img">
                     <img src="{{ $accomodation->placeholder }}" alt="homepage">
@@ -87,7 +89,10 @@
                         <i class="fa fa-home" aria-hidden="true"></i>
                     </a>
                 </div>
+                <p class="text-capitalize">{{ $accomodation->city }} - {{ $accomodation->type_street}} {{ $accomodation->street_name}} {{ $accomodation->building_number}} </p> 
             </div>
+                
+
             @endforeach
         </div>
     </div>

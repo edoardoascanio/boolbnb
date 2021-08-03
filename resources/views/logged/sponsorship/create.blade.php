@@ -3,13 +3,15 @@
 <a class="btn blu-btn" id="blu-btn" href="{{ url()->previous() }}"><i class="fas fa-undo"></i> Torna Indietro</a>
 
 {{-- Il mio modal --}}
-    <div class="my-modal" id="my-modal" style="" >
-            <div class="modal-style" style="">
-            <h1>SEI STATO TRUFFATO!!</h1>
-            <p>Ti sarà svuotato il conto in banca</p>
-            <p>gnegne</p>
-            <button onclick="redirectMe()">Accetto il fatto che ho perso tutti i miei soldi e me ne faccio una ragione</button>
-            </div>
+    <div class="my-modal" id="my-modal" >
+        <div class="modal-style" style="">
+            <h3>
+                Pagamento andato a buon fine!
+            
+            </h3>
+            
+            <button class="btn blu-btn" onclick="redirectMe()">Termina il pagamento</button>
+        </div>
     </div>
 {{-- Fine del modal --}}
 <div class="container">
