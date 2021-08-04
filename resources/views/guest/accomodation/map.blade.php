@@ -65,7 +65,7 @@
 </div>
 <div class="container_map" id="container_map" style="">
     <div class='control-panel'>
-        <h1 style="color: black; font-weight: 500; padding-left: 50px; padding-top: 10px">Scopri tutti gli alloggi</h1>
+        <h2 style="padding-left: 50px; padding-top: 10px">Scopri tutti gli alloggi</h2>
         <div id='store-list' style="padding-bottom: 80px"></div>
     </div>
     <div class='map' id='map' style="width: 40%; height: 100%; z-index: 100"></div>
@@ -244,15 +244,16 @@ var searchButton = document.getElementById("element")
                         }
                         , "properties": {
                             //Aggiungere qua 1
-                            "address": filteredAccomodations[i].street_name + " " + filteredAccomodations[i].building_number + ", " + filteredAccomodations[i].zip + " " + filteredAccomodations[i].province
-                            , "city": filteredAccomodations[i].city
+                            "address": filteredAccomodations[i].type_street + " " + filteredAccomodations[i].street_name + " " + filteredAccomodations[i].building_number + ", " + filteredAccomodations[i].zip + " " + filteredAccomodations[i].province
+                            , "city": filteredAccomodations[i].city,
+                            "price": filteredAccomodations[i].price_per_night
                             , "title": filteredAccomodations[i].title
                             , "number_rooms": filteredAccomodations[i].number_rooms
                             , "placeholder": filteredAccomodations[i].placeholder,
                             "link": filteredAccomodations[i].link,
                             "number_bathrooms": filteredAccomodations[i].number_bathrooms,
                             "number_beds": filteredAccomodations[i].number_beds,
-                            //"services": servicesArray
+                            "services": servicesArray
                         }
                     }, )
                 }
@@ -265,6 +266,7 @@ var searchButton = document.getElementById("element")
                         let address = store.properties.address;
                         let location = store.geometry.coordinates;
                         let title = store.properties.title;
+                        let price = store.properties.price;
                         let link = store.properties.link
                         let number_beds = store.properties.number_beds
                         let number_bathrooms = store.properties.number_bathrooms
@@ -278,6 +280,7 @@ var searchButton = document.getElementById("element")
                             , placeholder
                             , city
                             , title,
+                            price,
                             number_beds,
                             number_bathrooms
                         , };
@@ -319,7 +322,7 @@ var searchButton = document.getElementById("element")
                         function buildLocation(htmlParent, text) {
                             let details = htmlParent.appendChild(document.createElement('div'));
                             details.className = 'list-entry';
-                            details.innerHTML = "<img class='listaImg'  src='" + placeholder + "' alt=''> " + "<div style: display: flex; flex-direction: column; width: 100%>" +  "<h3>" + title + "</h3>" + "<p>" + text + "</p>" + "<hr style='width: 50px;'>" + "<p>" + "letti: " + number_beds + " - " + "bagni: " + number_bathrooms +  "</p>" + "<p>" + services + "</p>" + "<a target='_blanc' href='" + link +  "''>" + "Visualizza" +  "</a>" + "</div>";
+                            details.innerHTML = "<img class='listaImg'  src='" + placeholder + "' alt=''> " + "<div style: display: flex; flex-direction: column; width: 100%>" +  "<h3>" + title + "</h3>" + "<p>" + text + "</p>" + "<hr style='width: 50px;'>" + "<p>Prezzo per Notte: " + price + "€<br>" + "Letti: " + number_beds + " - " + "Bagni: " + number_bathrooms + "</p>" + "<p style='text-transform: capitalize;'>" + "<span class='badge badge-info'>" +services.join("</span><span class='badge badge-info'>") + "</p>" + "<a target='_blanc' href='" + link +  "''>" + "Visualizza" +  "</a>" + "</div>";
                             return details;
                         }
                         function closeAllPopups() {

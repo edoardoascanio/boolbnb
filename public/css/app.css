@@ -10949,6 +10949,7 @@ a.text-dark:focus {
 }
 
 h1,
+h2,
 h3 {
   font-weight: 600;
 }
@@ -12161,6 +12162,13 @@ a {
     margin-left: 10px;
     margin-right: 10px;
   }
+}
+
+.badge.badge-info {
+  padding: 3px;
+  margin-right: 3px;
+  background-color: #71a8cd;
+  color: #fff;
 }
 
 #create-img {
