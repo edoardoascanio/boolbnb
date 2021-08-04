@@ -11621,17 +11621,66 @@ footer {
 }
 
 #sponsorships .col-md-8 h5 {
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 
 #sponsorships .col-md-8 h6 {
+  margin-top: 10px;
   margin-bottom: 10px;
-  padding: 0 15px;
+  padding: 0 7px;
   font-size: 15px;
 }
 
 #sponsorships .form-check {
   padding: 0 !important;
+}
+
+#sponsorships .card-bronze {
+  transition: 0.3s;
+}
+
+#sponsorships .card-bronze:hover {
+  background: #cd7f32;
+  background-image: linear-gradient(0deg, #cd7f32 0%, rgba(252, 221, 190, 0.962) 49%, #cd7f32 100%);
+  color: black !important;
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+#sponsorships .card-bronze:hover h5 {
+  color: black !important;
+}
+
+#sponsorships .card-silver {
+  transition: 0.3s;
+}
+
+#sponsorships .card-silver:hover {
+  background: #cecece;
+  background: linear-gradient(0deg, #cecece 0%, rgba(243, 243, 243, 0.9139005944) 49%, rgba(206, 206, 206, 0.9559174011) 100%);
+  color: black !important;
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+#sponsorships .card-silver:hover h5 {
+  color: black !important;
+}
+
+#sponsorships .card-gold {
+  transition: 0.3s;
+}
+
+#sponsorships .card-gold:hover {
+  background: #ffd105;
+  background: linear-gradient(0deg, #ffac05 0%, rgba(250, 226, 166, 0.914) 49%, rgba(255, 209, 5, 0.9279061967) 100%);
+  color: black !important;
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+#sponsorships .card-gold:hover h5 {
+  color: black !important;
 }
 
 #sponsorships .card {
@@ -11661,11 +11710,15 @@ footer {
 }
 
 #sponsorships .card .color .gold {
-  color: #FFD700;
+  color: #ff9900;
 }
 
 #sponsorships .card .color h6:last-child {
   font-weight: bold;
+}
+
+#sponsorships .card .color img {
+  width: 50px;
 }
 
 #sponsorships .card .form-check-input {
@@ -12042,7 +12095,7 @@ html {
 }
 
 body {
-  color: #707070;
+  color: #656b74;
   font-size: 14px;
   margin: 0;
   padding: 0;

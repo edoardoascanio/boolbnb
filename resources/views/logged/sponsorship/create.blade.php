@@ -15,14 +15,15 @@
    <h1> Il tuo appartamento è già sponsorizzato </h1>
 @else
 <div id="sponsorships" class="container">
-<div class="col-md-8" >
+<div class="col-md-8">
                         <div class="row">
-                    <div class="card col-12 col-lg-3">
+                    <div class="card card-bronze col-12 col-lg-3">
                         <label class="form-check-label" for="1">
                             <div class="card-body">
                                 <div class="form-check bnb-formCheck">
                                     <div class="color">
                                         <h5 class="bronze">Pacchetto Bronze</h5>
+                                         <img src="{{asset('imgs/badge-bronze.png')}}">
                                         <h6>Appartamento sponsorizzato per 24 ore</h6>
                                         <h6>2.99&#8364;</h6>
                                     </div>
@@ -31,12 +32,13 @@
                             </div>
                         </label>
                     </div>
-                    <div class="card col-12 col-lg-3">
+                    <div class="card card-silver col-12 col-lg-3">
                         <label class="form-check-label" for="2">
                             <div class="card-body">
                                 <div class="form-check bnb-formCheck">
                                     <div class="color">
                                         <h5 class="silver">Pacchetto Silver</h5>
+                                        <img src="{{asset('imgs/badge-silver.png')}}">
                                         <h6>Appartamento sponsorizzato per 72 ore</h6>
                                         <h6>5.99&#8364;</h6>
                                     </div>
@@ -45,12 +47,13 @@
                             </div>
                         </label>
                     </div>
-                    <div class="card col-12 col-lg-3">
+                    <div class="card card-gold col-12 col-lg-3">
                         <label class="form-check-label" for="3">
                             <div class="card-body">
                                 <div class="form-check bnb-formCheck">
                                     <div class="color">
                                         <h5 class="gold">Pacchetto Gold</h5>
+                                        <img src="{{asset('imgs/badge-gold.png')}}">
                                         <h6>Appartamento sponsorizzato per 144 ore</h6>
                                         <h6>9.99&#8364;</h6>
                                     </div>
@@ -127,7 +130,7 @@
                             payload,
                             value,
                             flat
-                        }, 
+                        },
                         function(response) {
                             if (response.success) {
                                 myModal.style.display = "block"

@@ -1,7 +1,7 @@
 body {
    $font-family-sans-serif:'Maven Pro', sans-serif;
-$font-size-base: 0.9rem;
-$line-height-base: 1.6;
+   $font-size-base: 0.9rem;
+   $line-height-base: 1.6;
 }
 
 .my-tag {
@@ -131,7 +131,7 @@ html {
    box-sizing: inherit;
 }
 body {
-   color: #707070;
+   color: $textColor;
    font-size: 14px;
    margin: 0;
    padding: 0;

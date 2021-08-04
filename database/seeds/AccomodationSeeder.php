@@ -882,7 +882,7 @@ class AccomodationSeeder extends Seeder
          ],
 
 
-         // FIRENZE - Maremma boia!
+         // FIRENZE - La Coha Hola hon la hannuccia horta horta!
          [
             'title' => "Ampia stanza",
             'description' => "Ampia stanza di 25 mq con ingresso indipendente e bagno privato al primo piano di un antico edificio del centro storico, a 200 metri da Piazza della Signoria, Uffizi e Piazza Santa Croce.
