@@ -11900,6 +11900,13 @@ i.fas.fa-circle {
   display: block !important;
 }
 
+.my-tag {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: #71a8cd;
+}
+
 h1 {
   padding-left: 50px;
   padding-top: 10px;

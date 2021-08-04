@@ -3,6 +3,15 @@ body {
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 }
+
+.my-tag {
+   position:absolute; 
+   top: 20px; 
+   right: 20px;
+   color: $primary;
+}
+
+
 h1 {
    padding-left: 50px; 
    padding-top: 10px; 

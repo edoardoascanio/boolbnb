@@ -253,7 +253,8 @@ var searchButton = document.getElementById("element")
                             "link": filteredAccomodations[i].link,
                             "number_bathrooms": filteredAccomodations[i].number_bathrooms,
                             "number_beds": filteredAccomodations[i].number_beds,
-                            "services": servicesArray
+                            "services": servicesArray,
+                            "active": filteredAccomodations[i].active
                         }
                     }, )
                 }
@@ -271,6 +272,8 @@ var searchButton = document.getElementById("element")
                         let number_beds = store.properties.number_beds
                         let number_bathrooms = store.properties.number_bathrooms
                         let services = store.properties.services
+                        let active = store.properties.active
+                        let activeIcon = "<i class='fas fa-tag my-tag'></i>"
                         let marker = new tt.Marker().setLngLat(location).setPopup(new tt.Popup({
                             offset: 35
                         , }).setHTML(address)).addTo(map);
@@ -322,7 +325,7 @@ var searchButton = document.getElementById("element")
                         function buildLocation(htmlParent, text) {
                             let details = htmlParent.appendChild(document.createElement('div'));
                             details.className = 'list-entry';
-                            details.innerHTML =   "<img class='listaImg'  src='" + placeholder + "' alt=''> " + "<div class='list-right-content'>" + "<h3>" + title + "</h3>" + "<p>" + text + "</p>" + "<hr'>" + "<p>Prezzo per Notte: " + price + "€<br>" + "Letti: " + number_beds + " - " + "Bagni: " + number_bathrooms + "</p>" + "<p class='content-services'>" + "<span class='badge badge-info'>" + services.join("</span><span class='badge badge-info'>") + "</p>" + "<a target='_blanc' class='link-show' href='" + link +  "''>" + "Visualizza" +  "</a>" + "</div>";
+                            details.innerHTML =   "<div><img class='listaImg'  src='" + placeholder + "' alt=''> " + (active ? activeIcon : "") + " </div>" + "<div class='list-right-content'>" + "<h3>" + title + "</h3>" + "<p>" + text + "</p>" + "<hr'>" + "<p>Prezzo per Notte: " + price + "€<br>" + "Letti: " + number_beds + " - " + "Bagni: " + number_bathrooms + "</p>" + "<p class='content-services'>" + "<span class='badge badge-info'>" + services.join("</span><span class='badge badge-info'>") + "</p>" + "<a target='_blanc' class='link-show' href='" + link +  "''>" + "Visualizza" +  "</a>" + "</div>";
                             return details;
                         }
                         function closeAllPopups() {
