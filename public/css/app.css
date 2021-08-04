@@ -12149,6 +12149,11 @@ a {
   #mostraMappa {
     display: none;
   }
+
+  #chevron-down {
+    padding: 0 15px;
+    position: relative;
+  }
 }
 
 @media only screen and (max-width: 600px) {

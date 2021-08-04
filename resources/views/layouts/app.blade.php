@@ -61,7 +61,7 @@
                     @endif
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Accedi')  }} <i class="fa fa-user-circle-o"></i> </a>
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Accedi')  }} <i class="far fa-user-circle"></i> </a>
                     </li>
 
                     @else

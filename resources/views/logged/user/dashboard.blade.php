@@ -5,7 +5,7 @@
     <div class="container dash-container">
         <div class="card dash-card">
             <h3 class="dash-title">Dashboard di {{Auth::user()->name}}</h3>
-            <a href="{{ route('logged.create') }}"> <i class="fa fa-plus-square-o"></i> <strong>Crea</strong></a>
+            <a href="{{ route('logged.create') }}"> <i class="far fa-plus-square"></i> <strong>Crea</strong></a>
         </div>
         <div class="card rgba dash-body">
             @foreach($accomodations as $accomodation)
