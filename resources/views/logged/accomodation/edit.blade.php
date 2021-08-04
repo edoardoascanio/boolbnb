@@ -78,9 +78,6 @@
             </div>
         </div>
 
-        {{-- AGGIUNGERE PLACEHOLDER IMG --}}
-
-
         {{-- services  --}}
         <div class="form-group">
             <strong>Aggiungi servizi</strong>
@@ -88,7 +85,7 @@
                 @foreach($services as $service)
                 <div class="col-lg-4">
                     <label for="{{ $service->title }}">
-                        <input type="checkbox" name="services[]" value="{{ $service->id }}" id="{{ $service->title }}">
+                        <input type="checkbox" name="services[]" value="{{ $service->id }}" id="{{ $service->title }}" {{ $accomodation->services->contains($service) ? 'checked' : '' }}>
                         {{ $service->title }}
                     </label>
                 </div>

@@ -113,11 +113,12 @@ class AccomodationController extends Controller
     public function edit($id)
     {
         $accomodation = Accomodation::findOrFail($id);
-
+    
         if (Auth::user()->id == $accomodation->user_id) {
+
             $services = Service::all();
 
-            return view('logged.accomodation.edit', ['accomodation' => $accomodation, 'services' => $services]);
+            return view('logged.accomodation.edit', ['accomodation' => $accomodation, 'services' => $services, ]);
         }
 
         abort(403, 'Unauthorized action.');
