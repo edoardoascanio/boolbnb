@@ -3,8 +3,28 @@ body {
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 }
+h1 {
+   padding-left: 50px; 
+   padding-top: 10px; 
+   font-weight: 400; 
+   color: black;
+}
 a:hover {
    text-decoration: none;
+}
+
+.list-right-content {
+   h3 {
+      color: black;
+      font-weight: 400;
+   }
+   hr {
+      width: 50px;
+   }
+   .content-services {
+      text-transform: capitalize;
+   }
+   
 }
 .listaImg {
    height: 200px; 
@@ -12,7 +32,15 @@ a:hover {
    margin-right: 20px;
    border-radius: 10px;
    box-shadow: 0 0 10px darkgray;
+   transition: all 1s;  
 }
+.list-entry:hover .listaImg {
+   box-shadow: 0 0 20px gray;
+   transition: all 1s;
+   
+   
+}
+
 .iconcina {
    font-size: 30px;
    padding: 10px;
@@ -145,6 +173,7 @@ a {
    border-bottom: 1px solid #E8E8E8;
    display: flex;
    padding: 10px 50px 10px;
+   position: relative;
 }
 #store-list .list-entries-container .list-entry:nth-of-type(even) {
    background-color: #F5F5F5;
@@ -184,6 +213,19 @@ a {
    display: none;
 }
 @media only screen and (max-width: 1200px) {
+   h1 {
+      text-align: center;
+      padding-left: 0;
+   }
+   .list-entry {
+      flex-direction: column;
+      text-align: center;
+      .listaImg {
+         width: 375px;
+         height: 250px;
+         margin: auto;
+      }
+   }
    .input-search-map {
       width: 100px;
    }
