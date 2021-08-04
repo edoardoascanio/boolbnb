@@ -10,12 +10,17 @@ body {
    right: 20px;
    color: $primary;
 }
+#container_map {
+
+   h1 {
+      padding-left: 50px; 
+      padding-top: 10px; 
+      font-weight: 400; 
+}
 
 
+}
 h1 {
-   padding-left: 50px; 
-   padding-top: 10px; 
-   font-weight: 400; 
    color: black;
 }
 a:hover {
@@ -222,9 +227,14 @@ a {
    display: none;
 }
 @media only screen and (max-width: 1200px) {
-   h1 {
-      text-align: center;
-      padding-left: 0;
+   #container_map {
+
+      h1 {
+         padding-left: 50px; 
+         padding-top: 10px; 
+         font-weight: 400; 
+         text-align: center;
+         padding-left: 0;
    }
    .list-entry {
       flex-direction: column;
@@ -280,6 +290,7 @@ a {
       margin-right: 10px;
    }
  }
+}
 
 .badge.badge-info {
    padding: 3px;

@@ -4,7 +4,7 @@
 <div class="background-page">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-10">
                 <div class="card">
                     <div class="card-header"><strong>{{ __('Register') }}</strong></div>
 
@@ -48,7 +48,7 @@
                                 <label for="birth_date" class="col-md-4 col-form-label text-md-right">{{ __('Birth Date') }}</label>
                                 <div class="col-md-6 form">
                                     <input id="birth_date" type="date" class="form-control @error('birth_date') is-invalid @enderror" name="birth_date" value="{{ old('birth_date') }}" required autocomplete="birth_date">
-
+                                        <i class="fa fa-asterisk"></i>
                                     @error('birth_date')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

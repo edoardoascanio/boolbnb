@@ -11351,10 +11351,6 @@ footer {
   align-items: center;
 }
 
-.card .form #birth_date {
-  width: 94%;
-}
-
 .card .form em {
   font-size: 12px;
   margin-left: 5px;
@@ -11779,6 +11775,10 @@ footer {
   transition: 0.2s;
 }
 
+#blu-btn:hover {
+  color: #fff !important;
+}
+
 section.my-slider .box-height {
   height: 400px;
   width: 100%;
@@ -11960,10 +11960,13 @@ i.fas.fa-circle {
   color: #71a8cd;
 }
 
-h1 {
+#container_map h1 {
   padding-left: 50px;
   padding-top: 10px;
   font-weight: 400;
+}
+
+h1 {
   color: black;
 }
 
@@ -12196,36 +12199,39 @@ a {
 }
 
 @media only screen and (max-width: 1200px) {
-  h1 {
+  #container_map h1 {
+    padding-left: 50px;
+    padding-top: 10px;
+    font-weight: 400;
     text-align: center;
     padding-left: 0;
   }
 
-  .list-entry {
+  #container_map .list-entry {
     flex-direction: column;
     text-align: center;
   }
 
-  .list-entry .listaImg {
+  #container_map .list-entry .listaImg {
     width: 375px;
     height: 250px;
     margin: auto;
   }
 
-  .input-search-map {
+  #container_map .input-search-map {
     width: 100px;
   }
 
-  #mostraLista {
+  #container_map #mostraLista {
     display: none;
   }
 
-  #mostraMappa {
+  #container_map #mostraMappa {
     display: none;
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1200px) and (max-width: 768px) {
   .input-search-map {
     padding-left: 10px;
     padding-right: 5px;
@@ -12260,7 +12266,7 @@ a {
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1200px) and (max-width: 600px) {
   .lens-icon {
     margin-left: 10px;
     margin-right: 10px;

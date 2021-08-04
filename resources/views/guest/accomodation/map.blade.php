@@ -174,6 +174,9 @@ var searchButton = document.getElementById("element")
         el.addEventListener('click', function() {
             search()
         })
+        el.addEventListener('click', function() {
+            document.getElementById('service-list').style.display='none'
+        })
         let stores = {
             "type": "FeatureCollection"
             , "features": arrayAccomodation
